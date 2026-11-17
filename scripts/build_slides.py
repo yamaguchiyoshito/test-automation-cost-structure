@@ -5,7 +5,7 @@ deck.md の書式：スライドは `---` だけの行で区切る。各ブロ�
   ## 見出し            メッセージ（1文。全角28字以内）
   type: title|section|summary|normal   省略時 normal
   section: 01 問題     ヘッダー左の章ラベル
-  figure: assets/xx.svg  図（1点まで。箇条書きと併用しない）
+  figure: assets/xx.svg  図（1点まで。箇条書きと併用しない）。ビルド時は assets/slides/xx.svg（スライド用）に読み替える
   - 箇条書き           3項目まで
   message: 結論文      メッセージライン（1〜2文、全角64字以内）。スライド単体で読んで分かるようにする。表紙以外は必須
   sub: 補足1行         任意（全角40字以内）
@@ -82,6 +82,12 @@ def fmt_time(sec: int) -> str:
     return f'{sec // 60}分{sec % 60:02d}秒'
 
 
+def slide_figure(figure: str) -> str:
+    """deck.md の assets/xx.svg を、スライド用に切り詰めた assets/slides/xx.svg に読み替える。"""
+    p = Path(figure)
+    return str(p.parent / 'slides' / p.name)
+
+
 def figure_caption(figure: str) -> str:
     svg = (ROOT / figure).read_text(encoding='utf-8')
     m = re.search(r'aria-label="([^"]+)"', svg)
@@ -105,8 +111,9 @@ def render_slide(s: dict, n: int, total: int, site: dict) -> str:
     else:
         parts = [f'<h1>{html.escape(s["title"])}</h1>']
         if s.get('figure'):
-            cap = figure_caption(s['figure'])
-            parts.append(f'<figure><img src="../{html.escape(s["figure"])}" alt="{html.escape(cap)}"></figure>')
+            fig = slide_figure(s['figure'])
+            cap = figure_caption(fig)
+            parts.append(f'<figure><img src="../{html.escape(fig)}" alt="{html.escape(cap)}"></figure>')
         elif s['bullets']:
             parts.append('<ul class="points">' + ''.join(f'<li>{html.escape(b)}</li>' for b in s['bullets']) + '</ul>')
         else:

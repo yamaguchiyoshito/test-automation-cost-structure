@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="928" height="266" viewBox="36 76 928 266" role="img" aria-label="テスト自動化とCI/CDの成熟の関係" aria-describedby="desc">
+<desc id="desc">テスト自動化（テストコードの生成・修復）にCI/CDの成熟（共通の実行基盤、標準設定、運用手順、障害対応体制）を足して初めて継続的な自動化効果になることを等式で示し、CI/CDの成熟を欠くと導入と維持が各案件の責任になり属人化すると注意する図</desc>
+<rect x="36" y="76" width="928" height="266" fill="#fcfdfd"/>
+<rect x="60" y="100" width="280" height="120" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="2"/>
+<text x="200" y="134" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#2b5f9e">テスト自動化</text><text x="200" y="158" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">テストコードの生成・修復</text><text x="200" y="182" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">AIエージェントで容易に</text>
+<text x="370" y="170" text-anchor="middle" font-family="sans-serif" font-size="30" font-weight="700" fill="#18324b">＋</text>
+<rect x="400" y="100" width="280" height="120" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="2"/>
+<text x="540" y="134" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#2b5f9e">CI/CDの成熟</text><text x="540" y="158" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">共通の実行基盤・標準設定</text><text x="540" y="182" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">運用手順・障害対応体制</text>
+<text x="710" y="170" text-anchor="middle" font-family="sans-serif" font-size="30" font-weight="700" fill="#18324b">＝</text>
+<rect x="740" y="100" width="200" height="120" rx="12" fill="#e0f0e9" stroke="#5aa06f" stroke-width="2"/>
+<text x="840" y="146" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#2f6b45">継続的な</text><text x="840" y="170" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#2f6b45">自動化効果</text>
+<path d="M540 220 V252" stroke="#c0604a" stroke-width="2" fill="none" stroke-dasharray="8 6"/><polygon points="540.0,254.0 533.0,242.0 547.0,242.0" fill="#c0604a"/>
+<rect x="350" y="262" width="380" height="56" rx="12" fill="#fcfdfd" stroke="#c0604a" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="540" y="285" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">これを欠くと</text><text x="540" y="304" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">導入と維持は各案件の責任になり、属人化する</text>
+</svg>

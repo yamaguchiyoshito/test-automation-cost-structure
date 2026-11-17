@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="928" height="288" viewBox="36 54 928 288" role="img" aria-label="パターンB：Playwright＋AIが適する条件" aria-describedby="desc">
+<desc id="desc">CI/CD基盤が共通化済み、テストコードの高度な制御が必要、基盤を保守する共通チームが存在という3つの状態から、PlaywrightとAIエージェントが適することを、既存基盤の再利用、実装自由度の高さ、基盤保守コストの共通化という理由とともに示す図</desc>
+<rect x="36" y="54" width="928" height="288" fill="#fcfdfd"/>
+<rect x="60" y="100" width="380" height="62" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="250" y="127" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">CI/CD基盤が共通化済み</text><text x="250" y="151" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">実行環境・標準設定・運用手順が整っている</text>
+<path d="M440.0 131.0 L532.0 200.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="540.0,206.0 526.2,204.4 534.6,193.2" fill="#607a91"/>
+<rect x="60" y="178" width="380" height="62" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="250" y="205" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">テストコードの高度な制御が必要</text><text x="250" y="229" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">ノーコードでは表現しにくい検証がある</text>
+<path d="M440.0 209.0 L530.0 206.3" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="540.0,206.0 528.2,213.4 527.8,199.4" fill="#607a91"/>
+<rect x="60" y="256" width="380" height="62" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="250" y="283" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">基盤を保守する共通チームが存在</text><text x="250" y="307" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">案件横断で基盤保守を引き受けられる</text>
+<path d="M440.0 287.0 L532.2 212.3" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="540.0,206.0 535.1,219.0 526.3,208.1" fill="#607a91"/>
+<rect x="540" y="112" width="400" height="188" rx="12" fill="#e9e4f5" stroke="#8a6cc1" stroke-width="2"/>
+<text x="740" y="148" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#6a4ea6">Playwright＋AIエージェント</text>
+<text x="560" y="184" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">・既存CI/CD基盤の再利用</text><text x="560" y="208" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">・テストコードの実装自由度の高さ</text><text x="560" y="232" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">・基盤保守コストの共通化</text>
+<text x="60" y="92" text-anchor="start" font-family="sans-serif" font-size="14" font-weight="700" fill="#55646d">組織・案件の状態</text>
+<text x="540" y="92" text-anchor="start" font-family="sans-serif" font-size="14" font-weight="700" fill="#55646d">適した選択肢と理由</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1008" height="336" viewBox="-4 112 1008 336" role="img" aria-label="画面テスト自動化の7つの転換点" aria-describedby="desc">
+<desc id="desc">2004年のSeleniumから2025年のAIエージェントまで、画面テスト自動化の7つの転換点を時間軸上に並べ、それぞれが主に改善したものを示す年表</desc>
+<rect x="-4" y="112" width="1008" height="336" fill="#fcfdfd"/>
+<path d="M60 280 H940" stroke="#8ea6b2" stroke-width="3"/>
+<polygon points="952,280 938,273 938,287" fill="#8ea6b2"/>
+<circle cx="137" cy="280" r="7" fill="#fcfdfd" stroke="#607a91" stroke-width="3"/>
+<path d="M137 273 V240" stroke="#607a91" stroke-width="2"/>
+<rect x="20" y="136" width="234" height="104" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="137" y="162" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#18324b">2004年〜</text><text x="137" y="182" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">Selenium</text><text x="137" y="202" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">ブラウザ操作の自動化</text><text x="137" y="222" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">操作の反復実行</text>
+<circle cx="258" cy="280" r="7" fill="#fcfdfd" stroke="#607a91" stroke-width="3"/>
+<path d="M258 287 V320" stroke="#607a91" stroke-width="2"/>
+<rect x="141" y="320" width="234" height="104" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="258" y="346" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#18324b">2006年〜</text><text x="258" y="366" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">Selenium IDE</text><text x="258" y="386" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">記録・再生</text><text x="258" y="406" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テスト実装の入口</text>
+<circle cx="379" cy="280" r="7" fill="#fcfdfd" stroke="#607a91" stroke-width="3"/>
+<path d="M379 273 V240" stroke="#607a91" stroke-width="2"/>
+<rect x="262" y="136" width="234" height="104" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="379" y="162" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#18324b">2008〜2013年</text><text x="379" y="182" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">クラウド実行環境</text><text x="379" y="202" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">Sauce Labs・BrowserStack</text><text x="379" y="222" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">ブラウザ・OSの実行環境管理</text>
+<circle cx="500" cy="280" r="7" fill="#fcfdfd" stroke="#607a91" stroke-width="3"/>
+<path d="M500 287 V320" stroke="#607a91" stroke-width="2"/>
+<rect x="383" y="320" width="234" height="104" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="500" y="346" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#18324b">2017〜2020年</text><text x="500" y="366" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">ノーコード型SaaS</text><text x="500" y="386" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テストの作成・実行・</text><text x="500" y="406" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">管理・保守の統合</text>
+<circle cx="621" cy="280" r="7" fill="#fcfdfd" stroke="#607a91" stroke-width="3"/>
+<path d="M621 273 V240" stroke="#607a91" stroke-width="2"/>
+<rect x="504" y="136" width="234" height="104" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="621" y="162" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#18324b">2020〜2022年</text><text x="621" y="182" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">事例の蓄積・先例化</text><text x="621" y="202" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">導入効果の定量化</text><text x="621" y="222" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">後続の導入判断の材料に</text>
+<circle cx="742" cy="280" r="7" fill="#fcfdfd" stroke="#607a91" stroke-width="3"/>
+<path d="M742 287 V320" stroke="#607a91" stroke-width="2"/>
+<rect x="625" y="320" width="234" height="104" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="742" y="346" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#18324b">2023〜2024年</text><text x="742" y="366" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">生成AI</text><text x="742" y="386" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テストケース・コードの</text><text x="742" y="406" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">作成支援（下書き）</text>
+<circle cx="863" cy="280" r="7" fill="#fcfdfd" stroke="#607a91" stroke-width="3"/>
+<path d="M863 273 V240" stroke="#607a91" stroke-width="2"/>
+<rect x="746" y="136" width="234" height="104" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="863" y="162" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#18324b">2025年〜</text><text x="863" y="182" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">AIエージェント</text><text x="863" y="202" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">計画・生成・実行・修復</text><text x="863" y="222" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">の複数工程を横断</text>
+</svg>

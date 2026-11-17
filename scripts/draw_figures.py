@@ -2,6 +2,7 @@
 """記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全31点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
+同じ関数からスライド用（assets/slides/）も生成する。スライドモードでは題名と注記を描かず、内容の外接矩形に切り詰める。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
   NEUTRAL   区別を付けない基本要素、従来・自社で担うもの
   PRIMARY   主題のシステム・領域・選択肢
@@ -18,6 +19,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
+SLIDE_ASSETS = ASSETS / 'slides'
+MODE = 'article'  # 'article' | 'slide'
+# スライドの図領域（論理px）。スライド用の図はこの領域に収めたときの実効文字サイズで検査する。
+SLIDE_AREA_W, SLIDE_AREA_H = 1440, 600
+SLIDE_MIN_EFFECTIVE_FONT = 18
+SLIDE_PAD = 24
 
 # --- 中立 ---
 BG = '#fcfdfd'; INK = '#18324b'; T1 = '#223e53'; T2 = '#36556d'; MUTED = '#55646d'
@@ -65,6 +72,9 @@ def lines(x, y, rows, size=14, weight=400, fill=T2, anchor='middle', lh=None):
 
 
 def title(s):
+    """図の題名。スライドモードでは見出しが題名を担うので描かない。"""
+    if MODE == 'slide':
+        return ''
     return text(50, 50, s, 24, 700, INK, 'start')
 
 
@@ -115,7 +125,9 @@ def bracket(x1, x2, y, label, color=LINE, size=15, weight=700, up=True, tick=12)
 
 
 def note(y, s, size=NOTE_FONT):
-    """図下部の注記。幅880pxを超える場合は句点（なければ中央付近の読点）で2行に折り返す。"""
+    """図下部の注記。幅880pxを超える場合は句点（なければ中央付近の読点）で2行に折り返す。スライドモードではメッセージラインが担うので描かない。"""
+    if MODE == 'slide':
+        return ''
     if est_w(s, size) <= 880:
         return text(500, y, s, size, 400, MUTED)
     cut = s.find('。')
@@ -135,8 +147,55 @@ def svg(w, h, caption, body, desc=''):
         raise ValueError(f'caption too long ({len(caption)} > {CAPTION_MAX}): {caption}')
     d = f'<desc id="desc">{esc(desc)}</desc>\n' if desc else ''
     aria = ' aria-describedby="desc"' if desc else ''
+    content = '\n'.join(b for b in body if b)
+    if MODE == 'slide':
+        x0, y0, x1, y1 = content_bbox(content)
+        x0, y0 = math.floor(x0 - SLIDE_PAD), math.floor(y0 - SLIDE_PAD)
+        w, h = math.ceil(x1 + SLIDE_PAD) - x0, math.ceil(y1 + SLIDE_PAD) - y0
+        return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="{x0} {y0} {w} {h}" role="img" aria-label="{esc(caption)}"{aria}>\n'
+                f'{d}<rect x="{x0}" y="{y0}" width="{w}" height="{h}" fill="{BG}"/>\n' + content + '\n</svg>\n')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="{esc(caption)}"{aria}>\n'
-            f'{d}<rect width="100%" height="100%" fill="{BG}"/>\n' + '\n'.join(body) + '\n</svg>\n')
+            f'{d}<rect width="100%" height="100%" fill="{BG}"/>\n' + content + '\n</svg>\n')
+
+
+def content_bbox(svg_body: str) -> tuple[float, float, float, float]:
+    """描画要素（rect / polygon / circle / path / text）の外接矩形を概算する。"""
+    import re as _re
+    xs: list[float] = []; ys: list[float] = []
+    for m in _re.finditer(r'<rect x="([-\d.]+)" y="([-\d.]+)" width="([-\d.]+)" height="([-\d.]+)"', svg_body):
+        x, y, w, h = map(float, m.groups()); xs += [x, x + w]; ys += [y, y + h]
+    for m in _re.finditer(r'<polygon points="([^"]+)"', svg_body):
+        for px, py in (p.split(',') for p in m.group(1).split()):
+            xs.append(float(px)); ys.append(float(py))
+    for m in _re.finditer(r'<circle cx="([-\d.]+)" cy="([-\d.]+)" r="([-\d.]+)"', svg_body):
+        cx, cy, r = map(float, m.groups()); xs += [cx - r, cx + r]; ys += [cy - r, cy + r]
+    for m in _re.finditer(r'<path d="([^"]+)"', svg_body):
+        cx = cy = 0.0
+        for cmd, args in _re.findall(r'([MLHVlhv])([^MLHVlhv]*)', m.group(1)):
+            nums = [float(n) for n in _re.findall(r'-?\d+(?:\.\d+)?', args)]
+            if cmd in 'ML':
+                for i in range(0, len(nums) - 1, 2):
+                    cx, cy = nums[i], nums[i + 1]; xs.append(cx); ys.append(cy)
+            elif cmd == 'l':
+                for i in range(0, len(nums) - 1, 2):
+                    cx += nums[i]; cy += nums[i + 1]; xs.append(cx); ys.append(cy)
+            elif cmd == 'H':
+                for n in nums: cx = n; xs.append(cx); ys.append(cy)
+            elif cmd == 'V':
+                for n in nums: cy = n; xs.append(cx); ys.append(cy)
+            elif cmd == 'h':
+                for n in nums: cx += n; xs.append(cx); ys.append(cy)
+            elif cmd == 'v':
+                for n in nums: cy += n; xs.append(cx); ys.append(cy)
+    for m in _re.finditer(r'<text x="([-\d.]+)" y="([-\d.]+)" text-anchor="(\w+)" [^>]*?font-size="([\d.]+)"([^>]*)>([^<]*)</text>', svg_body):
+        x, y, anchor, size, attrs, s = m.groups(); x, y, size = float(x), float(y), float(size)
+        w = est_w(s, size)
+        if 'rotate' in attrs:
+            xs += [x - size / 2, x + size / 2]; ys += [y - w / 2, y + w / 2]
+            continue
+        left = x - w if anchor == 'end' else x - w / 2 if anchor == 'middle' else x
+        xs += [left, left + w]; ys += [y - size, y]
+    return min(xs), min(ys), max(xs), max(ys)
 
 
 # =====================================================================
@@ -313,11 +372,14 @@ def fig_05_cost_shift_by_era():
 # =====================================================================
 def fig_07_iceberg_of_operation():
     body = [title('AIが下げるのは作成部分。水面下に運用要素が残る')]
-    wl = 240
-    body.append(f'<rect x="0" y="{wl}" width="1000" height="{676 - wl}" fill="{WATER}"/>')
+    slide = MODE == 'slide'
+    wl = 230 if slide else 240
+    bottom = 505 if slide else 676
+    body.append(f'<rect x="0" y="{wl}" width="1000" height="{bottom - wl}" fill="{WATER}"/>')
     body.append(f'<path d="M0 {wl} H1000" stroke="{LINE}" stroke-width="2" stroke-dasharray="10 8"/>')
     poly_above = f'500,90 560,135 620,185 650,{wl} 350,{wl} 380,185 440,135'
-    poly_below = f'650,{wl} 820,340 860,440 760,560 600,610 400,610 240,560 140,440 180,340 350,{wl}'
+    poly_below = (f'650,{wl} 840,300 860,400 760,480 600,505 400,505 240,480 140,400 160,300 350,{wl}' if slide
+                  else f'650,{wl} 820,340 860,440 760,560 600,610 400,610 240,560 140,440 180,340 350,{wl}')
     body.append(f'<polygon points="{poly_above}" fill="{AI}" stroke="{STROKE}" stroke-width="2"/>')
     body.append(f'<polygon points="{poly_below}" fill="{NEUTRAL}" stroke="{STROKE}" stroke-width="2"/>')
     body.append(text(500, 200, 'テストコード生成・修復', 16, 700, AI_TEXT))
@@ -329,8 +391,11 @@ def fig_07_iceberg_of_operation():
              'テストデータの初期化・管理', '実行結果・証跡の保存', '実行失敗時の原因調査', '障害発生時の復旧・再実行']
     for i, s in enumerate(items):
         col, row = i % 2, i // 2
-        body.append(pill(230 + col * 280, 300 + row * 48, 260, 36, s, BG, 14, 400, T1))
-    body.append(text(500, 540, '継続的にテストを動かすための運用要素（残る部分）', 16, 700, ATT_TEXT))
+        if slide:
+            body.append(pill(240 + col * 270, 272 + row * 44, 250, 34, s, BG, 14, 400, T1))
+        else:
+            body.append(pill(230 + col * 280, 300 + row * 48, 260, 36, s, BG, 14, 400, T1))
+    body.append(text(500, 470 if slide else 540, '継続的にテストを動かすための運用要素（残る部分）', 16, 700, ATT_TEXT))
     body.append(note(636, 'これらはAIで設定ファイルを生成すれば完了する仕事ではなく、更新確認・切り分け・運用責任を含めて管理し続ける必要がある'))
     return svg(1000, 676, '作成部分と水面下の運用要素', body, desc='氷山の図。水面上の小さな部分がAIエージェントで短時間に行えるテストコード生成・修復で、水面下の大きな部分にCI Runner、ブラウザ更新、認証情報、対象環境、テストデータ、証跡、原因調査、復旧という8つの運用要素が残ることを示す')
 
@@ -897,10 +962,16 @@ FIGURES = {
 
 
 def main():
+    global MODE
     ASSETS.mkdir(exist_ok=True)
+    SLIDE_ASSETS.mkdir(exist_ok=True)
     for name, fn in FIGURES.items():
+        MODE = 'article'
         (ASSETS / f'{name}.svg').write_text(fn(), encoding='utf-8')
+        MODE = 'slide'
+        (SLIDE_ASSETS / f'{name}.svg').write_text(fn(), encoding='utf-8')
         print('wrote', name)
+    MODE = 'article'
 
 
 if __name__ == '__main__':

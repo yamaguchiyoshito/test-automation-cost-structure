@@ -2,7 +2,7 @@
 """slides/deck.md と生成した _site/slides/ を検査する。問題があれば exit 1。
 
 - 各スライドに見出しがあり、全角28字以内（表紙は40字以内）
-- 図は1点以内で assets/ に実在し、箇条書き（3項目・各24字以内）と併用しない
+- 図は1点以内で assets/slides/（スライド用）に実在し、箇条書き（3項目・各24字以内）と併用しない
 - 表紙以外にメッセージライン（message）があり、64字以内
 - 補足（sub）は40字以内
 - 各スライドに原稿（notes）があり、本編は40〜160字、表紙・章扉・予備は10〜160字
@@ -16,7 +16,7 @@ import sys
 from urllib.parse import unquote, urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_slides import DECK, parse_deck, note_chars  # noqa: E402
+from build_slides import DECK, parse_deck, note_chars, slide_figure  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / '_site'
@@ -55,8 +55,8 @@ def main() -> int:
             errors.append(f'{tag}: 見出しが{limit}字を超える（{len(title)}字）: {title}')
         if s.get('figure') and s['bullets']:
             errors.append(f'{tag}: 図と箇条書きを併用している')
-        if s.get('figure') and not (ROOT / s['figure']).exists():
-            errors.append(f'{tag}: 図が無い {s["figure"]}')
+        if s.get('figure') and not (ROOT / slide_figure(s['figure'])).exists():
+            errors.append(f'{tag}: スライド用の図が無い {slide_figure(s["figure"])}')
         if len(s['bullets']) > BULLETS:
             errors.append(f'{tag}: 箇条書きが{BULLETS}項目を超える')
         for b in s['bullets']:

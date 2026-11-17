@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="928" height="272" viewBox="36 76 928 272" role="img" aria-label="MagicPodとClaude Codeの組み合わせ" aria-describedby="desc">
+<desc id="desc">左のClaude Code（AIエージェント）からMagicPod MCPを介して右のMagicPod（テストケースの作成・編集、実行、結果の取得）を操作し、画面を見ながらシナリオを作る時間がほぼ不要になること、クラウド実行・スケジュール実行・証跡・自動修復という運用面の優位性はそのまま保たれることを示す図</desc>
+<rect x="36" y="76" width="928" height="272" fill="#fcfdfd"/>
+<rect x="60" y="100" width="260" height="150" rx="12" fill="#e9e4f5" stroke="#8a6cc1" stroke-width="2"/>
+<text x="190" y="134" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#6a4ea6">Claude Code</text><text x="190" y="158" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">AIエージェント</text><text x="190" y="206" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">自然言語で依頼する</text>
+<path d="M320.0 175.0 L450.0 175.0" stroke="#8a6cc1" stroke-width="3" fill="none"/><polygon points="460.0,175.0 448.0,182.0 448.0,168.0" fill="#8a6cc1"/>
+<text x="390" y="152" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">MagicPod MCP</text>
+<rect x="460" y="100" width="480" height="150" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="2"/>
+<text x="700" y="130" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#2b5f9e">MagicPod（ノーコード型SaaS）</text>
+<rect x="474" y="150" width="144" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="546" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">ケースの作成・編集</text>
+<rect x="628" y="150" width="144" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="700" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テストの実行</text>
+<rect x="782" y="150" width="144" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="854" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">結果の取得</text>
+<text x="700" y="226" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">画面を見ながらシナリオを作る時間はほぼ不要になる</text>
+<rect x="460" y="268" width="480" height="56" rx="12" fill="#e0f0e9" stroke="#5aa06f" stroke-width="2"/>
+<text x="700" y="290" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">運用面の優位性はそのまま</text><text x="700" y="309" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">クラウド実行・スケジュール実行・証跡・自動修復</text>
+<text x="190" y="290" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">作成・保守の効率化</text><text x="190" y="309" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">メンテナンスと拡充のコストが下がる</text>
+</svg>

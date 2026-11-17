@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="928" height="208" viewBox="36 66 928 208" role="img" aria-label="静的検証と動的検証の区分" aria-describedby="desc">
+<desc id="desc">左に実行を伴わない静的検証（要件・設計のレビュー、型チェック、静的解析、コードレビュー）、右に実行による動的検証（単体テスト、APIテスト、画面テスト、性能テスト）を並べた図</desc>
+<rect x="36" y="66" width="928" height="208" fill="#fcfdfd"/>
+<rect x="60" y="90" width="410" height="160" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="265" y="120" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">静的検証</text>
+<text x="265" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">実行を伴わない調査</text>
+<rect x="78" y="166" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="168" y="187" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">要件・設計のレビュー</text>
+<rect x="272" y="166" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="362" y="187" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">型チェック</text>
+<rect x="78" y="208" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="168" y="229" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">静的解析</text>
+<rect x="272" y="208" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="362" y="229" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">コードレビュー</text>
+<rect x="530" y="90" width="410" height="160" rx="12" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
+<text x="735" y="120" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#2b5f9e">動的検証</text>
+<text x="735" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">実行による振る舞いの確認</text>
+<rect x="548" y="166" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="638" y="187" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">単体テスト</text>
+<rect x="742" y="166" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="832" y="187" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">APIテスト</text>
+<rect x="548" y="208" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="638" y="229" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">画面テスト</text>
+<rect x="742" y="208" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="832" y="229" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">性能テスト</text>
+</svg>

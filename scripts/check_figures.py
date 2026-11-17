@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""assets/*.svg の機械検証。問題があれば exit 1。
+"""assets/*.svg と assets/slides/*.svg の機械検証。問題があれば exit 1。
+
+- スライド用（assets/slides/）：題名・注記なしで内容に切り詰めた図。スライドの図領域（1440×600）に収めたときの実効文字サイズが18px以上
 
 - XML整形性、幅1000、role="img"、aria-label（キャプション、30字以内）、<desc>（詳細説明）
 - 最小フォント14px、テキストのviewBox内収まり（概算幅）、テキスト同士の重なり（概算）
@@ -15,7 +17,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from draw_figures import BG, PALETTE, CAPTION_MAX  # noqa: E402
+from draw_figures import BG, PALETTE, CAPTION_MAX, SLIDE_AREA_W, SLIDE_AREA_H, SLIDE_MIN_EFFECTIVE_FONT  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
@@ -111,33 +113,41 @@ def fits_inside(kind, geom, bb) -> bool:
 
 def main() -> int:
     errors = []
-    for path in sorted(ASSETS.glob('*.svg')):
+    for path in sorted(ASSETS.glob('*.svg')) + sorted((ASSETS / 'slides').glob('*.svg')):
+        is_slide = path.parent.name == 'slides'
         raw = path.read_text(encoding='utf-8')
         try:
             root = ET.fromstring(raw)
         except ET.ParseError as e:
             errors.append(f'{path.name}: XML parse error: {e}'); continue
         vb = [float(v) for v in root.get('viewBox', '0 0 0 0').split()]
-        W, H = vb[2], vb[3]
-        if root.get('width') != '1000':
-            errors.append(f'{path.name}: width is {root.get("width")}, expected 1000')
+        X0, Y0, W, H = vb
+        label = f'slides/{path.name}' if is_slide else path.name
+        if not is_slide and root.get('width') != '1000':
+            errors.append(f'{label}: width is {root.get("width")}, expected 1000')
+        if is_slide:
+            scale = min(SLIDE_AREA_W / W, SLIDE_AREA_H / H)
+            sizes = [float(el.get('font-size', '16')) for el in root.iter(NS + 'text') if (el.text or '').strip()]
+            eff = min(sizes) * scale if sizes else 99
+            if eff < SLIDE_MIN_EFFECTIVE_FONT:
+                errors.append(f'{label}: effective font {eff:.1f}px < {SLIDE_MIN_EFFECTIVE_FONT}px in the slide area ({W:.0f}x{H:.0f})')
         if root.get('role') != 'img' or not root.get('aria-label'):
-            errors.append(f'{path.name}: missing role="img" or aria-label')
+            errors.append(f'{label}: missing role="img" or aria-label')
         elif len(root.get('aria-label')) > CAPTION_MAX:
-            errors.append(f'{path.name}: caption longer than {CAPTION_MAX}: "{root.get("aria-label")}"')
+            errors.append(f'{label}: caption longer than {CAPTION_MAX}: "{root.get("aria-label")}"')
         if root.find(NS + 'desc') is None:
-            errors.append(f'{path.name}: missing <desc> (detailed description)')
+            errors.append(f'{label}: missing <desc> (detailed description)')
         # 配色
         used = set(re.findall(r'#[0-9a-fA-F]{3,6}\b', raw))
         for c in sorted(used - PALETTE):
-            errors.append(f'{path.name}: palette violation {c}')
+            errors.append(f'{label}: palette violation {c}')
         shapes = []
         ground_fills = set()
         for el in root.iter():
             tag = el.tag.replace(NS, '')
             f = el.get('fill')
             if tag == 'rect':
-                if el.get('width') == '100%':
+                if el.get('width') == '100%' or (is_slide and float(el.get('x', '0')) == X0 and float(el.get('y', '0')) == Y0 and float(el.get('width')) == W):
                     continue  # 背景
                 geom = tuple(float(el.get(k)) for k in ('x', 'y', 'width', 'height'))
                 shapes.append(('rect', geom, f))
@@ -152,7 +162,7 @@ def main() -> int:
             if f and f not in ('none', BG):
                 ground_fills.add(f)
         if len(ground_fills) > MAX_FILLS:
-            errors.append(f'{path.name}: {len(ground_fills)} ground fills > {MAX_FILLS}: {sorted(ground_fills)}')
+            errors.append(f'{label}: {len(ground_fills)} ground fills > {MAX_FILLS}: {sorted(ground_fills)}')
         # テキスト
         boxes = []
         for el in root.iter(NS + 'text'):
@@ -161,11 +171,11 @@ def main() -> int:
                 continue
             size = float(el.get('font-size', '16'))
             if size < MIN_FONT:
-                errors.append(f'{path.name}: font-size {size} < {MIN_FONT}: "{s}"')
+                errors.append(f'{label}: font-size {size} < {MIN_FONT}: "{s}"')
             bb = text_bbox(el)
             if bb is not None:
-                if bb[0] < PAD or bb[2] > W - PAD or bb[1] < 0 or bb[3] > H:
-                    errors.append(f'{path.name}: text out of viewBox ({bb[0]:.0f}..{bb[2]:.0f}, {bb[1]:.0f}..{bb[3]:.0f}): "{s}"')
+                if bb[0] < X0 + PAD or bb[2] > X0 + W - PAD or bb[1] < Y0 or bb[3] > Y0 + H:
+                    errors.append(f'{label}: text out of viewBox ({bb[0]:.0f}..{bb[2]:.0f}, {bb[1]:.0f}..{bb[3]:.0f}): "{s}"')
                 boxes.append((bb, s))
                 cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2
                 holder = container_of(shapes, cx, cy)
@@ -175,24 +185,24 @@ def main() -> int:
                     rx, ry, rw, rh = geom
                     ox = min(bb[2], rx + rw) - max(bb[0], rx); oy = min(bb[3], ry + rh) - max(bb[1], ry)
                     if ox > 2 and oy > 2:
-                        errors.append(f'{path.name}: text overlaps a neighbouring rect ({rx:.0f}..{rx + rw:.0f}): "{s}"')
+                        errors.append(f'{label}: text overlaps a neighbouring rect ({rx:.0f}..{rx + rw:.0f}): "{s}"')
                         break
                 if holder and not fits_inside(*holder, bb):
-                    errors.append(f'{path.name}: text overflows its {holder[0]} (text {bb[0]:.0f}..{bb[2]:.0f}, shape {holder[1][0]:.0f}..{holder[1][0] + holder[1][2]:.0f}): "{s}"' if holder[0] == 'rect'
-                                  else f'{path.name}: text overflows its polygon: "{s}"')
+                    errors.append(f'{label}: text overflows its {holder[0]} (text {bb[0]:.0f}..{bb[2]:.0f}, shape {holder[1][0]:.0f}..{holder[1][0] + holder[1][2]:.0f}): "{s}"' if holder[0] == 'rect'
+                                  else f'{label}: text overflows its polygon: "{s}"')
             else:
                 cx, cy = float(el.get('x')), float(el.get('y'))
             ground = background_at(shapes, cx, cy)
             ratio = contrast(el.get('fill', T1_FALLBACK), ground)
             if ratio < MIN_CONTRAST:
-                errors.append(f'{path.name}: contrast {ratio:.2f} < {MIN_CONTRAST} ({el.get("fill")} on {ground}): "{s}"')
+                errors.append(f'{label}: contrast {ratio:.2f} < {MIN_CONTRAST} ({el.get("fill")} on {ground}): "{s}"')
         for i in range(len(boxes)):
             for j in range(i + 1, len(boxes)):
                 a, b = boxes[i][0], boxes[j][0]
                 ox = min(a[2], b[2]) - max(a[0], b[0]); oy = min(a[3], b[3]) - max(a[1], b[1])
                 if ox > 4 and oy > 4:
-                    errors.append(f'{path.name}: text overlap: "{boxes[i][1]}" / "{boxes[j][1]}"')
-        print(f'checked {path.name} ({W:.0f}x{H:.0f}, {len(boxes)} texts, {len(ground_fills)} fills)')
+                    errors.append(f'{label}: text overlap: "{boxes[i][1]}" / "{boxes[j][1]}"')
+        print(f'checked {label} ({W:.0f}x{H:.0f}, {len(boxes)} texts, {len(ground_fills)} fills)')
     if errors:
         print('\n'.join(errors)); print(f'{len(errors)} problem(s)'); return 1
     print('OK'); return 0

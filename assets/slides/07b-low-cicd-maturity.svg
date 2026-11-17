@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="958" height="356" viewBox="36 54 958 356" role="img" aria-label="CI/CD成熟度が低い場合の運用負荷" aria-describedby="desc">
+<desc id="desc">案件ごとにRunnerを立てる、標準構成がない、パイプラインの失敗を診断できる人が限られる、という3つの状態からPlaywright＋CI/CDの構築・保守コストが高いままになることを示し、テストコードの自動生成が下げるのは作成部分だけであることを添えた図</desc>
+<rect x="36" y="54" width="958" height="356" fill="#fcfdfd"/>
+<text x="60" y="92" text-anchor="start" font-family="sans-serif" font-size="14" font-weight="700" fill="#55646d">CI/CD成熟度が低い組織の状態</text>
+<rect x="60" y="108" width="380" height="40" rx="20.0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="250" y="133" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">案件ごとにRunnerを立てる</text>
+<path d="M440.0 128.0 L512.4 189.5" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="520.0,196.0 506.3,193.6 515.4,182.9" fill="#607a91"/>
+<rect x="60" y="172" width="380" height="40" rx="20.0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="250" y="197" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">標準構成がない</text>
+<path d="M440.0 192.0 L510.0 195.5" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="520.0,196.0 507.7,202.4 508.4,188.4" fill="#607a91"/>
+<rect x="60" y="236" width="380" height="40" rx="20.0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="250" y="261" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">パイプラインの失敗を診断できる人が限られる</text>
+<path d="M440.0 256.0 L512.0 202.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="520.0,196.0 514.6,208.8 506.2,197.6" fill="#607a91"/>
+<rect x="520" y="100" width="420" height="192" rx="12" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="730" y="134" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#9c3f2a">Playwright＋CI/CDの</text><text x="730" y="156" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#9c3f2a">構築・保守コストは高いまま</text>
+<text x="540" y="192" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">・Runnerの構築と保守が案件ごとに発生する</text><text x="540" y="216" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">・設定の整備と更新を各案件が抱える</text><text x="540" y="240" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">・失敗時の切り分けが特定の人に集中する</text>
+<rect x="520" y="330" width="280" height="56" rx="12" fill="#e9e4f5" stroke="#8a6cc1" stroke-width="2"/>
+<text x="660" y="352" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">テストコードの自動生成</text><text x="660" y="371" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">AIエージェントで容易になった</text>
+<path d="M660 330 V300" stroke="#8a6cc1" stroke-width="2" fill="none" stroke-dasharray="8 6"/><polygon points="660.0,298.0 667.0,310.0 653.0,310.0" fill="#8a6cc1"/>
+<text x="816" y="362" text-anchor="start" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">下げるのは作成部分だけ</text>
+</svg>

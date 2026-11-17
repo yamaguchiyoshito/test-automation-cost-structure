@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="928" height="168" viewBox="36 76 928 168" role="img" aria-label="短期と中長期の推進方針" aria-describedby="desc">
+<desc id="desc">左の短期（SaaSで検証効率化の効果を獲得する）から、右の中長期（共通CI/CD基盤と運用能力を整備し、PlaywrightなどのOSSを活用できる案件を増やす）へ破線の矢印でつないだ図</desc>
+<rect x="36" y="76" width="928" height="168" fill="#fcfdfd"/>
+<rect x="60" y="100" width="400" height="120" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="2"/>
+<text x="260" y="134" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#2b5f9e">短期</text><text x="260" y="158" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">SaaSで検証効率化の効果を獲得する</text><text x="260" y="182" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">CI/CD基盤が未成熟な案件でも効果を得やすい</text>
+<path d="M460.0 160.0 L530.0 160.0" stroke="#18324b" stroke-width="3" fill="none" stroke-dasharray="8 6"/><polygon points="540.0,160.0 528.0,167.0 528.0,153.0" fill="#18324b"/>
+<rect x="540" y="100" width="400" height="120" rx="12" fill="#e9e4f5" stroke="#8a6cc1" stroke-width="2"/>
+<text x="740" y="134" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#6a4ea6">中長期</text><text x="740" y="158" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">共通CI/CD基盤と運用能力を整備する</text><text x="740" y="182" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">PlaywrightなどのOSSを活用できる案件を増やす</text>
+</svg>

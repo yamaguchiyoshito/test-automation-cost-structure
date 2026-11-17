@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1048" height="463" viewBox="-24 66 1048 463" role="img" aria-label="作成部分と水面下の運用要素" aria-describedby="desc">
+<desc id="desc">氷山の図。水面上の小さな部分がAIエージェントで短時間に行えるテストコード生成・修復で、水面下の大きな部分にCI Runner、ブラウザ更新、認証情報、対象環境、テストデータ、証跡、原因調査、復旧という8つの運用要素が残ることを示す</desc>
+<rect x="-24" y="66" width="1048" height="463" fill="#fcfdfd"/>
+<rect x="0" y="230" width="1000" height="275" fill="#d6e6f2"/>
+<path d="M0 230 H1000" stroke="#607a91" stroke-width="2" stroke-dasharray="10 8"/>
+<polygon points="500,90 560,135 620,185 650,230 350,230 380,185 440,135" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="2"/>
+<polygon points="650,230 840,300 860,400 760,480 600,505 400,505 240,480 140,400 160,300 350,230" fill="#eef3f1" stroke="#8ea6b2" stroke-width="2"/>
+<text x="500" y="200" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#6a4ea6">テストコード生成・修復</text>
+<path d="M660 150 H730" stroke="#8a6cc1" stroke-width="2"/>
+<text x="740" y="140" text-anchor="start" font-family="sans-serif" font-size="15" font-weight="700" fill="#6a4ea6">作成部分</text><text x="740" y="160" text-anchor="start" font-family="sans-serif" font-size="15" fill="#36556d">AIエージェントで短時間に</text><text x="740" y="180" text-anchor="start" font-family="sans-serif" font-size="15" fill="#36556d">行えるようになった</text>
+<text x="120" y="218" text-anchor="start" font-family="sans-serif" font-size="14" fill="#55646d">見えやすい部分</text>
+<text x="120" y="252" text-anchor="start" font-family="sans-serif" font-size="14" fill="#55646d">見えにくい部分</text>
+<rect x="240" y="272" width="250" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="365" y="294" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">CI Runnerの構築・管理</text>
+<rect x="510" y="272" width="250" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="635" y="294" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">ブラウザ・依存パッケージの更新</text>
+<rect x="240" y="316" width="250" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="365" y="338" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">認証情報・アクセス権限の管理</text>
+<rect x="510" y="316" width="250" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="635" y="338" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テスト実行対象環境の準備</text>
+<rect x="240" y="360" width="250" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="365" y="382" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テストデータの初期化・管理</text>
+<rect x="510" y="360" width="250" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="635" y="382" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">実行結果・証跡の保存</text>
+<rect x="240" y="404" width="250" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="365" y="426" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">実行失敗時の原因調査</text>
+<rect x="510" y="404" width="250" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="635" y="426" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">障害発生時の復旧・再実行</text>
+<text x="500" y="470" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#9c3f2a">継続的にテストを動かすための運用要素（残る部分）</text>
+</svg>

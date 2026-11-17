@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="908" height="432" viewBox="46 68 908 432" role="img" aria-label="SaaS事業者が担う機能とSIerに残る役割" aria-describedby="desc">
+<desc id="desc">縦の破線の境界の左に、SaaS事業者が担う機能（クラウド上での実行、スケジュール実行、結果ログ、通知、テストの自動修復、操作説明などの利用者サポート）、右にSIer（利用者）に残る役割と責任（テスト対象の仕様の理解、期待結果の定義、テストデータ・アカウントの準備、テストの十分性判断）を並べた図</desc>
+<rect x="46" y="68" width="908" height="432" fill="#fcfdfd"/>
+<path d="M500 92 V452" stroke="#607a91" stroke-width="2" stroke-dasharray="10 8"/>
+<text x="500" y="476" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#55646d">役割の境界</text>
+<text x="260" y="118" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#2f6b45">SaaS事業者が担う機能</text>
+<rect x="70" y="142" width="380" height="34" rx="17.0" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="164" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">クラウド上での実行</text>
+<rect x="70" y="188" width="380" height="34" rx="17.0" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="210" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">スケジュール実行</text>
+<rect x="70" y="234" width="380" height="34" rx="17.0" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="256" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">結果ログ</text>
+<rect x="70" y="280" width="380" height="34" rx="17.0" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="302" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">通知</text>
+<rect x="70" y="326" width="380" height="34" rx="17.0" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="348" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テストの自動修復</text>
+<rect x="70" y="372" width="380" height="34" rx="17.0" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="394" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">操作説明などの利用者サポート</text>
+<text x="740" y="118" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#9c3f2a">SIer（利用者）に残る役割と責任</text>
+<rect x="550" y="142" width="380" height="34" rx="17.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="740" y="164" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テスト対象の仕様の理解</text>
+<rect x="550" y="188" width="380" height="34" rx="17.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="740" y="210" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">期待結果の定義</text>
+<rect x="550" y="234" width="380" height="34" rx="17.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="740" y="256" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テストデータ・アカウントの準備</text>
+<rect x="550" y="280" width="380" height="34" rx="17.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="740" y="302" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テストの十分性判断</text>
+</svg>

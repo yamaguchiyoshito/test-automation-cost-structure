@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="948" height="460" viewBox="36 76 948 460" role="img" aria-label="SaaSとAIエージェント＋Playwrightの効果" aria-describedby="desc">
+<desc id="desc">TASのコスト要素7つ（テスト設計・ケース作成、テストコード作成、実行環境、定期実行・証跡、テスト修復、SUT固有の期待結果・データ、費用）について、ノーコード型SaaSの主な効果とAIエージェント＋Playwrightの主な効果を並べ、提供者が担い軽減されるもの、AIの支援で軽減されるもの、利用者側で準備・運用・判断が必要なもの、費用の性質を塗り分けた比較図</desc>
+<rect x="36" y="76" width="948" height="460" fill="#fcfdfd"/>
+<text x="465" y="116" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#2b5f9e">ノーコード型SaaS</text>
+<text x="795" y="116" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#6a4ea6">AIエージェント＋Playwright</text>
+<path d="M60 138 H960" stroke="#8ea6b2" stroke-width="1"/>
+<text x="286" y="167" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">テスト設計・ケース作成</text>
+<rect x="305" y="143" width="320" height="38" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
+<text x="465" y="167" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">GUI・AI支援による軽減</text>
+<rect x="635" y="143" width="320" height="38" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="795" y="167" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">仕様・アプリ探索からの案の生成</text>
+<path d="M60 186 H960" stroke="#8ea6b2" stroke-width="1"/>
+<text x="286" y="215" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">テストコード作成</text>
+<rect x="305" y="191" width="320" height="38" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
+<text x="465" y="215" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">手書きコードへの依存の低減</text>
+<rect x="635" y="191" width="320" height="38" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="795" y="215" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">コード生成・修正の支援</text>
+<path d="M60 234 H960" stroke="#8ea6b2" stroke-width="1"/>
+<text x="286" y="263" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">実行環境</text>
+<rect x="305" y="239" width="320" height="38" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
+<text x="465" y="263" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">クラウド実行環境の利用</text>
+<rect x="635" y="239" width="320" height="38" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="795" y="263" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">別途準備・運用が必要</text>
+<path d="M60 282 H960" stroke="#8ea6b2" stroke-width="1"/>
+<text x="286" y="311" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">定期実行・証跡</text>
+<rect x="305" y="287" width="320" height="38" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
+<text x="465" y="311" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">製品標準機能の利用</text>
+<rect x="635" y="287" width="320" height="38" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="795" y="311" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">CI/CD設定・レポート連携が必要</text>
+<path d="M60 330 H960" stroke="#8ea6b2" stroke-width="1"/>
+<text x="286" y="359" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">テスト修復</text>
+<rect x="305" y="335" width="320" height="38" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
+<text x="465" y="359" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">製品の保守機能の利用</text>
+<rect x="635" y="335" width="320" height="38" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="795" y="359" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">エージェントによる修復支援</text>
+<path d="M60 378 H960" stroke="#8ea6b2" stroke-width="1"/>
+<text x="286" y="407" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">SUT固有の期待結果・データ</text>
+<rect x="305" y="383" width="320" height="38" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="465" y="407" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">利用者側に判断・整備の責任が残る</text>
+<rect x="635" y="383" width="320" height="38" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="795" y="407" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">利用者側に判断・整備の責任が残る</text>
+<path d="M60 426 H960" stroke="#8ea6b2" stroke-width="1"/>
+<text x="286" y="455" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">費用</text>
+<rect x="305" y="431" width="320" height="38" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="465" y="455" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">継続的なサービス利用料</text>
+<rect x="635" y="431" width="320" height="38" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="795" y="455" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">開発・計算資源・基盤運用費</text>
+<path d="M60 474 H960" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="70" y="496" width="22" height="16" rx="4" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
+<text x="100" y="509" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">提供者が担い、軽減</text>
+<rect x="256" y="496" width="22" height="16" rx="4" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="286" y="509" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">AIの支援で軽減</text>
+<rect x="417" y="496" width="22" height="16" rx="4" fill="#f7e9d4" stroke="#c0604a" stroke-width="1"/>
+<text x="447" y="509" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">利用者側で準備・運用・判断が必要</text>
+<rect x="701" y="496" width="22" height="16" rx="4" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="731" y="509" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">費用の性質</text>
+</svg>

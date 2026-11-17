@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="928" height="144" viewBox="36 86 928 144" role="img" aria-label="保守開発と新規開発の比率" aria-describedby="desc">
+<desc id="desc">横1本の帯を保守開発約8割と新規開発に分け、保守開発では内部構造の変更が難しいことを示す図</desc>
+<rect x="36" y="86" width="928" height="144" fill="#fcfdfd"/>
+<rect x="60" y="110" width="704" height="60" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<rect x="764" y="110" width="176" height="60" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="412" y="147" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#9c3f2a">保守開発　約8割</text>
+<text x="852" y="147" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">新規開発</text>
+<text x="412" y="206" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">ソースコードや内部設計の変更範囲が限られ、テスト容易性のための内部構造の変更が難しい</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="828" height="188" viewBox="86 86 828 188" role="img" aria-label="削減される工数とTASの負担の交換" aria-describedby="desc">
+<desc id="desc">天秤の図。左の皿に削減されるものとして人手によるテスト実行、右の皿に交換で生まれる負担としてTASの構築・保守を載せ、自動化の価値はこの交換が経済的に成立するかどうかで決まることを示す</desc>
+<rect x="86" y="86" width="828" height="188" fill="#fcfdfd"/>
+<path d="M250 118 H750" stroke="#607a91" stroke-width="4" stroke-linecap="round"/>
+<polygon points="500,118 470,184 530,184" fill="#607a91"/>
+<path d="M430 184 H570" stroke="#607a91" stroke-width="4" stroke-linecap="round"/>
+<circle cx="500" cy="118" r="8" fill="#fcfdfd" stroke="#607a91" stroke-width="3"/>
+<path d="M250 118 V154" stroke="#607a91" stroke-width="2"/>
+<path d="M750 118 V154" stroke="#607a91" stroke-width="2"/>
+<rect x="110" y="154" width="280" height="96" rx="12" fill="#e0f0e9" stroke="#5aa06f" stroke-width="2"/>
+<text x="250" y="182" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#2f6b45">削減されるもの</text><text x="250" y="204" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">人手によるテスト実行</text><text x="250" y="226" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">反復実行にかかる工数</text>
+<rect x="610" y="154" width="280" height="96" rx="12" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="750" y="182" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#9c3f2a">交換で生まれる負担</text><text x="750" y="204" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">TASの構築・保守</text><text x="750" y="226" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">SUT変更への追従、TAS自身の更新</text>
+<text x="500" y="218" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#18324b">経済的に成立するか</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="928" height="364" viewBox="36 66 928 364" role="img" aria-label="AIとテスト環境の接続" aria-describedby="desc">
+<desc id="desc">中央のAIエージェントに対して、左からCIとの接続、右へテスト環境との接続（テストの打鍵のためのブラウザ・対象環境、結果確認のためのDB・バッチの実行結果をミドルウェア経由で参照）を描き、この2つの接続の構築と維持がTASの領域であることを示す図</desc>
+<rect x="36" y="66" width="928" height="364" fill="#fcfdfd"/>
+<rect x="60" y="150" width="140" height="80" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="130" y="186" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#223e53">CI</text><text x="130" y="210" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">定期実行・起動</text>
+<path d="M200.0 190.0 L310.0 190.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="320.0,190.0 308.0,197.0 308.0,183.0" fill="#607a91"/>
+<text x="260" y="174" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">CIとAIの接続</text>
+<rect x="320" y="130" width="240" height="120" rx="12" fill="#e9e4f5" stroke="#8a6cc1" stroke-width="2"/>
+<text x="440" y="170" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#6a4ea6">AIエージェント</text><text x="440" y="192" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">Claude Code など</text><text x="440" y="214" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">生成・実行・修復を担う</text>
+<rect x="640" y="90" width="300" height="240" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="2"/>
+<text x="790" y="118" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#2b5f9e">テスト環境</text>
+<rect x="660" y="136" width="260" height="70" rx="12" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/>
+<text x="790" y="162" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">ブラウザ・対象環境（SUT）</text><text x="790" y="182" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テストの打鍵ができること</text>
+<rect x="660" y="236" width="260" height="70" rx="12" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/>
+<text x="790" y="262" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">DB・バッチの実行結果</text><text x="790" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">ミドルウェア経由で参照できること</text>
+<path d="M560.0 170.0 L650.0 170.9" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="660.0,171.0 647.9,177.9 648.1,163.9" fill="#607a91"/>
+<text x="610" y="156" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">動かす</text>
+<path d="M560.0 210.0 L651.5 265.8" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="660.0,271.0 646.1,270.7 653.4,258.8" fill="#607a91"/>
+<text x="596" y="250" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">確かめる</text>
+<rect x="60" y="350" width="880" height="56" rx="12" fill="#fcfdfd" stroke="#c0604a" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="500" y="373" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">この2つの接続の構築と維持は、まさにTASの領域</text><text x="500" y="392" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">どちらが欠けても、AIはテストを動かすことも、結果を確かめることもできない</text>
+</svg>
