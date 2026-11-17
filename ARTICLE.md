@@ -308,6 +308,8 @@ AIエージェントによってPlaywrightのテスト実装は容易になり�
 
 つまり、作成部分のコスト低下はPlaywrightだけの利点ではありません。SaaSの運用面の優位性を保ったまま、AIエージェントによる作成・保守の効率化も得られるようになっています。
 
+![MagicPodとClaude Codeの組み合わせ](assets/09d-magicpod-with-claude-code.svg)
+
 もちろん、すべての案件でSaaSが優位とは限りません。
 
 既存のCI/CDが成熟し、基盤保守を共通チームで引き受けられる案件では、Playwright＋AIエージェントが合理的な選択肢になります。

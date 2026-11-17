@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全27点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全28点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -761,6 +761,27 @@ def fig_05b_saas_vs_agent_effects():
     return svg(1000, yb + 98, 'SaaSとAIエージェント＋Playwrightの効果', body, desc='TASのコスト要素7つ（テスト設計・ケース作成、テストコード作成、実行環境、定期実行・証跡、テスト修復、SUT固有の期待結果・データ、費用）について、ノーコード型SaaSの主な効果とAIエージェント＋Playwrightの主な効果を並べ、提供者が担い軽減されるもの、AIの支援で軽減されるもの、利用者側で準備・運用・判断が必要なもの、費用の性質を塗り分けた比較図')
 
 
+# =====================================================================
+# §9.4 MagicPod＋Claude Code
+# =====================================================================
+def fig_09d_magicpod_with_claude_code():
+    body = [title('SaaSもAIエージェントの恩恵を受ける：MagicPod＋Claude Code')]
+    body.append(rect(60, 100, 260, 150, AI, AI_LINE, 2))
+    body.append(lines(190, 134, [('Claude Code', 700, AI_TEXT), ('AIエージェント', 400, T2), ('', 400, T2), ('自然言語で依頼する', 400, T2)], 15, lh=24))
+    body.append(arrow(320, 175, 460, 175, width=3, color=AI_LINE))
+    body.append(text(390, 152, 'MagicPod MCP', 14, 700, AI_TEXT))
+    body.append(rect(460, 100, 480, 150, PRIMARY, LINE, 2))
+    body.append(text(700, 130, 'MagicPod（ノーコード型SaaS）', 16, 700, PRI_TEXT))
+    for i, it in enumerate(['ケースの作成・編集', 'テストの実行', '結果の取得']):
+        body.append(pill(474 + i * 154, 150, 144, 34, it, BG, 14, 400, T1))
+    body.append(text(700, 226, '画面を見ながらシナリオを作る時間はほぼ不要になる', 14, 700, T1))
+    body.append(rect(460, 268, 480, 56, POSITIVE, POS_LINE, 2))
+    body.append(lines(700, 290, [('運用面の優位性はそのまま', 700, POS_TEXT), ('クラウド実行・スケジュール実行・証跡・自動修復', 400, T2)], 14, lh=19))
+    body.append(lines(190, 290, [('作成・保守の効率化', 700, T1), ('メンテナンスと拡充のコストが下がる', 400, T2)], 14, lh=19))
+    body.append(note(372, '作成部分のコスト低下はPlaywrightだけの利点ではない。SaaSの運用面の優位性を保ったまま得られる'))
+    return svg(1000, 398, 'MagicPodとClaude Codeの組み合わせ', body, desc='左のClaude Code（AIエージェント）からMagicPod MCPを介して右のMagicPod（テストケースの作成・編集、実行、結果の取得）を操作し、画面を見ながらシナリオを作る時間がほぼ不要になること、クラウド実行・スケジュール実行・証跡・自動修復という運用面の優位性はそのまま保たれることを示す図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
@@ -784,6 +805,7 @@ FIGURES = {
     '09a-expertise-scope': fig_09a_expertise_scope,
     '09b-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
     '09c-automation-plus-cicd': fig_09c_automation_plus_cicd,
+    '09d-magicpod-with-claude-code': fig_09d_magicpod_with_claude_code,
     '10a-tco-breakdown': fig_10a_tco_breakdown,
     '10b-pattern-saas': fig_10b_pattern_saas,
     '10c-pattern-playwright': fig_10c_pattern_playwright,
