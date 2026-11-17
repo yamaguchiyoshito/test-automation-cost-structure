@@ -469,20 +469,20 @@ def fig_02a_static_vs_dynamic():
 # §6 責任の境界
 # =====================================================================
 def fig_06_responsibility_boundary():
-    body = [title('責任の一部はSaaS事業者へ移る。すべてではない')]
+    body = [title('機能の一部はSaaS事業者が担う。責任はSIerに残る')]
     bx = 500
     body.append(f'<path d="M{bx} 92 V452" stroke="{LINE}" stroke-width="2" stroke-dasharray="10 8"/>')
-    body.append(text(bx, 476, '責任の境界', 14, 700, MUTED))
-    body.append(text(260, 118, 'SaaS事業者へ移せるもの', 16, 700, POS_TEXT))
+    body.append(text(bx, 476, '役割の境界', 14, 700, MUTED))
+    body.append(text(260, 118, 'SaaS事業者が担う機能', 16, 700, POS_TEXT))
     left = ['クラウド上での実行', 'スケジュール実行', '結果ログ', '通知', 'テストの自動修復', '操作説明などの利用者サポート']
     for i, label in enumerate(left):
         body.append(pill(70, 142 + i * 46, 380, 34, label, POSITIVE, 14, 400, T1))
-    body.append(text(740, 118, '利用者に残るもの', 16, 700, ATT_TEXT))
+    body.append(text(740, 118, 'SIer（利用者）に残る役割と責任', 16, 700, ATT_TEXT))
     right = ['テスト対象の仕様の理解', '期待結果の定義', 'テストデータ・アカウントの準備', 'テストの十分性判断']
     for i, label in enumerate(right):
         body.append(pill(550, 142 + i * 46, 380, 34, label, ATTENTION, 14, 400, T1))
-    body.append(note(520, 'ノーコード型SaaSは左側の範囲が広い。サービス利用料とベンダーへの依存は別途評価する'))
-    return svg(1000, 546, 'SaaS事業者へ移せる責任と利用者に残る責任', body, desc='縦の破線の境界の左に、SaaS事業者へ移せるもの（クラウド上での実行、スケジュール実行、結果ログ、通知、テストの自動修復、操作説明などの利用者サポート）、右に利用者に残るもの（テスト対象の仕様の理解、期待結果の定義、テストデータ・アカウントの準備、テストの十分性判断）を並べた図')
+    body.append(note(520, 'ノーコード型SaaSは左側の範囲が広い。検証の責任はSIer側に残り、サービス利用料とベンダーへの依存は別途評価する'))
+    return svg(1000, 546, 'SaaS事業者が担う機能とSIerに残る役割', body, desc='縦の破線の境界の左に、SaaS事業者が担う機能（クラウド上での実行、スケジュール実行、結果ログ、通知、テストの自動修復、操作説明などの利用者サポート）、右にSIer（利用者）に残る役割と責任（テスト対象の仕様の理解、期待結果の定義、テストデータ・アカウントの準備、テストの十分性判断）を並べた図')
 
 
 # =====================================================================
