@@ -7,6 +7,7 @@ deck.md の書式：スライドは `---` だけの行で区切る。各ブロ�
   section: 01 問題     ヘッダー左の章ラベル
   figure: assets/xx.svg  図（1点まで。箇条書きと併用しない）
   - 箇条書き           3項目まで
+  message: 結論文      メッセージライン（1〜2文、全角64字以内）。スライド単体で読んで分かるようにする。表紙以外は必須
   sub: 補足1行         任意（全角40字以内）
   eyebrow: / date: / url:  表紙用
   appendix: true       予備スライド（原稿の合計には数えない）
@@ -99,7 +100,8 @@ def render_slide(s: dict, n: int, total: int, site: dict) -> str:
                 f'<h1>{html.escape(s["title"])}</h1>'
                 f'<p class="meta">{html.escape(s.get("sub", ""))}</p><div class="spacer"></div></main>')
     elif kind == 'section':
-        main = f'<main><p class="chapter">{html.escape(s.get("section", ""))}</p><h1>{html.escape(s["title"])}</h1></main>'
+        main = (f'<main><p class="chapter">{html.escape(s.get("section", ""))}</p><h1>{html.escape(s["title"])}</h1>'
+                f'<p class="message">{html.escape(s.get("message", ""))}</p></main>')
     else:
         parts = [f'<h1>{html.escape(s["title"])}</h1>']
         if s.get('figure'):
@@ -109,7 +111,9 @@ def render_slide(s: dict, n: int, total: int, site: dict) -> str:
             parts.append('<ul class="points">' + ''.join(f'<li>{html.escape(b)}</li>' for b in s['bullets']) + '</ul>')
         else:
             parts.append('<div class="spacer"></div>')
-        parts.append(f'<p class="sub">{html.escape(s.get("sub", ""))}</p>')
+        parts.append(f'<p class="message">{html.escape(s.get("message", ""))}</p>')
+        if s.get('sub'):
+            parts.append(f'<p class="sub">{html.escape(s["sub"])}</p>')
         main = '<main>' + ''.join(parts) + '</main>'
     return f'<section class="{classes}" id="s{n}"><div class="frame">{header}{main}{footer}</div></section>'
 
@@ -132,11 +136,12 @@ def render_script(slides: list[dict], site: dict, css: str) -> str:
 
     def article(s: dict, n: int) -> str:
         meta = [s.get('section', ''), f'目安 {seconds_for(s["notes"])}秒', f'{note_chars(s["notes"])}字']
+        message = f'<p class="msg">{html.escape(s["message"])}</p>' if s.get('message') else ''
         if s.get('figure'):
             meta.append('図 ' + Path(s['figure']).stem)
         paras = ''.join(f'<p>{html.escape(p.strip())}</p>' for p in re.split(r'\n\s*\n', s['notes']) if p.strip())
         return (f'<article><h2>{n}. {html.escape(s["title"])}</h2>'
-                f'<p class="meta">{html.escape(" · ".join(m for m in meta if m))}</p>{paras}</article>')
+                f'<p class="meta">{html.escape(" · ".join(m for m in meta if m))}</p>{message}{paras}</article>')
 
     items = ''.join(article(s, i + 1) for i, s in enumerate(slides) if not s['appendix'])
     extras = ''.join(article(s, i + 1) for i, s in enumerate(slides) if s['appendix'])

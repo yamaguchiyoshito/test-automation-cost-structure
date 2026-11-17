@@ -3,6 +3,7 @@
 
 - 各スライドに見出しがあり、全角28字以内（表紙は40字以内）
 - 図は1点以内で assets/ に実在し、箇条書き（3項目・各24字以内）と併用しない
+- 表紙以外にメッセージライン（message）があり、64字以内
 - 補足（sub）は40字以内
 - 各スライドに原稿（notes）があり、本編は40〜160字、表紙・章扉・予備は10〜160字
 - 本編の原稿合計は 2000〜2400字（300字/分で8分以内）
@@ -19,7 +20,7 @@ from build_slides import DECK, parse_deck, note_chars  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / '_site'
-TITLE_MAX, TITLE_MAX_COVER, BULLET_MAX, BULLETS, SUB_MAX = 28, 40, 24, 3, 40
+TITLE_MAX, TITLE_MAX_COVER, BULLET_MAX, BULLETS, SUB_MAX, MESSAGE_MAX = 28, 40, 24, 3, 40, 64
 NOTE_MIN, NOTE_MIN_LIGHT, NOTE_MAX, TOTAL_MIN, TOTAL_MAX = 40, 10, 160, 2000, 2400
 
 
@@ -61,6 +62,11 @@ def main() -> int:
         for b in s['bullets']:
             if len(b) > BULLET_MAX:
                 errors.append(f'{tag}: 箇条書きが{BULLET_MAX}字を超える: {b}')
+        msg = s.get('message', '')
+        if s['type'] != 'title' and not msg:
+            errors.append(f'{tag}: メッセージライン（message）が無い: {title}')
+        if len(msg) > MESSAGE_MAX:
+            errors.append(f'{tag}: メッセージラインが{MESSAGE_MAX}字を超える（{len(msg)}字）: {msg}')
         if len(s.get('sub', '')) > SUB_MAX:
             errors.append(f'{tag}: 補足が{SUB_MAX}字を超える: {s["sub"]}')
         n = note_chars(s['notes'])
