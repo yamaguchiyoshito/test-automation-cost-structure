@@ -549,24 +549,20 @@ def fig_02a_static_vs_dynamic():
 # §6 責任の境界
 # =====================================================================
 def fig_06_responsibility_boundary():
-    body = [title('責任の一部はサービス提供者へ移る。すべてではない')]
-    by = 240
-    body.append(f'<path d="M60 {by} H940" stroke="{LINE}" stroke-width="2" stroke-dasharray="10 8"/>')
-    body.append(text(940, by - 10, '責任の境界', 14, 700, MUTED, 'end'))
-    body.append(text(60, 118, 'サービス提供者へ移せるもの', 16, 700, POS_TEXT, 'start'))
-    x = 60
-    for label in ['クラウド上での実行', 'スケジュール実行', '結果ログ', '通知', 'テストの自動修復']:
-        w = est_w(label, 14) + 28
-        body.append(pill(x, 150, w, 34, label, POSITIVE, 14, 400, T1))
-        x += w + 14
-    body.append(text(60, 290, '利用者に残るもの', 16, 700, ATT_TEXT, 'start'))
-    x = 60
-    for label in ['テスト対象の仕様の理解', '期待結果の定義', 'テストデータ・アカウントの準備', 'テストの十分性判断']:
-        w = est_w(label, 14) + 28
-        body.append(pill(x, 322, w, 34, label, ATTENTION, 14, 400, T1))
-        x += w + 14
-    body.append(note(410, 'ノーコード型SaaSは上側の範囲が広い。サービス利用料とベンダーへの依存は別途評価する'))
-    return svg(1000, 436, '提供者へ移せる責任と利用者に残る責任', body, desc='破線の境界の上に、サービス提供者へ移せるもの（クラウド上での実行、スケジュール実行、結果ログ、通知、テストの自動修復）、下に利用者に残るもの（テスト対象の仕様の理解、期待結果の定義、テストデータ・アカウントの準備、テストの十分性判断）を並べた図')
+    body = [title('責任の一部はSaaS事業者へ移る。すべてではない')]
+    bx = 500
+    body.append(f'<path d="M{bx} 92 V452" stroke="{LINE}" stroke-width="2" stroke-dasharray="10 8"/>')
+    body.append(text(bx, 476, '責任の境界', 14, 700, MUTED))
+    body.append(text(260, 118, 'SaaS事業者へ移せるもの', 16, 700, POS_TEXT))
+    left = ['クラウド上での実行', 'スケジュール実行', '結果ログ', '通知', 'テストの自動修復', '操作説明などの利用者サポート']
+    for i, label in enumerate(left):
+        body.append(pill(70, 142 + i * 46, 380, 34, label, POSITIVE, 14, 400, T1))
+    body.append(text(740, 118, '利用者に残るもの', 16, 700, ATT_TEXT))
+    right = ['テスト対象の仕様の理解', '期待結果の定義', 'テストデータ・アカウントの準備', 'テストの十分性判断']
+    for i, label in enumerate(right):
+        body.append(pill(550, 142 + i * 46, 380, 34, label, ATTENTION, 14, 400, T1))
+    body.append(note(520, 'ノーコード型SaaSは左側の範囲が広い。サービス利用料とベンダーへの依存は別途評価する'))
+    return svg(1000, 546, 'SaaS事業者へ移せる責任と利用者に残る責任', body, desc='縦の破線の境界の左に、SaaS事業者へ移せるもの（クラウド上での実行、スケジュール実行、結果ログ、通知、テストの自動修復、操作説明などの利用者サポート）、右に利用者に残るもの（テスト対象の仕様の理解、期待結果の定義、テストデータ・アカウントの準備、テストの十分性判断）を並べた図')
 
 
 # =====================================================================
