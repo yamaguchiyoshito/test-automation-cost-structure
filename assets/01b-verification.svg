@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="326" viewBox="0 0 1000 326" role="img" aria-label="要求と成果物の両方を検証で突き合わせ、満たせば次の工程へ、満たさなければ手戻りになる流れを示す図">
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">検証：成果物が要求を満たすかを確かめる作業</text>
+<rect x="60" y="90" width="240" height="76" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="180" y="124" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#223e53">要求</text><text x="180" y="148" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">満たすべきこと</text>
+<rect x="60" y="200" width="240" height="76" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="180" y="234" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#223e53">成果物</text><text x="180" y="258" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">生成されたもの</text>
+<path d="M300.0 128.0 L390.8 166.1" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="400.0,170.0 386.2,171.8 391.6,158.9" fill="#607a91"/>
+<path d="M300.0 238.0 L390.8 199.9" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="400.0,196.0 391.6,207.1 386.2,194.2" fill="#607a91"/>
+<rect x="400" y="128" width="220" height="110" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="2"/>
+<text x="510" y="170" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#2b5f9e">検証</text><text x="510" y="192" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">両者を突き合わせる</text>
+<path d="M620.0 183.0 L690.0 183.0" stroke="#607a91" stroke-width="3" fill="none"/><polygon points="700.0,183.0 688.0,190.0 688.0,176.0" fill="#607a91"/>
+<rect x="700" y="128" width="240" height="110" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="820" y="158" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">判定</text><text x="820" y="180" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#36556d">満たす → 次の工程へ</text><text x="820" y="202" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#9c3f2a">満たさない → 手戻り</text>
+<text x="500" y="300" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">生成量が増えるほど検証の対象も増える。検証が開発全体の制約になりうる</text>
+</svg>

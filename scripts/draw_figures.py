@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全17点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全21点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -435,20 +435,82 @@ def fig_11_bottleneck_shift():
 
 
 # =====================================================================
-# 冒頭 読み方の地図
+# §1 生成と検証（定義の2点）
 # =====================================================================
-def fig_00_reading_map():
-    body = [title('この記事の読み方')]
-    steps = [('問題', '§1–2', '生成と検証の分解'), ('歴史', '§3', '画面テスト自動化'), ('構造', '§4–7', 'TASとSUT、コスト'),
-             ('判断', '§8–10', 'SaaSかOSSか'), ('残る課題', '§11', '運用能力と判断根拠')]
-    bw, bh, gap, y = 160, 86, 30, 90
-    for i, (head, sec, sub) in enumerate(steps):
-        x = 40 + i * (bw + gap)
-        body.append(rect(x, y, bw, bh, NEUTRAL))
-        body.append(lines(x + bw / 2, y + 26, [(head, 700, T1), (sec, 400, MUTED), (sub, 400, T2)], 14, lh=20))
-        if i < 4:
-            body.append(arrow(x + bw, y + bh / 2, x + bw + gap, y + bh / 2, width=2))
-    return svg(1000, 210, '記事の読み方の地図。問題（第1〜2章）、歴史（第3章）、構造（第4〜7章）、判断（第8〜10章）、残る課題（第11章）の5つを矢印でつないだ図', body)
+def fig_01a_generation():
+    body = [title('生成：要求から成果物をつくる作業')]
+    body.append(box(60, 110, 240, 90, NEUTRAL, '要求', '何をつくるか', 18, 14))
+    body.append(arrow(300, 155, 380, 155))
+    body.append(rect(380, 100, 240, 110, AI, AI_LINE, 2))
+    body.append(lines(500, 140, [('生成', 700, AI_TEXT), ('生成AI・開発者がつくる', 400, T2), ('短時間で大量に', 400, T2)], 15, lh=22))
+    body.append(arrow(620, 155, 700, 155))
+    body.append(box(700, 110, 240, 90, NEUTRAL, '成果物', 'コードやテストなど', 18, 14))
+    body.append(note(262, '生成AIの登場で、この工程が高速化した'))
+    return svg(1000, 288, '要求から、生成AIと開発者による生成を経て、コードやテストなどの成果物ができる3段の流れ。生成の工程が生成AIで高速化したことを示す図', body)
+
+
+def fig_01b_verification():
+    body = [title('検証：成果物が要求を満たすかを確かめる作業')]
+    body.append(box(60, 90, 240, 76, NEUTRAL, '要求', '満たすべきこと', 17, 14))
+    body.append(box(60, 200, 240, 76, NEUTRAL, '成果物', '生成されたもの', 17, 14))
+    body.append(arrow(300, 128, 400, 170, width=2))
+    body.append(arrow(300, 238, 400, 196, width=2))
+    body.append(rect(400, 128, 220, 110, PRIMARY, LINE, 2))
+    body.append(lines(510, 170, [('検証', 700, PRI_TEXT), ('両者を突き合わせる', 400, T2)], 15, lh=22))
+    body.append(arrow(620, 183, 700, 183))
+    body.append(rect(700, 128, 240, 110, NEUTRAL))
+    body.append(lines(820, 158, [('判定', 700, T1), ('満たす → 次の工程へ', 400, T2), ('満たさない → 手戻り', 700, ATT_TEXT)], 15, lh=22))
+    body.append(note(300, '生成量が増えるほど検証の対象も増える。検証が開発全体の制約になりうる'))
+    return svg(1000, 326, '要求と成果物の両方を検証で突き合わせ、満たせば次の工程へ、満たさなければ手戻りになる流れを示す図', body)
+
+
+# =====================================================================
+# §4 SUTとTAS（定義の2点）
+# =====================================================================
+def fig_04a_sut():
+    body = [title('SUT：テスト対象のシステム')]
+    body.append(box(60, 130, 170, 70, NEUTRAL, '利用者', '操作する', 16, 14))
+    body.append(arrow(230, 165, 330, 165))
+    body.append(text(280, 150, '操作', 14, 700, T1))
+    body.append(rect(330, 90, 610, 150, PRIMARY, LINE, 2))
+    body.append(text(635, 120, 'SUT（System Under Test）', 18, 700, PRI_TEXT))
+    body.append(text(635, 142, '業務アプリケーションなど、テストの対象そのもの', 14))
+    for i, label in enumerate(['画面', 'API', '業務ロジック', 'データ']):
+        body.append(pill(360 + i * 140, 170, 126, 34, label, BG, 14, 400, T1))
+    body.append(note(300, 'SUTは機能追加や画面変更で変わり続ける。その変更はテスト自動化の側にも影響する'))
+    return svg(1000, 326, '利用者が操作するSUT（テスト対象のシステム）を1つの箱で示し、中に画面、API、業務ロジック、データを並べた図', body)
+
+
+def fig_04b_tas():
+    body = [title('TAS：テストを自動実行・制御するシステム')]
+    body.append(rect(60, 90, 610, 150, PRIMARY, LINE, 2))
+    body.append(text(365, 120, 'TAS（Test Automation System）', 18, 700, PRI_TEXT))
+    body.append(text(365, 142, '利用者の代わりにSUTを操作し、結果を集める', 14))
+    for i, label in enumerate(['テストスクリプト', '実行制御', '結果取得・証跡']):
+        body.append(pill(90 + i * 190, 170, 170, 34, label, BG, 14, 400, T1))
+    body.append(arrow(670, 165, 770, 165))
+    body.append(text(720, 150, 'テスト実行', 14, 700, T1))
+    body.append(box(770, 130, 170, 70, NEUTRAL, 'SUT', 'テスト対象', 16, 14))
+    body.append(text(365, 276, '動かし続けるために要るもの：実行環境・ブラウザ・テストデータ・認証情報', 14, 700, T1))
+    body.append(note(316, 'TASは、テストを自動化すると新たに生まれるもう一つのシステムである'))
+    return svg(1000, 342, 'TAS（テスト自動実行システム）を1つの箱で示し、中にテストスクリプト、実行制御、結果取得・証跡を並べ、右のSUTへテスト実行の矢印を伸ばした図。動かし続けるには実行環境、ブラウザ、テストデータ、認証情報が要ることを添える', body)
+
+
+# =====================================================================
+# §8 2022年の転換
+# =====================================================================
+def fig_08a_2022_saas_shift():
+    body = [title('2022年の転換：テスト自動化SaaSの利用で安定したコスト効果を創出')]
+    body.append(rect(60, 100, 260, 130, NEUTRAL))
+    body.append(lines(190, 130, [('それ以前', 700, T1), ('案件ごとに自動化環境を構築し、', 400, T2), ('投資効果を個別に検証していた', 400, T2)], 14, lh=22))
+    body.append(arrow(320, 165, 370, 165))
+    body.append(rect(370, 100, 260, 130, PRIMARY, LINE, 2))
+    body.append(lines(500, 130, [('2022年の転換', 700, PRI_TEXT), ('テスト自動化SaaSを利用し、', 400, T2), ('多様な既存案件へ横展開', 400, T2)], 14, lh=22))
+    body.append(arrow(630, 165, 680, 165))
+    body.append(rect(680, 100, 260, 130, POSITIVE, POS_LINE, 2))
+    body.append(lines(810, 130, [('安定したコスト効果', 700, POS_TEXT), ('実行基盤と運用をサービス側へ', 400, T2), ('先行事例で効果を見積もれる', 400, T2), ('技術スタックを問わず適用', 400, T2)], 14, lh=22))
+    body.append(note(290, '狙いは、限られた専門人材で、多様な既存案件に横展開できる検証効率化策を選ぶこと'))
+    return svg(1000, 316, '左の「それ以前」（案件ごとに自動化環境を構築し投資効果を個別に検証）から、中央の「2022年の転換」（テスト自動化SaaSの利用と横展開）を経て、右の「安定したコスト効果」（実行基盤と運用の外部化、先行事例による見積り、技術スタックを問わない適用）へ至る3段の図', body)
 
 
 # =====================================================================
@@ -548,19 +610,23 @@ def fig_10a_tco_breakdown():
 
 
 FIGURES = {
-    '00-reading-map': fig_00_reading_map,
-    '01-generation-vs-verification': fig_01_generation_vs_verification,
+    '01a-generation': fig_01a_generation,
+    '01b-verification': fig_01b_verification,
+    '01c-generation-vs-verification': fig_01_generation_vs_verification,
     '02a-static-vs-dynamic': fig_02a_static_vs_dynamic,
     '02b-dynamic-verification-activities': fig_02_dynamic_verification_activities,
     '03-gui-test-timeline': fig_03_gui_test_timeline,
-    '04a-tas-sut-systems': fig_04a_tas_sut_systems,
-    '04b-exchange-balance': fig_04b_exchange_balance,
+    '04a-sut': fig_04a_sut,
+    '04b-tas': fig_04b_tas,
+    '04c-tas-sut-systems': fig_04a_tas_sut_systems,
+    '04d-exchange-balance': fig_04b_exchange_balance,
     '05-cost-shift-by-era': fig_05_cost_shift_by_era,
     '06-responsibility-boundary': fig_06_responsibility_boundary,
     '07-iceberg-of-operation': fig_07_iceberg_of_operation,
-    '08a-maintenance-share': fig_08a_maintenance_share,
-    '08b-stack-agnostic-e2e': fig_08b_stack_agnostic_e2e,
-    '08c-2022-decision-context': fig_08_2022_decision_context,
+    '08a-2022-saas-shift': fig_08a_2022_saas_shift,
+    '08b-maintenance-share': fig_08a_maintenance_share,
+    '08c-stack-agnostic-e2e': fig_08b_stack_agnostic_e2e,
+    '08d-2022-decision-context': fig_08_2022_decision_context,
     '09-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
     '10a-tco-breakdown': fig_10a_tco_breakdown,
     '10b-maturity-choice-map': fig_10_maturity_choice_map,

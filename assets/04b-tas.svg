@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="342" viewBox="0 0 1000 342" role="img" aria-label="TAS（テスト自動実行システム）を1つの箱で示し、中にテストスクリプト、実行制御、結果取得・証跡を並べ、右のSUTへテスト実行の矢印を伸ばした図。動かし続けるには実行環境、ブラウザ、テストデータ、認証情報が要ることを添える">
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">TAS：テストを自動実行・制御するシステム</text>
+<rect x="60" y="90" width="610" height="150" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="2"/>
+<text x="365" y="120" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#2b5f9e">TAS（Test Automation System）</text>
+<text x="365" y="142" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">利用者の代わりにSUTを操作し、結果を集める</text>
+<rect x="90" y="170" width="170" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="175" y="192" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テストスクリプト</text>
+<rect x="280" y="170" width="170" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="365" y="192" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">実行制御</text>
+<rect x="470" y="170" width="170" height="34" rx="17.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="555" y="192" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">結果取得・証跡</text>
+<path d="M670.0 165.0 L760.0 165.0" stroke="#607a91" stroke-width="3" fill="none"/><polygon points="770.0,165.0 758.0,172.0 758.0,158.0" fill="#607a91"/>
+<text x="720" y="150" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">テスト実行</text>
+<rect x="770" y="130" width="170" height="70" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="855" y="161" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">SUT</text><text x="855" y="185" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テスト対象</text>
+<text x="365" y="276" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">動かし続けるために要るもの：実行環境・ブラウザ・テストデータ・認証情報</text>
+<text x="500" y="316" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">TASは、テストを自動化すると新たに生まれるもう一つのシステムである</text>
+</svg>
