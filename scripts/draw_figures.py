@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全26点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全27点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -721,6 +721,46 @@ def fig_02b_verification_elements():
     return svg(1000, 482, '静的検証と動的検証で整備する要素', body, desc='左に静的検証で整備する要素（検査対象の成果物、検査ルール、レビュー観点）、右に動的検証で整備する要素（実行環境、テストデータ、操作手順、期待結果、証跡の取り扱い）を並べ、右の要素を継続的に維持できるかが後半のCI/CD成熟度の課題につながることを注意枠で示した図')
 
 
+# =====================================================================
+# §5 SaaSとAIエージェント＋Playwrightの効果の比較
+# =====================================================================
+def fig_05b_saas_vs_agent_effects():
+    body = [title('ノーコード型SaaSとAIエージェント＋Playwrightは、下げるコストが違う')]
+    P, A, T, N = 'provider', 'ai', 'user', 'neutral'
+    style = {P: (POSITIVE, POS_TEXT), A: (AI, AI_TEXT), T: (ATTENTION, ATT_TEXT), N: (NEUTRAL, T1)}
+    rows = [
+        ('テスト設計・ケース作成', (P, 'GUI・AI支援による軽減'), (A, '仕様・アプリ探索からの案の生成')),
+        ('テストコード作成', (P, '手書きコードへの依存の低減'), (A, 'コード生成・修正の支援')),
+        ('実行環境', (P, 'クラウド実行環境の利用'), (T, '別途準備・運用が必要')),
+        ('定期実行・証跡', (P, '製品標準機能の利用'), (T, 'CI/CD設定・レポート連携が必要')),
+        ('テスト修復', (P, '製品の保守機能の利用'), (A, 'エージェントによる修復支援')),
+        ('SUT固有の期待結果・データ', (T, '利用者側に判断・整備の責任が残る'), (T, '利用者側に判断・整備の責任が残る')),
+        ('費用', (N, '継続的なサービス利用料'), (N, '開発・計算資源・基盤運用費')),
+    ]
+    x0, y0, lw, cw, rh, hh = 60, 86, 240, 330, 48, 52
+    body.append(text(x0 + lw + cw / 2, y0 + 30, 'ノーコード型SaaS', 16, 700, PRI_TEXT))
+    body.append(text(x0 + lw + cw + cw / 2, y0 + 30, 'AIエージェント＋Playwright', 16, 700, AI_TEXT))
+    for i, (label, c1, c2) in enumerate(rows):
+        y = y0 + hh + i * rh
+        body.append(f'<path d="M{x0} {y} H{x0 + lw + 2 * cw}" stroke="{STROKE}" stroke-width="1"/>')
+        body.append(text(x0 + lw - 14, y + rh / 2 + 5, label, 14, 700, T1, 'end'))
+        for j, (kind, s) in enumerate((c1, c2)):
+            fill, color = style[kind]
+            bx = x0 + lw + j * cw + 5
+            body.append(rect(bx, y + 5, cw - 10, rh - 10, fill, ATT_LINE if kind == T else STROKE, 2 if kind == T else 1, rx=8))
+            body.append(text(bx + (cw - 10) / 2, y + rh / 2 + 5, s, 14, 700, color))
+    yb = y0 + hh + len(rows) * rh
+    body.append(f'<path d="M{x0} {yb} H{x0 + lw + 2 * cw}" stroke="{STROKE}" stroke-width="1"/>')
+    lx = 70
+    for kind, label in ((P, '提供者が担い、軽減'), (A, 'AIの支援で軽減'), (T, '利用者側で準備・運用・判断が必要'), (N, '費用の性質')):
+        fill, color = style[kind]
+        body.append(rect(lx, yb + 22, 22, 16, fill, ATT_LINE if kind == T else STROKE, 1, rx=4))
+        body.append(text(lx + 30, yb + 35, label, 14, 400, T2, 'start'))
+        lx += est_w(label, 14) + 60
+    body.append(note(yb + 72, '代表的な構成の比較。製品の契約プランや既存のCI/CD基盤によって、実際の費用負担は変わる'))
+    return svg(1000, yb + 98, 'SaaSとAIエージェント＋Playwrightの効果', body, desc='TASのコスト要素7つ（テスト設計・ケース作成、テストコード作成、実行環境、定期実行・証跡、テスト修復、SUT固有の期待結果・データ、費用）について、ノーコード型SaaSの主な効果とAIエージェント＋Playwrightの主な効果を並べ、提供者が担い軽減されるもの、AIの支援で軽減されるもの、利用者側で準備・運用・判断が必要なもの、費用の性質を塗り分けた比較図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
@@ -732,7 +772,8 @@ FIGURES = {
     '04b-tas-sut-systems': fig_04a_tas_sut_systems,
     '04c-exchange-balance': fig_04b_exchange_balance,
     '05a-burden-shift-flow': fig_05a_burden_shift_flow,
-    '05b-cost-shift-by-era': fig_05_cost_shift_by_era,
+    '05b-saas-vs-agent-effects': fig_05b_saas_vs_agent_effects,
+    '05c-cost-shift-by-era': fig_05_cost_shift_by_era,
     '06-responsibility-boundary': fig_06_responsibility_boundary,
     '07-iceberg-of-operation': fig_07_iceberg_of_operation,
     '08a-2022-saas-shift': fig_08a_2022_saas_shift,
