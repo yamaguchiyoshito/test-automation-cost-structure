@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-label="生成AI以前と以後のリードタイム" aria-describedby="desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" role="img" aria-label="生成AI以前と以後のリードタイム" aria-describedby="desc">
 <desc id="desc">生成AI以前と以後の工程の帯を比べ、生成が短くなった後も検証の帯が残り、全体のリードタイムを左右することを示す図</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">生成が速くなるほど、検証がリードタイムを決める</text>
@@ -24,5 +24,4 @@
 <text x="790" y="318" text-anchor="start" font-family="sans-serif" font-size="15" font-weight="700" fill="#9c3f2a">検証が</text><text x="790" y="338" text-anchor="start" font-family="sans-serif" font-size="15" font-weight="700" fill="#9c3f2a">クリティカルパスに</text>
 <text x="500" y="410" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#18324b">生成の高速化 ≠ 開発全体の生産性向上</text>
 <text x="500" y="445" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">生成・検証・手戻り・環境維持まで含めて評価する。検証の短縮が、生成の高速化で得た余力を全体へ波及させる</text>
-<text x="500" y="475" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">帯の長さは概念的な比率であり、実測値ではない</text>
 </svg>
