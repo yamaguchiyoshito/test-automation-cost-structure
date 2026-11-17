@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="408" viewBox="0 0 1000 408" role="img" aria-label="テスト対象のSUTと、テストを自動実行するTASの二つのシステムを並べ、SUTの機能追加や画面変更がTASのテスト修正を生むことと、TAS自身にもライブラリ更新、ブラウザのバージョン変更、テストデータ整備、実行環境の障害対応が発生することを示す図">
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">テスト自動化はもう一つのシステム（TAS）を生む</text>
+<rect x="70" y="100" width="320" height="104" rx="12" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/><text x="230" y="148" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">SUT（System Under Test）</text><text x="230" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テスト対象のシステム。業務アプリケーションなど</text>
+<rect x="610" y="100" width="320" height="104" rx="12" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/><text x="770" y="148" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">TAS（Test Automation System）</text><text x="770" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テストスクリプト、実行制御、結果取得など</text>
+<path d="M390.0 152.0 L600.0 152.0" stroke="#c0604a" stroke-width="3" fill="none"/><polygon points="610.0,152.0 598.0,159.0 598.0,145.0" fill="#c0604a"/>
+<text x="500" y="128" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">機能追加・画面変更</text><text x="500" y="147" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">→ テストの変更が必要に</text>
+<rect x="310" y="262" width="124" height="34" rx="17.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="372" y="284" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">ライブラリ更新</text>
+<path d="M372.0 262.0 L575.3 208.5" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="585.0,206.0 575.2,215.8 571.6,202.3" fill="#607a91"/>
+<rect x="446" y="262" width="194" height="34" rx="17.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="543" y="284" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">ブラウザのバージョン変更</text>
+<path d="M543.0 262.0 L626.5 211.2" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="635.0,206.0 628.4,218.2 621.1,206.3" fill="#607a91"/>
+<rect x="652" y="262" width="138" height="34" rx="17.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="721" y="284" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">テストデータ整備</text>
+<path d="M721.0 262.0 L690.4 214.4" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="685.0,206.0 697.4,212.3 685.6,219.9" fill="#607a91"/>
+<rect x="802" y="262" width="152" height="34" rx="17.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="878" y="284" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">実行環境の障害対応</text>
+<path d="M878.0 262.0 L744.3 209.6" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="735.0,206.0 748.7,203.9 743.6,216.9" fill="#607a91"/>
+<text x="770" y="326" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">TAS自身にも保守が発生する</text>
+<text x="500" y="380" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">SUTの変更に追従する修正と、TAS自身の更新・障害対応の両方が、自動化の後も継続して発生する</text>
+</svg>

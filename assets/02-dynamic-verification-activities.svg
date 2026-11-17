@@ -1,29 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="472" viewBox="0 0 1000 472" role="img" aria-label="テスト設計、実装、実行、結果判定、原因分析・保守の5工程を並べ、従来の自動化が削減した実装・実行の範囲と、生成AIが支援する設計・実装・修復の範囲、残る判断を示す図">
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">動的検証の5つの活動と、自動化・AIが削減してきた範囲</text>
-<rect x="60" y="190" width="164" height="86" rx="12" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="60" y="190" width="164" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="142" y="226" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">テスト設計</text>
 <text x="142" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">何を確かめるか</text>
 <path d="M224.0 233.0 L240.0 233.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="250.0,233.0 238.0,240.0 238.0,226.0" fill="#607a91"/>
-<rect x="250" y="190" width="164" height="86" rx="12" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="250" y="190" width="164" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="332" y="226" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">テスト実装</text>
 <text x="332" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">どう確かめるか</text>
 <path d="M414.0 233.0 L430.0 233.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="440.0,233.0 428.0,240.0 428.0,226.0" fill="#607a91"/>
-<rect x="440" y="190" width="164" height="86" rx="12" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="440" y="190" width="164" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="522" y="226" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">テスト実行</text>
 <text x="522" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">実際に動かす</text>
 <path d="M604.0 233.0 L620.0 233.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="630.0,233.0 618.0,240.0 618.0,226.0" fill="#607a91"/>
-<rect x="630" y="190" width="164" height="86" rx="12" fill="#e9e4f5" stroke="#c0604a" stroke-width="3"/>
-<text x="712" y="226" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">結果判定</text>
+<rect x="630" y="190" width="164" height="86" rx="12" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="712" y="226" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#9c3f2a">結果判定</text>
 <text x="712" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">正しいか比較する</text>
 <path d="M794.0 233.0 L810.0 233.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="820.0,233.0 808.0,240.0 808.0,226.0" fill="#607a91"/>
-<rect x="820" y="190" width="164" height="86" rx="12" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="820" y="190" width="164" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="902" y="226" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">原因分析・保守</text>
 <text x="902" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">失敗原因の調査と修正</text>
-<path d="M60 154 V166 H414 V154" stroke="#8a6cc1" stroke-width="2" fill="none"/><text x="237" y="144" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#8a6cc1">2023年〜 生成AI・AIエージェントが下書き・生成を支援</text>
-<path d="M820 154 V166 H984 V154" stroke="#8a6cc1" stroke-width="2" fill="none"/><text x="902" y="144" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#8a6cc1">修復を支援</text>
-<path d="M250 312 V300 H604 V312" stroke="#607a91" stroke-width="2" fill="none"/><text x="427" y="333" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#607a91">2004年〜 テスト自動化が主に削減してきた範囲</text>
+<path d="M60 154 V166 H414 V154" stroke="#6a4ea6" stroke-width="2" fill="none"/><text x="237" y="144" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#6a4ea6">2023年〜 生成AI・AIエージェントが下書き・生成を支援</text>
+<path d="M820 154 V166 H984 V154" stroke="#6a4ea6" stroke-width="2" fill="none"/><text x="902" y="144" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#6a4ea6">修復を支援</text>
+<path d="M250 312 V300 H604 V312" stroke="#2f6b45" stroke-width="2" fill="none"/><text x="427" y="333" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#2f6b45">2004年〜 テスト自動化が主に削減してきた範囲</text>
 <path d="M712 306 V346" stroke="#c0604a" stroke-width="2" fill="none" stroke-dasharray="8 6"/><polygon points="712.0,348.0 705.0,336.0 719.0,336.0" fill="#c0604a"/>
-<text x="712" y="372" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">期待結果の正当性と</text><text x="712" y="391" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">テストの十分性の判断が残る</text>
-<text x="500" y="430" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5d6c75">静的検証は生成直後のワークフローに組み込みやすい。</text><text x="500" y="452" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5d6c75">動的検証には実行環境・テストデータ・操作手順・期待結果・証跡が要る</text>
+<text x="712" y="372" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">期待結果の正当性と</text><text x="712" y="391" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">テストの十分性の判断が残る</text>
+<text x="500" y="430" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">静的検証は生成直後のワークフローに組み込みやすい。</text><text x="500" y="452" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">動的検証には実行環境・テストデータ・操作手順・期待結果・証跡が要る</text>
 </svg>

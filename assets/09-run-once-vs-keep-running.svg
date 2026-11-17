@@ -3,32 +3,32 @@
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">専門性は、テストを一度動かす技術ではなく、動かし続ける技術にある</text>
 <path d="M70 300 H930" stroke="#8ea6b2" stroke-width="3"/>
 <polygon points="944,300 930,293 930,307" fill="#8ea6b2"/>
-<text x="930" y="330" text-anchor="end" font-family="sans-serif" font-size="14" fill="#5d6c75">時間</text>
+<text x="930" y="330" text-anchor="end" font-family="sans-serif" font-size="14" fill="#55646d">時間</text>
 <circle cx="150" cy="300" r="22" fill="#e0f0e9" stroke="#5aa06f" stroke-width="3"/>
 <path d="M139 300 l8 8 l15 -16" stroke="#5aa06f" stroke-width="4" fill="none" stroke-linecap="round"/>
-<text x="150" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#5aa06f">初回成功</text><text x="150" y="271" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">生成したテストが動く</text>
+<text x="150" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">初回成功</text><text x="150" y="271" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">生成したテストが動く</text>
 <path d="M330 286 V314" stroke="#c0604a" stroke-width="4"/>
 <circle cx="330" cy="300" r="9" fill="#c0604a"/>
-<text x="330" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">SUTの画面変更</text>
+<text x="330" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">SUTの画面変更</text>
 <text x="330" y="272" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テスト失敗</text>
-<rect x="250" y="336" width="160" height="32" rx="16.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="330" y="357" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">切り分け → 修正 → 再実行</text>
+<rect x="250" y="336" width="160" height="32" rx="16.0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="330" y="357" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">切り分け → 修正 → 再実行</text>
 <path d="M515 286 V314" stroke="#c0604a" stroke-width="4"/>
 <circle cx="515" cy="300" r="9" fill="#c0604a"/>
-<text x="515" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">ブラウザ・依存ライブラリの更新</text>
+<text x="515" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">ブラウザ・依存ライブラリの更新</text>
 <text x="515" y="272" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テスト失敗</text>
-<rect x="435" y="336" width="160" height="32" rx="16.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="515" y="357" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">切り分け → 修正 → 再実行</text>
+<rect x="435" y="336" width="160" height="32" rx="16.0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="515" y="357" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">切り分け → 修正 → 再実行</text>
 <path d="M700 286 V314" stroke="#c0604a" stroke-width="4"/>
 <circle cx="700" cy="300" r="9" fill="#c0604a"/>
-<text x="700" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">テストデータの変化</text>
+<text x="700" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">テストデータの変化</text>
 <text x="700" y="272" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テスト失敗</text>
-<rect x="620" y="336" width="160" height="32" rx="16.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="700" y="357" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">切り分け → 修正 → 再実行</text>
+<rect x="620" y="336" width="160" height="32" rx="16.0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="700" y="357" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">切り分け → 修正 → 再実行</text>
 <path d="M885 286 V314" stroke="#c0604a" stroke-width="4"/>
 <circle cx="885" cy="300" r="9" fill="#c0604a"/>
-<text x="885" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">実行環境の障害</text>
+<text x="885" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">実行環境の障害</text>
 <text x="885" y="272" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テスト失敗</text>
-<rect x="805" y="336" width="160" height="32" rx="16.0" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="885" y="357" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">切り分け → 修正 → 再実行</text>
-<path d="M100 193 V205 H200 V193" stroke="#5d6c75" stroke-width="2" fill="none"/><text x="150" y="183" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#5d6c75">一度動かす技術</text>
-<path d="M250 193 V205 H900 V193" stroke="#c0604a" stroke-width="2" fill="none"/><text x="575" y="183" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#c0604a">動かし続ける技術（専門性の所在）</text>
-<text x="500" y="410" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">失敗のたびに「SUTの不具合か、テストコードの問題か、実行環境の問題か」を切り分ける</text>
-<text x="500" y="440" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5d6c75">切り分けには複数の技術領域にまたがる知識が要る。初回に動いただけでは、継続運用できるTASを構築したとはいえない</text>
+<rect x="805" y="336" width="160" height="32" rx="16.0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="885" y="357" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">切り分け → 修正 → 再実行</text>
+<path d="M100 193 V205 H200 V193" stroke="#55646d" stroke-width="2" fill="none"/><text x="150" y="183" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#55646d">一度動かす技術</text>
+<path d="M250 193 V205 H900 V193" stroke="#9c3f2a" stroke-width="2" fill="none"/><text x="575" y="183" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#9c3f2a">動かし続ける技術（専門性の所在）</text>
+<text x="500" y="410" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#18324b">失敗のたびに「SUTの不具合か、テストコードの問題か、実行環境の問題か」を切り分ける</text>
+<text x="500" y="440" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">切り分けには複数の技術領域にまたがる知識が要る。初回に動いただけでは、継続運用できるTASを構築したとはいえない</text>
 </svg>

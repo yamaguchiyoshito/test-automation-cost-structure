@@ -1,78 +1,78 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="590" viewBox="0 0 1000 590" role="img" aria-label="テスト設計、コード作成、実行環境、定期実行・証跡、修復、期待結果・データの6要素について、自前Selenium、クラウド実行環境、ノーコード型SaaS、AIエージェントとPlaywrightの4時代で、自社で担うか、支援で軽減されるか、提供者が担うか、利用者側に残るかを塗り分けた格子図">
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">TASのコスト要素は、時代ごとにどこへ移ったか</text>
-<text x="389" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自前の</text><text x="389" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">Selenium</text><text x="389" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5d6c75">2004年〜</text>
-<text x="547" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">クラウド</text><text x="547" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">実行環境</text><text x="547" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5d6c75">2008年〜</text>
-<text x="705" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">ノーコード型</text><text x="705" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">SaaS</text><text x="705" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5d6c75">2017年〜</text>
-<text x="863" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">AIエージェント</text><text x="863" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">＋Playwright</text><text x="863" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5d6c75">2025年〜</text>
+<text x="389" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自前の</text><text x="389" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">Selenium</text><text x="389" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">2004年〜</text>
+<text x="547" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">クラウド</text><text x="547" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">実行環境</text><text x="547" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">2008年〜</text>
+<text x="705" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">ノーコード型</text><text x="705" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">SaaS</text><text x="705" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">2017年〜</text>
+<text x="863" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">AIエージェント</text><text x="863" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">＋Playwright</text><text x="863" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">2025年〜</text>
 <path d="M60 168 H942" stroke="#8ea6b2" stroke-width="1"/>
 <text x="296" y="198" text-anchor="end" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">テスト設計・ケース作成</text>
-<rect x="315" y="173" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="315" y="173" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="389" y="198" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
-<rect x="473" y="173" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="473" y="173" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="547" y="198" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
-<rect x="631" y="173" width="148" height="40" rx="8" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
-<text x="705" y="198" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">支援で軽減</text>
-<rect x="789" y="173" width="148" height="40" rx="8" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
-<text x="863" y="198" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">支援で軽減</text>
+<rect x="631" y="173" width="148" height="40" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="705" y="198" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">GUI・AIの支援で軽減</text>
+<rect x="789" y="173" width="148" height="40" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="863" y="198" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">GUI・AIの支援で軽減</text>
 <path d="M60 218 H942" stroke="#8ea6b2" stroke-width="1"/>
 <text x="296" y="248" text-anchor="end" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">テストコード作成</text>
-<rect x="315" y="223" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="315" y="223" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="389" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
-<rect x="473" y="223" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="473" y="223" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="547" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
-<rect x="631" y="223" width="148" height="40" rx="8" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
-<text x="705" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">支援で軽減</text>
-<rect x="789" y="223" width="148" height="40" rx="8" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
-<text x="863" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">支援で軽減</text>
+<rect x="631" y="223" width="148" height="40" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="705" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">GUI・AIの支援で軽減</text>
+<rect x="789" y="223" width="148" height="40" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="863" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">GUI・AIの支援で軽減</text>
 <path d="M60 268 H942" stroke="#8ea6b2" stroke-width="1"/>
 <text x="296" y="298" text-anchor="end" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">実行環境</text>
-<rect x="315" y="273" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="315" y="273" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="389" y="298" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
 <rect x="473" y="273" width="148" height="40" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
-<text x="547" y="298" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#5aa06f">提供者が担う</text>
+<text x="547" y="298" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">提供者が担う</text>
 <rect x="631" y="273" width="148" height="40" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
-<text x="705" y="298" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#5aa06f">提供者が担う</text>
-<rect x="789" y="273" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<text x="705" y="298" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">提供者が担う</text>
+<rect x="789" y="273" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="863" y="298" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
 <path d="M60 318 H942" stroke="#8ea6b2" stroke-width="1"/>
 <text x="296" y="348" text-anchor="end" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">定期実行・証跡</text>
-<rect x="315" y="323" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="315" y="323" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="389" y="348" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
-<rect x="473" y="323" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="473" y="323" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="547" y="348" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
 <rect x="631" y="323" width="148" height="40" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
-<text x="705" y="348" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#5aa06f">提供者が担う</text>
-<rect x="789" y="323" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<text x="705" y="348" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">提供者が担う</text>
+<rect x="789" y="323" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="863" y="348" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
 <path d="M60 368 H942" stroke="#8ea6b2" stroke-width="1"/>
 <text x="296" y="398" text-anchor="end" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">テスト修復</text>
-<rect x="315" y="373" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="315" y="373" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="389" y="398" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
-<rect x="473" y="373" width="148" height="40" rx="8" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="473" y="373" width="148" height="40" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="547" y="398" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自社で担う</text>
 <rect x="631" y="373" width="148" height="40" rx="8" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
-<text x="705" y="398" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#5aa06f">提供者が担う</text>
-<rect x="789" y="373" width="148" height="40" rx="8" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
-<text x="863" y="398" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">支援で軽減</text>
+<text x="705" y="398" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">提供者が担う</text>
+<rect x="789" y="373" width="148" height="40" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="863" y="398" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">GUI・AIの支援で軽減</text>
 <path d="M60 418 H942" stroke="#8ea6b2" stroke-width="1"/>
 <text x="296" y="448" text-anchor="end" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">SUT固有の期待結果・データ</text>
 <rect x="315" y="423" width="148" height="40" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
-<text x="389" y="448" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">利用者側に残る</text>
+<text x="389" y="448" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">利用者側に残る</text>
 <rect x="473" y="423" width="148" height="40" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
-<text x="547" y="448" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">利用者側に残る</text>
+<text x="547" y="448" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">利用者側に残る</text>
 <rect x="631" y="423" width="148" height="40" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
-<text x="705" y="448" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">利用者側に残る</text>
+<text x="705" y="448" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">利用者側に残る</text>
 <rect x="789" y="423" width="148" height="40" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
-<text x="863" y="448" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#c0604a">利用者側に残る</text>
+<text x="863" y="448" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">利用者側に残る</text>
 <path d="M60 468 H942" stroke="#8ea6b2" stroke-width="1"/>
-<rect x="70" y="490" width="22" height="16" rx="4" fill="#f6e4e8" stroke="#8ea6b2" stroke-width="1"/>
+<rect x="70" y="490" width="22" height="16" rx="4" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
 <text x="100" y="503" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">自社で担う</text>
-<rect x="200" y="490" width="22" height="16" rx="4" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
-<text x="230" y="503" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">支援で軽減</text>
-<rect x="330" y="490" width="22" height="16" rx="4" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
-<text x="360" y="503" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">提供者が担う</text>
-<rect x="474" y="490" width="22" height="16" rx="4" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
-<text x="504" y="503" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">利用者側に残る</text>
-<text x="500" y="540" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5d6c75">AIエージェントは作成・修復を軽減するが、実行環境と定期実行・証跡は再び利用者側へ戻る。</text><text x="500" y="562" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5d6c75">期待結果とデータの責任はどの時代も残る</text>
+<rect x="200" y="490" width="22" height="16" rx="4" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="230" y="503" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">GUI・AIの支援で軽減</text>
+<rect x="396" y="490" width="22" height="16" rx="4" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/>
+<text x="426" y="503" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">提供者が担う</text>
+<rect x="540" y="490" width="22" height="16" rx="4" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="570" y="503" text-anchor="start" font-family="sans-serif" font-size="14" fill="#36556d">利用者側に残る</text>
+<text x="500" y="540" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">AIエージェントは作成・修復を軽減するが、実行環境と定期実行・証跡は再び利用者側へ戻る。</text><text x="500" y="562" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">期待結果とデータの責任はどの時代も残る</text>
 </svg>
