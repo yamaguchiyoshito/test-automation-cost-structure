@@ -19,7 +19,7 @@ TAS_SUT/
 ├── site-src/styles.css        # 閲覧サイトのスタイル（sier-resource-series と共通）
 ├── scripts/
 │   ├── draw_figures.py        # 全図版を決定論的に生成（Python標準ライブラリのみ）
-│   ├── check_figures.py       # SVGの整形性・最小フォント・はみ出し・文字重なりを検査
+│   ├── check_figures.py       # SVGの整形性・最小フォント・配色・コントラスト・箱からのはみ出し・文字重なりを検査
 │   ├── build.py               # ARTICLE.md → _site/（HTML）
 │   └── check_html.py          # _site/ のリンク・図版数・alt・スクリプト不在を検査
 ├── .github/workflows/pages.yml# mainへのpushでビルドしGitHub Pagesへ公開

@@ -40,8 +40,8 @@ def esc(s: str) -> str:
 
 
 def est_w(s: str, size: float) -> float:
-    """文字幅の概算。全角1.0em、半角0.55em。"""
-    return sum(size * (0.55 if ord(c) < 0x2E80 else 1.0) for c in s)
+    """文字幅の保守的な概算。ASCIIは0.6em、それ以外（全角・矢印・記号）は1.0em。"""
+    return sum(size * (0.6 if ord(c) < 0x80 else 1.0) for c in s)
 
 
 def text(x, y, s, size=17, weight=400, fill=T2, anchor='middle', extra=''):
@@ -59,7 +59,8 @@ def lines(x, y, rows, size=14, weight=400, fill=T2, anchor='middle', lh=None):
             s, wt, fl = r
         else:
             s, wt, fl = r, weight, fill
-        out.append(text(x, y + i * lh, s, size, wt, fl, anchor))
+        if s:
+            out.append(text(x, y + i * lh, s, size, wt, fl, anchor))
     return ''.join(out)
 
 
@@ -134,9 +135,9 @@ def svg(w, h, label, body):
 # =====================================================================
 def fig_01_generation_vs_verification():
     body = [title('生成が速くなるほど、検証がリードタイムを決める')]
-    x0 = 230
-    segs_before = [('生成', 400, PRIMARY), ('検証', 240, NEUTRAL), ('手戻り・環境維持', 110, NEUTRAL)]
-    segs_after = [('生成', 120, PRIMARY), ('検証', 240, ATTENTION), ('手戻り・環境維持', 110, NEUTRAL)]
+    x0 = 200
+    segs_before = [('生成', 360, PRIMARY), ('検証', 230, NEUTRAL), ('手戻り・環境維持', 150, NEUTRAL)]
+    segs_after = [('生成', 110, PRIMARY), ('検証', 230, ATTENTION), ('手戻り・環境維持', 150, NEUTRAL)]
     for (label, sub, segs, y, hl) in [('生成AI以前', '生成に時間の比重', segs_before, 120, False),
                                        ('生成AI以後', '検証が全体を左右', segs_after, 250, True)]:
         body.append(lines(x0 - 30, y + 28, [(label, 700, T1), (sub, 400, MUTED)], 16, anchor='end', lh=22))
@@ -185,31 +186,31 @@ def fig_02_dynamic_verification_activities():
 # §3 画面テスト自動化の年表
 # =====================================================================
 def fig_03_gui_test_timeline():
-    body = [title('画面テスト自動化の転換点と、各時期に残った課題')]
+    body = [title('画面テスト自動化の7つの転換点')]
     items = [
-        ('2004年〜', 'Selenium', ['ブラウザ操作の自動化', '改善：操作の反復実行'], '残：スクリプトの作成・保守'),
-        ('2006年〜', 'Selenium IDE', ['記録・再生', '改善：テスト実装の入口'], '残：SUT変更への追従'),
-        ('2008〜2013年', 'クラウド実行環境', ['Sauce Labs・BrowserStack', '改善：実行環境の管理'], '残：設計・実装・運用の調整'),
-        ('2017〜2020年', 'ノーコード型SaaS', ['作成・実行・管理・保守の統合'], '残：業務知識・期待結果・対象環境'),
-        ('2020〜2022年', '事例の蓄積・先例化', ['導入効果の定量化と横展開'], '残：構築費・保守費込みの再現性'),
-        ('2023〜2024年', '生成AI', ['テスト設計・実装の下書き'], '残：生成結果の妥当性・実行基盤'),
-        ('2025年〜', 'AIエージェント', ['計画・生成・実行・修復の連携'], '残：継続運用・品質判断・独立性'),
+        ('2004年〜', 'Selenium', ['ブラウザ操作の自動化', '操作の反復実行']),
+        ('2006年〜', 'Selenium IDE', ['記録・再生', 'テスト実装の入口']),
+        ('2008〜2013年', 'クラウド実行環境', ['Sauce Labs・BrowserStack', 'ブラウザ・OSの実行環境管理']),
+        ('2017〜2020年', 'ノーコード型SaaS', ['テストの作成・実行・', '管理・保守の統合']),
+        ('2020〜2022年', '事例の蓄積・先例化', ['導入効果の定量化', '後続の導入判断の材料に']),
+        ('2023〜2024年', '生成AI', ['テストケース・コードの', '作成支援（下書き）']),
+        ('2025年〜', 'AIエージェント', ['計画・生成・実行・修復', 'の複数工程を横断']),
     ]
-    axis_y = 300
-    bw, bh = 228, 118
+    axis_y = 280
+    bw, bh = 234, 104
     body.append(f'<path d="M60 {axis_y} H940" stroke="{STROKE}" stroke-width="3"/>')
     body.append(f'<polygon points="952,{axis_y} 938,{axis_y - 7} 938,{axis_y + 7}" fill="{STROKE}"/>')
-    for i, (year, name, improved, remain) in enumerate(items):
+    for i, (year, name, improved) in enumerate(items):
         cx = 137 + i * 121
         up = i % 2 == 0
         by = axis_y - 40 - bh if up else axis_y + 40
         body.append(f'<circle cx="{cx}" cy="{axis_y}" r="7" fill="{BG}" stroke="{LINE}" stroke-width="3"/>')
         body.append(f'<path d="M{cx} {axis_y - 7 if up else axis_y + 7} V{by + bh if up else by}" stroke="{LINE}" stroke-width="2"/>')
         body.append(rect(cx - bw / 2, by, bw, bh, NEUTRAL))
-        rows = [(year, 700, INK), (name, 700, T1)] + [(s, 400, T2) for s in improved] + [(remain, 700, ATT_TEXT)]
-        body.append(lines(cx, by + 24, rows, 14, lh=19))
-    body.append(note(520, '年代は技術・サービスの登場時期を示し、普及完了時期ではない。横軸は等間隔で、縮尺ではない'))
-    return svg(1000, 550, '2004年のSeleniumから2025年のAIエージェントまで7つの転換点を時間軸上に並べ、それぞれが改善したものと残った課題を示す年表', body)
+        rows = [(year, 700, INK), (name, 700, T1)] + [(t, 400, T2) for t in improved]
+        body.append(lines(cx, by + 26, rows, 14, lh=20))
+    body.append(note(482, '年代は技術・サービスの登場時期を示し、普及完了時期ではない。横軸は等間隔で、縮尺ではない'))
+    return svg(1000, 512, '2004年のSeleniumから2025年のAIエージェントまで、画面テスト自動化の7つの転換点を時間軸上に並べ、それぞれが主に改善したものを示す年表', body)
 
 
 # =====================================================================
@@ -217,9 +218,9 @@ def fig_03_gui_test_timeline():
 # =====================================================================
 def fig_04a_tas_sut_systems():
     body = [title('テスト自動化はもう一つのシステム（TAS）を生む')]
-    body.append(box(70, 100, 320, 104, PRIMARY, 'SUT（System Under Test）', 'テスト対象のシステム。業務アプリケーションなど', 18, 14))
-    body.append(box(610, 100, 320, 104, PRIMARY, 'TAS（Test Automation System）', 'テストスクリプト、実行制御、結果取得など', 18, 14))
-    body.append(arrow(390, 152, 610, 152, color=ATT_LINE))
+    body.append(box(60, 100, 340, 104, PRIMARY, 'SUT（System Under Test）', 'テスト対象のシステム。業務アプリケーションなど', 17, 14))
+    body.append(box(600, 100, 340, 104, PRIMARY, 'TAS（Test Automation System）', 'テストスクリプト、実行制御、結果取得など', 17, 14))
+    body.append(arrow(400, 152, 600, 152, color=ATT_LINE))
     body.append(lines(500, 128, [('機能追加・画面変更', 700, ATT_TEXT), ('→ テストの変更が必要に', 700, ATT_TEXT)], 14, lh=19))
     causes = [('ライブラリ更新', 124), ('ブラウザのバージョン変更', 194), ('テストデータ整備', 138), ('実行環境の障害対応', 152)]
     x = 310
@@ -268,7 +269,7 @@ def fig_05_cost_shift_by_era():
     ]
     style = {
         S: (NEUTRAL, '自社で担う', T1, STROKE, 1),
-        R: (AI, 'GUI・AIの支援で軽減', AI_TEXT, STROKE, 1),
+        R: (AI, '支援で軽減', AI_TEXT, STROKE, 1),
         P: (POSITIVE, '提供者が担う', POS_TEXT, STROKE, 1),
         K: (ATTENTION, '利用者側に残る', ATT_TEXT, ATT_LINE, 2),
     }
@@ -288,8 +289,10 @@ def fig_05_cost_shift_by_era():
     yb = y0 + hh + len(rows) * rh
     body.append(f'<path d="M{x0} {yb} H{x0 + lw + 4 * cw}" stroke="{STROKE}" stroke-width="1"/>')
     lx = 70
+    legend = {R: '支援で軽減（GUI・AI）'}
     for key in (S, R, P, K):
         fill, label, color, stroke, sw = style[key]
+        label = legend.get(key, label)
         body.append(rect(lx, yb + 22, 22, 16, fill, stroke, sw, rx=4))
         body.append(text(lx + 30, yb + 35, label, 14, 400, T2, 'start'))
         lx += est_w(label, 14) + 60
@@ -363,7 +366,7 @@ def fig_09_run_once_vs_keep_running():
         body.append(f'<circle cx="{x}" cy="{ay}" r="9" fill="{ATT_LINE}"/>')
         body.append(text(x, ay - 48, e, 14, 700, ATT_TEXT))
         body.append(text(x, ay - 28, 'テスト失敗', 14, 400, T2))
-        body.append(pill(x - 80, ay + 36, 160, 32, '切り分け → 修正 → 再実行', NEUTRAL, 14, 400, T1))
+        body.append(pill(x - 88, ay + 36, 176, 32, '切り分け→修正→再実行', NEUTRAL, 14, 400, T1))
     body.append(bracket(100, 200, 205, '一度動かす技術', MUTED, 15))
     body.append(bracket(250, 900, 205, '動かし続ける技術（専門性の所在）', ATT_TEXT, 16))
     body.append(text(500, 410, '失敗のたびに「SUTの不具合か、テストコードの問題か、実行環境の問題か」を切り分ける', 15, 700, INK))
@@ -414,7 +417,7 @@ def fig_11_bottleneck_shift():
     body.append(rect(360, 100, 580, 110, PRIMARY, LINE, 2))
     body.append(lines(380, 130, [('第一層　自動化を維持する能力', 700, PRI_TEXT)], 17, anchor='start'))
     body.append(lines(380, 158, ['TASを安定して運用するための基盤と組織能力。', 'テストが自動で作成・実行されても、継続運用コストはなくならない'], 14, anchor='start', lh=20))
-    body.append(rect(360, 230, 580, 230, PRIMARY, LINE, 2))
+    body.append(rect(360, 230, 580, 248, PRIMARY, LINE, 2))
     body.append(lines(380, 260, [('第二層　正しさを判断する根拠', 700, PRI_TEXT)], 17, anchor='start'))
     chain = ['要件・設計・リスク', 'テスト観点', '期待結果', '証跡']
     cx = 380
@@ -424,11 +427,11 @@ def fig_11_bottleneck_shift():
         if i < 3:
             body.append(arrow(cx + w, 300, cx + w + 24, 300, width=2))
         cx += w + 24
-    body.append(text(380, 346, '要件・設計・リスクとテスト観点・期待結果を結び付け、検証の根拠を追跡できるようにする', 14, 400, T2, 'start'))
-    body.append(rect(380, 366, 540, 76, BG, ATT_LINE, 2, dashed=True))
-    body.append(lines(650, 396, [('注意：SUTの現在の振る舞いだけを根拠に期待結果を作ると、', 700, ATT_TEXT), ('既存の不具合を正しい動作として固定してしまう', 700, ATT_TEXT)], 14, lh=20))
-    body.append(note(510, 'テストの十分性や期待結果の正しさは、自動的に作成・実行されても自動的には保証されない'))
-    return svg(1000, 540, '左の従来のボトルネックである単純な実行作業から、右の二層の課題、第一層の自動化を維持する能力と、第二層の正しさを判断する根拠へ移ったことを示す図。第二層には要件・設計・リスク、テスト観点、期待結果、証跡をつなぐ追跡の鎖と、SUTの現状だけを根拠にすると不具合を固定するという注意を含む', body)
+    body.append(lines(380, 344, ['要件・設計・リスクとテスト観点・期待結果を結び付け、', '検証の根拠を追跡できるようにする'], 14, anchor='start', lh=19))
+    body.append(rect(380, 384, 540, 76, BG, ATT_LINE, 2, dashed=True))
+    body.append(lines(650, 414, [('注意：SUTの現在の振る舞いだけを根拠に期待結果を作ると、', 700, ATT_TEXT), ('既存の不具合を正しい動作として固定してしまう', 700, ATT_TEXT)], 14, lh=20))
+    body.append(note(520, 'テストの十分性や期待結果の正しさは、自動的に作成・実行されても自動的には保証されない'))
+    return svg(1000, 550, '左の従来のボトルネックである単純な実行作業から、右の二層の課題、第一層の自動化を維持する能力と、第二層の正しさを判断する根拠へ移ったことを示す図。第二層には要件・設計・リスク、テスト観点、期待結果、証跡をつなぐ追跡の鎖と、SUTの現状だけを根拠にすると不具合を固定するという注意を含む', body)
 
 
 FIGURES = {
