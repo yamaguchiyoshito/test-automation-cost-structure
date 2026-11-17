@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全21点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全22点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -385,66 +385,6 @@ def fig_09_run_once_vs_keep_running():
 
 
 # =====================================================================
-# §10 成熟度による選択マップ
-# =====================================================================
-def fig_10_maturity_choice_map():
-    body = [title('組織の成熟度で選択肢は変わる。短期と中長期を分けて考える')]
-    px0, py0, pw, ph = 170, 90, 740, 390
-    body.append(rect(px0, py0, pw, ph, BG, STROKE, 1, rx=0))
-    body.append(arrow(px0, py0 + ph, px0 + pw + 20, py0 + ph, color=LINE, width=2))
-    body.append(arrow(px0, py0 + ph, px0, py0 - 20, color=LINE, width=2))
-    body.append(text(px0 + pw / 2, py0 + ph + 40, 'CI/CD成熟度（共通基盤・標準設定・運用手順・障害対応体制）', 15, 700, T1))
-    body.append(text(px0 + 4, py0 + ph + 22, '低い', 14, 400, MUTED, 'start'))
-    body.append(text(px0 + pw, py0 + ph + 22, '高い', 14, 400, MUTED, 'end'))
-    body.append(text(px0 - 24, py0 + ph / 2, 'テスト基盤を保守する共通チーム', 15, 700, T1, 'middle', f' transform="rotate(-90 {px0 - 24} {py0 + ph / 2:.0f})"'))
-    body.append(text(px0 - 48, py0 + ph - 6, 'なし', 14, 400, MUTED, 'middle', f' transform="rotate(-90 {px0 - 48} {py0 + ph - 6})"'))
-    body.append(text(px0 - 48, py0 + 12, 'あり', 14, 400, MUTED, 'middle', f' transform="rotate(-90 {px0 - 48} {py0 + 12})"'))
-    # SaaS領域（左下）
-    body.append(rect(px0 + 16, py0 + 180, 360, 194, PRIMARY, LINE, 2))
-    body.append(lines(px0 + 196, py0 + 210, [('ノーコード型SaaS', 700, PRI_TEXT)], 18))
-    body.append(lines(px0 + 36, py0 + 242, ['・実行基盤・運用負担の外部化', '・ブラックボックス型E2Eの汎用性', '・導入・運用の専門知識への依存低減', '・保守開発中心・技術スタックが多様な案件向き'], 14, anchor='start', lh=22))
-    # Playwright＋AIエージェント領域（右上）
-    body.append(rect(px0 + 384, py0 + 16, 340, 194, AI, AI_LINE, 2))
-    body.append(lines(px0 + 554, py0 + 46, [('Playwright＋AIエージェント', 700, AI_TEXT)], 18))
-    body.append(lines(px0 + 404, py0 + 78, ['・既存CI/CD基盤の再利用', '・テストコードの実装自由度の高さ', '・基盤保守コストの共通化', '・高度な制御が必要な案件向き'], 14, anchor='start', lh=22))
-    # 移行の方針（破線＝時間的な遷移）
-    body.append(arrow(px0 + 376, py0 + 290, px0 + 520, py0 + 218, dashed=True, color=INK, width=3))
-    body.append(lines(px0 + 530, py0 + 300, [('中長期', 700, INK), ('共通CI/CD基盤と運用能力を', 400, T2), ('整備し、OSSを活用できる', 400, T2), ('案件を増やす', 400, T2)], 14, anchor='start', lh=19))
-    body.append(lines(px0 + 36, py0 + 140, [('短期', 700, INK), ('SaaSで検証効率化の効果を先に得る', 400, T2)], 14, anchor='start', lh=19))
-    body.append(note(550, 'SaaSとOSSの排他的な選択ではなく、それぞれを適切な条件で利用できる状態を目指す。個々の製品機能・契約条件・制約で判断は変わる'))
-    return svg(1000, 598, '成熟度による選択肢の地図', body, desc='横軸をCI/CD成熟度、縦軸を基盤保守の共通チームの有無とした2軸のマップ。左下にノーコード型SaaSが適する領域、右上にPlaywrightとAIエージェントが適する領域を置き、短期はSaaSで効果を得て、中長期は共通基盤を整備して右上へ移る方針を破線の矢印で示す')
-
-
-# =====================================================================
-# §11 ボトルネックの移動
-# =====================================================================
-def fig_11_bottleneck_shift():
-    body = [title('検証のボトルネックは、実行作業から二つの課題へ移った')]
-    body.append(rect(60, 150, 220, 180, NEUTRAL, STROKE, 1))
-    body.append(lines(170, 200, [('従来のボトルネック', 700, MUTED), ('', 400, T2), ('単純な実行作業', 700, T1), ('テストの作成・実行・', 400, T2), ('保守にかかる作業', 400, T2)], 15, lh=22))
-    body.append(arrow(280, 240, 360, 240, color=LINE, width=4))
-    body.append(text(320, 222, '生成コスト低下後', 14, 700, T1))
-    body.append(rect(360, 100, 580, 110, PRIMARY, LINE, 2))
-    body.append(lines(380, 130, [('第一層　自動化を維持する能力', 700, PRI_TEXT)], 17, anchor='start'))
-    body.append(lines(380, 158, ['TASを安定して運用するための基盤と組織能力。', 'テストが自動で作成・実行されても、継続運用コストはなくならない'], 14, anchor='start', lh=20))
-    body.append(rect(360, 230, 580, 248, PRIMARY, LINE, 2))
-    body.append(lines(380, 260, [('第二層　正しさを判断する根拠', 700, PRI_TEXT)], 17, anchor='start'))
-    chain = ['要件・設計・リスク', 'テスト観点', '期待結果', '証跡']
-    cx = 380
-    widths = [150, 110, 100, 80]
-    for i, (s, w) in enumerate(zip(chain, widths)):
-        body.append(pill(cx, 282, w, 36, s, BG, 14, 700, T1))
-        if i < 3:
-            body.append(arrow(cx + w, 300, cx + w + 24, 300, width=2))
-        cx += w + 24
-    body.append(lines(380, 344, ['要件・設計・リスクとテスト観点・期待結果を結び付け、', '検証の根拠を追跡できるようにする'], 14, anchor='start', lh=19))
-    body.append(rect(380, 384, 540, 76, BG, ATT_LINE, 2, dashed=True))
-    body.append(lines(650, 414, [('注意：SUTの現在の振る舞いだけを根拠に期待結果を作ると、', 700, ATT_TEXT), ('既存の不具合を正しい動作として固定してしまう', 700, ATT_TEXT)], 14, lh=20))
-    body.append(note(520, 'テストの十分性や期待結果の正しさは、自動的に作成・実行されても自動的には保証されない'))
-    return svg(1000, 550, '検証のボトルネックの移動', body, desc='左の従来のボトルネックである単純な実行作業から、右の二層の課題、第一層の自動化を維持する能力と、第二層の正しさを判断する根拠へ移ったことを示す図。第二層には要件・設計・リスク、テスト観点、期待結果、証跡をつなぐ追跡の鎖と、SUTの現状だけを根拠にすると不具合を固定するという注意を含む')
-
-
-# =====================================================================
 # §1 生成と検証（定義の2点）
 # =====================================================================
 def fig_01a_generation():
@@ -615,6 +555,57 @@ def fig_10a_tco_breakdown():
     return svg(1000, 318, 'TASの総コストの5区分', body, desc='横1本の帯を、テスト設計・実装費、実行基盤の構築費、テスト修復・基盤保守費、定期実行・障害対応費、ツール・クラウド利用料の5区分に分け、AIエージェントが主に下げるのは左端の1区分だけであることを示す図')
 
 
+# =====================================================================
+# §10.2 成熟度による選択（2パターン）と §10.3 推進方針
+# =====================================================================
+def _pattern(title_s, conds, choice_fill, choice_stroke, choice_head, choice_head_fill, reasons, caption, desc):
+    body = [title(title_s)]
+    for i, (h, s) in enumerate(conds):
+        y = 100 + i * 78
+        body.append(box(60, y, 380, 62, NEUTRAL, h, s, 16, 14))
+        body.append(arrow(440, y + 31, 540, 206, width=2))
+    body.append(rect(540, 112, 400, 188, choice_fill, choice_stroke, 2))
+    body.append(text(740, 148, choice_head, 18, 700, choice_head_fill))
+    body.append(lines(560, 184, ['・' + r for r in reasons], 14, anchor='start', lh=24))
+    body.append(text(60, 92, '組織・案件の状態', 14, 700, MUTED, 'start'))
+    body.append(text(540, 92, '適した選択肢と理由', 14, 700, MUTED, 'start'))
+    body.append(note(364, '一般的な傾向であり、個々の製品機能、契約条件、システム制約によって判断は変わる'))
+    return svg(1000, 390, caption, body, desc=desc)
+
+
+def fig_10b_pattern_saas():
+    return _pattern('パターンA：ノーコード型SaaSが適する組織・案件',
+                    [('CI/CD成熟度が低い', '共通の実行基盤・標準設定・運用体制がない'),
+                     ('保守開発中心・技術スタックが多様', '内部構造を変えにくく、案件ごとに技術が異なる'),
+                     ('自動化の専門人材が不足', '案件ごとに専門家を配置できない')],
+                    PRIMARY, LINE, 'ノーコード型SaaS', PRI_TEXT,
+                    ['実行基盤・運用負担の外部化', 'ブラックボックス型E2Eテストの汎用性', '導入・運用の専門知識への依存低減'],
+                    'パターンA：ノーコード型SaaSが適する条件',
+                    'CI/CD成熟度が低い、保守開発中心で技術スタックが多様、自動化の専門人材が不足という3つの状態から、ノーコード型SaaSが適することを、実行基盤・運用負担の外部化、ブラックボックス型E2Eテストの汎用性、専門知識への依存低減という理由とともに示す図')
+
+
+def fig_10c_pattern_playwright():
+    return _pattern('パターンB：Playwright＋AIエージェントが適する組織・案件',
+                    [('CI/CD基盤が共通化済み', '実行環境・標準設定・運用手順が整っている'),
+                     ('テストコードの高度な制御が必要', 'ノーコードでは表現しにくい検証がある'),
+                     ('基盤を保守する共通チームが存在', '案件横断で基盤保守を引き受けられる')],
+                    AI, AI_LINE, 'Playwright＋AIエージェント', AI_TEXT,
+                    ['既存CI/CD基盤の再利用', 'テストコードの実装自由度の高さ', '基盤保守コストの共通化'],
+                    'パターンB：Playwright＋AIが適する条件',
+                    'CI/CD基盤が共通化済み、テストコードの高度な制御が必要、基盤を保守する共通チームが存在という3つの状態から、PlaywrightとAIエージェントが適することを、既存基盤の再利用、実装自由度の高さ、基盤保守コストの共通化という理由とともに示す図')
+
+
+def fig_10d_short_and_long_term():
+    body = [title('短期はSaaSで効果を得て、中長期は共通基盤と運用能力を整える')]
+    body.append(rect(60, 100, 400, 120, PRIMARY, LINE, 2))
+    body.append(lines(260, 134, [('短期', 700, PRI_TEXT), ('SaaSで検証効率化の効果を獲得する', 700, T1), ('CI/CD基盤が未成熟な案件でも効果を得やすい', 400, T2)], 15, lh=24))
+    body.append(arrow(460, 160, 540, 160, dashed=True, color=INK))
+    body.append(rect(540, 100, 400, 120, AI, AI_LINE, 2))
+    body.append(lines(740, 134, [('中長期', 700, AI_TEXT), ('共通CI/CD基盤と運用能力を整備する', 700, T1), ('PlaywrightなどのOSSを活用できる案件を増やす', 400, T2)], 15, lh=24))
+    body.append(note(270, 'SaaSとOSSの排他的な選択ではなく、それぞれを適切な条件で利用できる状態を目指す'))
+    return svg(1000, 296, '短期と中長期の推進方針', body, desc='左の短期（SaaSで検証効率化の効果を獲得する）から、右の中長期（共通CI/CD基盤と運用能力を整備し、PlaywrightなどのOSSを活用できる案件を増やす）へ破線の矢印でつないだ図')
+
+
 FIGURES = {
     '01a-generation': fig_01a_generation,
     '01b-verification': fig_01b_verification,
@@ -635,8 +626,9 @@ FIGURES = {
     '08d-2022-decision-context': fig_08_2022_decision_context,
     '09-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
     '10a-tco-breakdown': fig_10a_tco_breakdown,
-    '10b-maturity-choice-map': fig_10_maturity_choice_map,
-    '11-bottleneck-shift': fig_11_bottleneck_shift,
+    '10b-pattern-saas': fig_10b_pattern_saas,
+    '10c-pattern-playwright': fig_10c_pattern_playwright,
+    '10d-short-and-long-term': fig_10d_short_and_long_term,
 }
 
 

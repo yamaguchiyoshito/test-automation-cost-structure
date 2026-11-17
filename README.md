@@ -1,12 +1,12 @@
 # 生成と検証から考えるテスト自動化の歴史とコスト構造
 
-**生成のコストが下がった今、検証のボトルネックは「自動化を維持する能力」と「正しさを判断する根拠」へ移っている。**
+**短期的にはSaaSによって検証効率化の効果を獲得し、中長期的には共通CI/CD基盤と運用能力を整備することが合理的である。**
 
 画面テスト（E2Eテスト）自動化の歴史を、生成と検証、TAS（Test Automation System）とSUT（System Under Test）の区別から読み直し、ノーコード型SaaSとAIエージェント＋Playwrightの総保有コストを比較する1本の記事。2022年にMagicPodによるE2Eテスト自動化を推進した理由と、AIエージェント登場後も同じ選択を推奨する理由を、組織のCI/CD成熟度と案件構成から説明する。
 
 [記事を読む](ARTICLE.md)
 
-本文は `ARTICLE.md` の1記事で、連載形式ではない。図版21点は `assets/` のSVGで、すべて `scripts/draw_figures.py` が生成する。
+本文は `ARTICLE.md` の1記事で、連載形式ではない。図版22点は `assets/` のSVGで、すべて `scripts/draw_figures.py` が生成する。
 
 ## ファイル構成
 
@@ -15,7 +15,7 @@ TAS_SUT/
 ├── README.md                  # リポジトリ案内（本ファイル）
 ├── ARTICLE.md                 # 記事本文（Markdown）。閲覧サイトでは index.html になる
 ├── site.json                  # サイト定義（題名、肩書き、要約文、版、日付、記事のパス）
-├── assets/                    # 図（SVG、21点）。ファイル名は章番号で始める
+├── assets/                    # 図（SVG、22点）。ファイル名は章番号で始める
 ├── site-src/styles.css        # 閲覧サイトのスタイル（sier-resource-series と共通）
 ├── scripts/
 │   ├── draw_figures.py        # 全図版を決定論的に生成（Python標準ライブラリのみ）
