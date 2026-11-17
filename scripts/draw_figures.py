@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全23点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全24点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -653,6 +653,24 @@ def fig_08c_maintenance_constraints():
     return svg(1000, 430, '保守開発の制約と適用しにくい施策', body, desc='左に保守開発の5つの制約（変更範囲の制限、既存アーキテクチャへの依存、プロセスやテスト基盤の変更制約、技術的負債、テスト容易性のための内部変更の難しさ）、右に適用しにくい施策（単体テストの自動化強化、依存関係の分離、テスト容易性を考慮したコード改善）を置き、矢印で結んだ図')
 
 
+# =====================================================================
+# §9.1 専門性の中身
+# =====================================================================
+def fig_09a_expertise_scope():
+    body = [title('専門家が解決してきたのは、スクリプト作成ではなく安定運用')]
+    body.append(rect(60, 110, 220, 200, NEUTRAL))
+    body.append(lines(170, 150, [('スクリプト作成', 700, T1), ('', 400, T2), ('テストを一度動かす', 400, T2), ('AIエージェントで', 400, T2), ('容易になった部分', 400, T2)], 15, lh=24))
+    body.append(text(320, 216, '≠', 28, 700, INK))
+    body.append(rect(360, 90, 580, 240, PRIMARY, LINE, 2))
+    body.append(text(650, 120, '専門家が長年解決してきたこと ＝ テストを安定して動かし続ける技術', 15, 700, PRI_TEXT))
+    items = ['テストの安定実行', 'テストデータの管理', '実行失敗時の原因切り分け', 'SUTの変更への追従',
+             'ブラウザや依存ライブラリの更新', '実行環境の管理', 'テスト結果と証跡の管理', '継続的な運用体制の整備']
+    for i, it in enumerate(items):
+        body.append(pill(384 + (i % 2) * 270, 140 + (i // 2) * 44, 256, 34, it, BG, 14, 400, T1))
+    body.append(note(376, '生成したテストコードが初回に動作しても、それだけでは継続運用できるTASを構築したとはいえない'))
+    return svg(1000, 402, 'スクリプト作成と、専門家が解決してきたこと', body, desc='左に小さくスクリプト作成（テストを一度動かす。AIエージェントで容易になった部分）、右に大きく専門家が長年解決してきたこと（テストの安定実行、テストデータの管理、実行失敗時の原因切り分け、SUTの変更への追従、ブラウザや依存ライブラリの更新、実行環境の管理、テスト結果と証跡の管理、継続的な運用体制の整備）を並べ、両者が等しくないことを示す図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
@@ -671,7 +689,8 @@ FIGURES = {
     '08c-maintenance-constraints': fig_08c_maintenance_constraints,
     '08d-stack-agnostic-e2e': fig_08b_stack_agnostic_e2e,
     '08e-2022-decision-context': fig_08_2022_decision_context,
-    '09-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
+    '09a-expertise-scope': fig_09a_expertise_scope,
+    '09b-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
     '10a-tco-breakdown': fig_10a_tco_breakdown,
     '10b-pattern-saas': fig_10b_pattern_saas,
     '10c-pattern-playwright': fig_10c_pattern_playwright,
