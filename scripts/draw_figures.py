@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全29点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全30点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -811,6 +811,27 @@ def fig_07b_ai_test_environment_connection():
     return svg(1000, 476, 'AIとテスト環境の接続', body, desc='中央のAIエージェントに対して、左からCIとの接続、右へテスト環境との接続（テストの打鍵のためのブラウザ・対象環境、結果確認のためのDB・バッチの実行結果をミドルウェア経由で参照）を描き、この2つの接続の構築と維持がTASの領域であることを示す図')
 
 
+# =====================================================================
+# §7 CI/CD成熟度が低い場合
+# =====================================================================
+def fig_07b_low_cicd_maturity():
+    body = [title('CI/CD成熟度が低いと、コード生成だけでは運用負荷は下がらない')]
+    body.append(text(60, 92, 'CI/CD成熟度が低い組織の状態', 14, 700, MUTED, 'start'))
+    for i, s in enumerate(['案件ごとにRunnerを立てる', '標準構成がない', 'パイプラインの失敗を診断できる人が限られる']):
+        y = 108 + i * 64
+        body.append(pill(60, y, 380, 40, s, NEUTRAL, 14, 400, T1))
+        body.append(arrow(440, y + 20, 520, 196, width=2))
+    body.append(rect(520, 100, 420, 192, ATTENTION, ATT_LINE, 2))
+    body.append(lines(730, 134, [('Playwright＋CI/CDの', 700, ATT_TEXT), ('構築・保守コストは高いまま', 700, ATT_TEXT)], 16, lh=22))
+    body.append(lines(540, 192, ['・Runnerの構築と保守が案件ごとに発生する', '・設定の整備と更新を各案件が抱える', '・失敗時の切り分けが特定の人に集中する'], 14, anchor='start', lh=24))
+    body.append(rect(520, 330, 280, 56, AI, AI_LINE, 2))
+    body.append(lines(660, 352, [('テストコードの自動生成', 700, AI_TEXT), ('AIエージェントで容易になった', 400, T2)], 14, lh=19))
+    body.append(path_arrow('M660 330 V300', (660, 298, 0, -1), color=AI_LINE, dashed=True, width=2))
+    body.append(text(816, 362, '下げるのは作成部分だけ', 14, 700, T1, 'start'))
+    body.append(note(438, 'これはPlaywright自体の欠点ではなく、開発基盤と組織能力によって自動化の経済性が左右される問題'))
+    return svg(1000, 464, 'CI/CD成熟度が低い場合の運用負荷', body, desc='案件ごとにRunnerを立てる、標準構成がない、パイプラインの失敗を診断できる人が限られる、という3つの状態からPlaywright＋CI/CDの構築・保守コストが高いままになることを示し、テストコードの自動生成が下げるのは作成部分だけであることを添えた図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
@@ -826,7 +847,8 @@ FIGURES = {
     '05c-cost-shift-by-era': fig_05_cost_shift_by_era,
     '06-responsibility-boundary': fig_06_responsibility_boundary,
     '07a-iceberg-of-operation': fig_07_iceberg_of_operation,
-    '07b-ai-test-environment-connection': fig_07b_ai_test_environment_connection,
+    '07b-low-cicd-maturity': fig_07b_low_cicd_maturity,
+    '07c-ai-test-environment-connection': fig_07b_ai_test_environment_connection,
     '08a-2022-saas-shift': fig_08a_2022_saas_shift,
     '08b-maintenance-share': fig_08a_maintenance_share,
     '08c-maintenance-constraints': fig_08c_maintenance_constraints,
