@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全30点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全31点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -832,6 +832,34 @@ def fig_07b_low_cicd_maturity():
     return svg(1000, 464, 'CI/CD成熟度が低い場合の運用負荷', body, desc='案件ごとにRunnerを立てる、標準構成がない、パイプラインの失敗を診断できる人が限られる、という3つの状態からPlaywright＋CI/CDの構築・保守コストが高いままになることを示し、テストコードの自動生成が下げるのは作成部分だけであることを添えた図')
 
 
+# =====================================================================
+# §8.4 SPAとJSPのテストの層
+# =====================================================================
+def fig_08e_spa_vs_jsp_test_layers():
+    body = [title('SPAはE2E以前の層を厚くできる。JSPはE2Eになりがち')]
+    # 左：SPA（Testing Trophy型の層）
+    body.append(rect(60, 90, 420, 280, PRIMARY, LINE, 2))
+    body.append(text(270, 122, 'SPA', 18, 700, PRI_TEXT))
+    body.append(text(270, 146, 'コンポーネント構成。フロントエンド単体で層を持てる', 14))
+    bars = [('E2E：Playwright', 200, 34, BG), ('結合：Storybook・Testing Library', 340, 50, POSITIVE), ('単体：Vitest', 260, 40, BG), ('静的：型・Lint', 180, 30, BG)]
+    y = 158
+    for label, w, h, fill in bars:
+        body.append(rect(270 - w / 2, y, w, h, fill, POS_LINE if fill == POSITIVE else STROKE, 2 if fill == POSITIVE else 1, rx=8))
+        body.append(text(270, y + h / 2 + 5, label, 14, 700 if fill == POSITIVE else 400, POS_TEXT if fill == POSITIVE else T1))
+        y += h + 6
+    body.append(text(270, 356, 'E2Eは主要シナリオに絞り、手前の層を厚くする', 14, 700, T1))
+    # 右：JSP
+    body.append(rect(520, 90, 420, 280, NEUTRAL))
+    body.append(text(730, 122, 'JSP', 18, 700, T1))
+    body.append(text(730, 146, 'サーバー側でHTMLを組み立てる。単体で描画できない', 14))
+    body.append(rect(540, 170, 380, 90, ATTENTION, ATT_LINE, 2))
+    body.append(lines(730, 204, [('打鍵によるビッグバン型E2E', 700, ATT_TEXT), ('サーバー・DB・認証を含めた全体を動かすしかない', 400, T2)], 15, lh=24))
+    body.append(lines(730, 292, ['コンポーネントの境界がない', '画面を単体で描画して検証する標準手段がない'], 14, 400, T2, lh=20))
+    body.append(text(730, 356, 'だから、E2Eテストの自動化そのものが方策になる', 14, 700, T1))
+    body.append(note(418, 'Testing Trophyは、結合（インテグレーション）の層に最も多くのテストを置く考え方（Kent C. Dodds）'))
+    return svg(1000, 444, 'SPAとJSPで持てるテストの層', body, desc='左にSPA（静的、単体のVitest、結合のStorybook・Testing Library、E2EのPlaywrightをTesting Trophy型に積み、結合の層を厚くする）、右にJSP（サーバー側でHTMLを組み立て単体で描画できないため、打鍵によるビッグバン型E2Eになりがちで、E2Eテストの自動化そのものが方策になる）を並べた図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
@@ -853,7 +881,8 @@ FIGURES = {
     '08b-maintenance-share': fig_08a_maintenance_share,
     '08c-maintenance-constraints': fig_08c_maintenance_constraints,
     '08d-stack-agnostic-e2e': fig_08b_stack_agnostic_e2e,
-    '08e-2022-decision-context': fig_08_2022_decision_context,
+    '08e-spa-vs-jsp-test-layers': fig_08e_spa_vs_jsp_test_layers,
+    '08f-2022-decision-context': fig_08_2022_decision_context,
     '09a-expertise-scope': fig_09a_expertise_scope,
     '09b-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
     '09c-automation-plus-cicd': fig_09c_automation_plus_cicd,
