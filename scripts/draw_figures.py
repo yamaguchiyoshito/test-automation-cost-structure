@@ -226,7 +226,7 @@ def fig_03_gui_test_timeline():
 # §4 TASとSUT（2点）
 # =====================================================================
 def fig_04a_tas_sut_systems():
-    body = [title('テスト自動化はもう一つのシステム（TAS）を生む')]
+    body = [title('テスト自動化はもう一つの保守対象のシステムを生む')]
     body.append(box(60, 100, 340, 104, PRIMARY, 'SUT（System Under Test）', 'テスト対象のシステム。業務アプリケーションなど', 17, 14))
     body.append(box(600, 100, 340, 104, PRIMARY, 'TAS（Test Automation System）', 'テストスクリプト、実行制御、結果取得など', 17, 14))
     body.append(arrow(400, 152, 600, 152, color=ATT_LINE))
