@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="518" viewBox="0 0 1000 518" role="img" aria-label="案件ごとの推進方針" aria-describedby="desc">
+<desc id="desc">SPAの案件、JSPの案件、CI/CD成熟度が低い保守開発案件、テスト情報をSaaSクラウドに載せる顧客許諾が得られない例外の4行について、それぞれの方針（E2E以前の確認の拡充とCI整備、SaaSの推奨、SaaSクラウドの利用、PlaywrightによるTAS構築）を矢印で対応づけた図</desc>
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">案件への当てはめ</text>
+<rect x="60" y="92" width="400" height="76" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="126" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">SPAの案件</text><text x="260" y="150" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">コンポーネント構成で単体の層を持てる</text>
+<path d="M460.0 130.0 L510.0 130.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="520.0,130.0 508.0,137.0 508.0,123.0" fill="#607a91"/>
+<rect x="520" y="92" width="420" height="76" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="1"/>
+<text x="730" y="116" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2b5f9e">Vitest・Storybook・Playwrightで</text><text x="730" y="136" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">E2E以前の確認を広げ、繰り返し安定して</text><text x="730" y="156" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">回せるCI環境を整える</text>
+<rect x="60" y="186" width="400" height="76" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="220" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">JSPの案件</text><text x="260" y="244" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">E2Eの比重が大きく、環境が整ってから着手</text>
+<path d="M460.0 224.0 L510.0 224.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="520.0,224.0 508.0,231.0 508.0,217.0" fill="#607a91"/>
+<rect x="520" y="186" width="420" height="76" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="1"/>
+<text x="730" y="210" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2b5f9e">SaaSの利用を推奨</text><text x="730" y="230" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">実行基盤を自前で構築する時間を</text><text x="730" y="250" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">取りにくいため</text>
+<rect x="60" y="280" width="400" height="76" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="314" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">CI/CD成熟度が低い保守開発案件</text><text x="260" y="338" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">共通の実行基盤・運用体制がない</text>
+<path d="M460.0 318.0 L510.0 318.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="520.0,318.0 508.0,325.0 508.0,311.0" fill="#607a91"/>
+<rect x="520" y="280" width="420" height="76" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="1"/>
+<text x="730" y="304" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2b5f9e">SaaSクラウドを使う</text><text x="730" y="324" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">実行基盤と運用をサービス側へ</text>
+<rect x="60" y="374" width="400" height="76" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="408" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">例外：テスト情報をSaaSクラウドに</text><text x="260" y="432" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">載せる顧客許諾がどうしても得られない</text>
+<path d="M460.0 412.0 L510.0 412.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="520.0,412.0 508.0,419.0 508.0,405.0" fill="#607a91"/>
+<rect x="520" y="374" width="420" height="76" rx="12" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<text x="730" y="398" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">PlaywrightでTASを構築する</text><text x="730" y="418" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">共通基盤・運用体制の整備と</text><text x="730" y="438" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">あわせて進める</text>
+<text x="500" y="492" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">SaaSとOSSは排他ではない。案件の状態に応じて使い分け、中長期で共通基盤を整える</text>
+</svg>

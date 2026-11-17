@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全22点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全23点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -606,6 +606,28 @@ def fig_10d_short_and_long_term():
     return svg(1000, 296, '短期と中長期の推進方針', body, desc='左の短期（SaaSで検証効率化の効果を獲得する）から、右の中長期（共通CI/CD基盤と運用能力を整備し、PlaywrightなどのOSSを活用できる案件を増やす）へ破線の矢印でつないだ図')
 
 
+def fig_10e_policy_routing():
+    body = [title('案件への当てはめ')]
+    rows = [
+        ('SPAの案件', 'コンポーネント構成で単体の層を持てる', PRIMARY, LINE, PRI_TEXT,
+         ['Vitest・Storybook・Playwrightで', 'E2E以前の確認を広げ、繰り返し安定して', '回せるCI環境を整える']),
+        ('JSPの案件', 'E2Eの比重が大きく、環境が整ってから着手', PRIMARY, LINE, PRI_TEXT,
+         ['SaaSの利用を推奨', '実行基盤を自前で構築する時間を', '取りにくいため']),
+        ('CI/CD成熟度が低い保守開発案件', '共通の実行基盤・運用体制がない', PRIMARY, LINE, PRI_TEXT,
+         ['SaaSクラウドを使う', '実行基盤と運用をサービス側へ', '']),
+        ('例外：テスト情報をSaaSクラウドに', '載せる顧客許諾がどうしても得られない', ATTENTION, ATT_LINE, ATT_TEXT,
+         ['PlaywrightでTASを構築する', '共通基盤・運用体制の整備と', 'あわせて進める']),
+    ]
+    for i, (h, s, fill, stroke, hf, lines_) in enumerate(rows):
+        y = 92 + i * 94
+        body.append(box(60, y, 400, 76, NEUTRAL, h, s, 16, 14))
+        body.append(arrow(460, y + 38, 520, y + 38, width=2))
+        body.append(rect(520, y, 420, 76, fill, stroke, 2 if fill == ATTENTION else 1))
+        body.append(lines(730, y + 24, [(lines_[0], 700, hf)] + [(t, 400, T2) for t in lines_[1:] if t], 14, lh=20))
+    body.append(note(492, 'SaaSとOSSは排他ではない。案件の状態に応じて使い分け、中長期で共通基盤を整える'))
+    return svg(1000, 518, '案件ごとの推進方針', body, desc='SPAの案件、JSPの案件、CI/CD成熟度が低い保守開発案件、テスト情報をSaaSクラウドに載せる顧客許諾が得られない例外の4行について、それぞれの方針（E2E以前の確認の拡充とCI整備、SaaSの推奨、SaaSクラウドの利用、PlaywrightによるTAS構築）を矢印で対応づけた図')
+
+
 FIGURES = {
     '01a-generation': fig_01a_generation,
     '01b-verification': fig_01b_verification,
@@ -629,6 +651,7 @@ FIGURES = {
     '10b-pattern-saas': fig_10b_pattern_saas,
     '10c-pattern-playwright': fig_10c_pattern_playwright,
     '10d-short-and-long-term': fig_10d_short_and_long_term,
+    '10e-policy-routing': fig_10e_policy_routing,
 }
 
 
