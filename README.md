@@ -25,6 +25,7 @@ TAS_SUT/
 │   ├── check_figures.py       # SVGの整形性・最小フォント・配色・コントラスト・箱からのはみ出し・文字重なりを検査
 │   ├── build.py               # ARTICLE.md → _site/（HTML）
 │   ├── build_slides.py        # slides/deck.md → _site/slides/（スライドとトークスクリプト）
+│   ├── build_single.py        # _site/index.html → _site/offline.html（図を埋め込んだオフライン閲覧用の単一HTML）
 │   ├── check_slides.py        # スライド規約（見出し・図・原稿の文字数・時間）を検査
 │   └── check_html.py          # _site/ のリンク・図版数・alt・スクリプト不在（スライドのキー操作用を除く）を検査
 ├── .github/workflows/pages.yml# mainへのpushでビルドしGitHub Pagesへ公開
@@ -46,11 +47,14 @@ python3 scripts/draw_figures.py    # 図版を再生成（図を変えたとき�
 python3 scripts/check_figures.py   # 図版の検査
 python3 scripts/build.py
 python3 scripts/build_slides.py        # 登壇用スライドとトークスクリプト
+python3 scripts/build_single.py        # オフライン閲覧用の単一HTML（_site/offline.html）
 python3 scripts/check_slides.py
 python3 scripts/check_html.py
 ```
 
 `_site/index.html` をブラウザで開く。目次ドロワー（記事の章見出し）、相対リンクの図をローカルで表示する。`_site/slides/index.html` がスライド、`_site/slides/script.html` がトークスクリプトである。
+
+`_site/offline.html` は記事をファイル1つにまとめたもので、図を data URI として埋め込み、インターネット接続なしでも開ける（公開サイトでは目次ドロワー下部の「単一HTML（オフライン閲覧用）」からダウンロードできる）。スライドへのリンクだけは公開URLを指す。
 
 ## 登壇資料
 
@@ -66,7 +70,7 @@ python3 scripts/check_html.py
 2. Settings → Pages → Build and deployment の Source を **GitHub Actions** にする。
 3. `main` へのpush（または Actions の「Build and publish reader」を手動実行）で `_site/` がビルドされ、公開される。URLはActionsの成功したジョブから取得する。
 
-ワークフローはPandoc 3.7.0.2を固定して取得し、`scripts/check_figures.py`、`scripts/build.py`、`scripts/build_slides.py`、`scripts/check_slides.py`、`scripts/check_html.py` を順に実行してから公開する。検証に失敗した場合は公開しない。Markdown原本・スクリプト・`claudedocs/` はサイトへ配置しない。
+ワークフローはPandoc 3.7.0.2を固定して取得し、`scripts/check_figures.py`、`scripts/build.py`、`scripts/build_slides.py`、`scripts/build_single.py`、`scripts/check_slides.py`、`scripts/check_html.py` を順に実行してから公開する。検証に失敗した場合は公開しない。Markdown原本・スクリプト・`claudedocs/` はサイトへ配置しない。
 
 ## 編集ルール
 

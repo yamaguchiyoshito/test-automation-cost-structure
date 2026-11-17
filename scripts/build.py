@@ -83,7 +83,7 @@ def wrap_page(title: str, body: str, site: dict, css: str) -> str:
             ref_anchor = ident
             continue
         links.append(f'<a class="chapter-link" href="#{ident}"><span>{i:02d}</span>{html.escape(label)}</a>')
-    ref_link = (f'<a href="#{ref_anchor}">参考文献・注記</a>' if ref_anchor else '') + '<br><a href="slides/index.html">登壇資料（スライド）</a>'
+    ref_link = (f'<a href="#{ref_anchor}">参考文献・注記</a>' if ref_anchor else '') + '<br><a href="slides/index.html">登壇資料（スライド）</a>' + '<br><a href="offline.html" download>単一HTML（オフライン閲覧用）</a>'
     tagline_html = f'<p>{html.escape(site["tagline"])}</p>' if site.get('tagline') else ''
     footer_label = f'{html.escape(site.get("date", ""))}時点 / 第{str(site.get("version", "1")).split(".")[0]}版'
     return f'''<!doctype html>
