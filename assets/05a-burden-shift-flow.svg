@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="438" viewBox="0 0 1000 438" role="img" aria-label="自社で担う負担の移り変わり" aria-describedby="desc">
+<desc id="desc">Seleniumの初期、Selenium IDE、クラウド実行環境、ノーコード型SaaSの4段階について、上段に減った負担（作成負担の軽減、実行環境の一部の外部化、作成・実行・証跡・修復の一体提供）、下段に残った負担（画面変更に伴う修正、作成・期待結果・業務データ、期待結果・データ・十分性の判断）を並べた流れ図</desc>
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">テストを動かし続ける仕組みを、自社で作る負担はどう減ったか</text>
+<text x="60" y="104" text-anchor="start" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f6b45">減った負担</text>
+<text x="60" y="280" text-anchor="start" font-family="sans-serif" font-size="14" font-weight="700" fill="#9c3f2a">残った負担</text>
+<rect x="60" y="120" width="214" height="110" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="167" y="148" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">Seleniumの初期</text>
+<text x="167" y="174" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">操作スクリプトも実行環境も</text><text x="167" y="193" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">自社で準備</text>
+<rect x="60" y="296" width="214" height="64" rx="12" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/>
+<text x="167" y="320" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">（出発点）</text>
+<path d="M274.0 175.0 L284.0 175.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="294.0,175.0 282.0,182.0 282.0,168.0" fill="#607a91"/>
+<rect x="294" y="120" width="214" height="110" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="401" y="148" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">Selenium IDE</text>
+<text x="401" y="174" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">テストの作成負担を軽減</text>
+<rect x="294" y="296" width="214" height="64" rx="12" fill="#f7e9d4" stroke="#c0604a" stroke-width="1"/>
+<text x="401" y="320" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#9c3f2a">画面変更に伴う修正</text>
+<path d="M508.0 175.0 L518.0 175.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="528.0,175.0 516.0,182.0 516.0,168.0" fill="#607a91"/>
+<rect x="528" y="120" width="214" height="110" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="635" y="148" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">クラウド実行環境</text>
+<text x="635" y="174" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">ブラウザ・OSの用意と維持の</text><text x="635" y="193" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">一部を提供者へ</text>
+<rect x="528" y="296" width="214" height="64" rx="12" fill="#f7e9d4" stroke="#c0604a" stroke-width="1"/>
+<text x="635" y="320" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#9c3f2a">テスト作成・期待結果・</text><text x="635" y="339" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#9c3f2a">業務データの準備</text>
+<path d="M742.0 175.0 L752.0 175.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="762.0,175.0 750.0,182.0 750.0,168.0" fill="#607a91"/>
+<rect x="762" y="120" width="214" height="110" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="869" y="148" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">ノーコード型SaaS</text>
+<text x="869" y="174" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">作成・実行スケジュール・</text><text x="869" y="193" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">結果と証跡・修復を一体提供</text>
+<rect x="762" y="296" width="214" height="64" rx="12" fill="#f7e9d4" stroke="#c0604a" stroke-width="1"/>
+<text x="869" y="320" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#9c3f2a">期待結果・データ・</text><text x="869" y="339" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#9c3f2a">十分性の判断</text>
+<text x="500" y="412" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">ノーコード型SaaSにより、テストを動かし続けるための仕組みそのものを自社で作る負担を減らせるようになった</text>
+</svg>

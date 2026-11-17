@@ -406,35 +406,24 @@ def fig_01a_generation_and_verification():
 
 
 # =====================================================================
-# §4 SUTとTAS（定義の2点）
+# §4 SUTとTAS（定義）
 # =====================================================================
-def fig_04a_sut():
-    body = [title('SUT：テスト対象のシステム')]
-    body.append(box(60, 130, 170, 70, NEUTRAL, '利用者', '操作する', 16, 14))
-    body.append(arrow(230, 165, 330, 165))
-    body.append(text(280, 150, '操作', 14, 700, T1))
-    body.append(rect(330, 90, 610, 150, PRIMARY, LINE, 2))
-    body.append(text(635, 120, 'SUT（System Under Test）', 18, 700, PRI_TEXT))
-    body.append(text(635, 142, '業務アプリケーションなど、テストの対象そのもの', 14))
-    for i, label in enumerate(['画面', 'API', '業務ロジック', 'データ']):
-        body.append(pill(360 + i * 140, 170, 126, 34, label, BG, 14, 400, T1))
-    body.append(note(300, 'SUTは機能追加や画面変更で変わり続ける。その変更はテスト自動化の側にも影響する'))
-    return svg(1000, 326, 'SUTの構成', body, desc='利用者が操作するSUT（テスト対象のシステム）を1つの箱で示し、中に画面、API、業務ロジック、データを並べた図')
-
-
-def fig_04b_tas():
-    body = [title('TAS：テストを自動実行・制御するシステム')]
-    body.append(rect(60, 90, 610, 150, PRIMARY, LINE, 2))
-    body.append(text(365, 120, 'TAS（Test Automation System）', 18, 700, PRI_TEXT))
-    body.append(text(365, 142, '利用者の代わりにSUTを操作し、結果を集める', 14))
-    for i, label in enumerate(['テストスクリプト', '実行制御', '結果取得・証跡']):
-        body.append(pill(90 + i * 190, 170, 170, 34, label, BG, 14, 400, T1))
-    body.append(arrow(670, 165, 770, 165))
-    body.append(text(720, 150, 'テスト実行', 14, 700, T1))
-    body.append(box(770, 130, 170, 70, NEUTRAL, 'SUT', 'テスト対象', 16, 14))
-    body.append(text(365, 276, '動かし続けるために要るもの：実行環境・ブラウザ・テストデータ・認証情報', 14, 700, T1))
-    body.append(note(316, 'TASは、テストを自動化すると新たに生まれるもう一つのシステムである'))
-    return svg(1000, 342, 'TASの構成', body, desc='TAS（テスト自動実行システム）を1つの箱で示し、中にテストスクリプト、実行制御、結果取得・証跡を並べ、右のSUTへテスト実行の矢印を伸ばした図。動かし続けるには実行環境、ブラウザ、テストデータ、認証情報が要ることを添える')
+def fig_04a_sut_and_tas():
+    body = [title('SUTはテスト対象、TASはテストを自動実行するシステム')]
+    panels = [
+        (60, 'SUT（System Under Test）', 'テスト対象のシステム。業務アプリケーションなど', ['画面', 'API', '業務ロジック', 'データ']),
+        (520, 'TAS（Test Automation System）', 'テストを自動実行・制御するシステム', ['テストスクリプト', '実行制御', '結果取得・証跡', '実行環境・テストデータ']),
+    ]
+    for x, head, sub, items in panels:
+        body.append(rect(x, 90, 420, 200, PRIMARY, LINE, 2))
+        body.append(text(x + 210, 124, head, 17, 700, PRI_TEXT))
+        body.append(text(x + 210, 148, sub, 14))
+        for i, it in enumerate(items):
+            body.append(pill(x + 24 + (i % 2) * 190, 170 + (i // 2) * 46, 182, 34, it, BG, 14, 400, T1))
+    body.append(arrow(520, 190, 480, 190, width=3))
+    body.append(text(500, 172, 'テスト実行', 14, 700, T1))
+    body.append(note(342, 'SUTは機能追加や画面変更で変わり続け、TASはその変更に追従する。TASはテストを自動化すると新たに生まれるもう一つのシステム'))
+    return svg(1000, 390, 'SUTとTAS', body, desc='左にSUT（テスト対象のシステム。画面、API、業務ロジック、データ）、右にTAS（テストを自動実行・制御するシステム。テストスクリプト、実行制御、結果取得・証跡、実行環境・テストデータ）を並べ、TASからSUTへテスト実行の矢印を引いた図')
 
 
 # =====================================================================
@@ -619,17 +608,44 @@ def fig_10e_policy_routing():
     return svg(1000, 518, '案件ごとの推進方針', body, desc='SPAの案件、JSPの案件、CI/CD成熟度が低い保守開発案件、テスト情報をSaaSクラウドに載せる顧客許諾が得られない例外の4行について、それぞれの方針（E2E以前の確認の拡充とCI整備、SaaSの推奨、SaaSクラウドの利用、PlaywrightによるTAS構築）を矢印で対応づけた図')
 
 
+# =====================================================================
+# §5 負担の移り変わり（流れ）
+# =====================================================================
+def fig_05a_burden_shift_flow():
+    body = [title('テストを動かし続ける仕組みを、自社で作る負担はどう減ったか')]
+    steps = [
+        ('Seleniumの初期', ['操作スクリプトも実行環境も', '自社で準備'], ['（出発点）']),
+        ('Selenium IDE', ['テストの作成負担を軽減'], ['画面変更に伴う修正']),
+        ('クラウド実行環境', ['ブラウザ・OSの用意と維持の', '一部を提供者へ'], ['テスト作成・期待結果・', '業務データの準備']),
+        ('ノーコード型SaaS', ['作成・実行スケジュール・', '結果と証跡・修復を一体提供'], ['期待結果・データ・', '十分性の判断']),
+    ]
+    bw, gap, y = 214, 20, 120
+    body.append(text(60, 104, '減った負担', 14, 700, POS_TEXT, 'start'))
+    body.append(text(60, 280, '残った負担', 14, 700, ATT_TEXT, 'start'))
+    for i, (name, reduced, remain) in enumerate(steps):
+        x = 60 + i * (bw + gap)
+        body.append(rect(x, y, bw, 110, NEUTRAL))
+        body.append(text(x + bw / 2, y + 28, name, 16, 700, T1))
+        body.append(lines(x + bw / 2, y + 54, reduced, 14, 400, T2, lh=19))
+        body.append(rect(x, 296, bw, 64, ATTENTION if i else BG, ATT_LINE if i else STROKE, 1))
+        body.append(lines(x + bw / 2, 320, remain, 14, 400, ATT_TEXT if i else MUTED, lh=19))
+        if i < 3:
+            body.append(arrow(x + bw, y + 55, x + bw + gap, y + 55, width=2))
+    body.append(note(412, 'ノーコード型SaaSにより、テストを動かし続けるための仕組みそのものを自社で作る負担を減らせるようになった'))
+    return svg(1000, 438, '自社で担う負担の移り変わり', body, desc='Seleniumの初期、Selenium IDE、クラウド実行環境、ノーコード型SaaSの4段階について、上段に減った負担（作成負担の軽減、実行環境の一部の外部化、作成・実行・証跡・修復の一体提供）、下段に残った負担（画面変更に伴う修正、作成・期待結果・業務データ、期待結果・データ・十分性の判断）を並べた流れ図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
     '02a-static-vs-dynamic': fig_02a_static_vs_dynamic,
     '02b-dynamic-verification-activities': fig_02_dynamic_verification_activities,
     '03-gui-test-timeline': fig_03_gui_test_timeline,
-    '04a-sut': fig_04a_sut,
-    '04b-tas': fig_04b_tas,
-    '04c-tas-sut-systems': fig_04a_tas_sut_systems,
-    '04d-exchange-balance': fig_04b_exchange_balance,
-    '05-cost-shift-by-era': fig_05_cost_shift_by_era,
+    '04a-sut-and-tas': fig_04a_sut_and_tas,
+    '04b-tas-sut-systems': fig_04a_tas_sut_systems,
+    '04c-exchange-balance': fig_04b_exchange_balance,
+    '05a-burden-shift-flow': fig_05a_burden_shift_flow,
+    '05b-cost-shift-by-era': fig_05_cost_shift_by_era,
     '06-responsibility-boundary': fig_06_responsibility_boundary,
     '07-iceberg-of-operation': fig_07_iceberg_of_operation,
     '08a-2022-saas-shift': fig_08a_2022_saas_shift,
