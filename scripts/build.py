@@ -84,6 +84,7 @@ def wrap_page(title: str, body: str, site: dict, css: str) -> str:
             continue
         links.append(f'<a class="chapter-link" href="#{ident}"><span>{i:02d}</span>{html.escape(label)}</a>')
     ref_link = f'<a href="#{ref_anchor}">参考文献・注記</a>' if ref_anchor else ''
+    tagline_html = f'<p>{html.escape(site["tagline"])}</p>' if site.get('tagline') else ''
     footer_label = f'{html.escape(site.get("date", ""))}時点 / 第{str(site.get("version", "1")).split(".")[0]}版'
     return f'''<!doctype html>
 <html lang="{html.escape(site.get("language", "ja"))}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -93,7 +94,7 @@ def wrap_page(title: str, body: str, site: dict, css: str) -> str:
 <input type="checkbox" id="toc-state" class="toc-state" aria-label="目次を開く">
 <header class="topbar"><a href="index.html" class="brand">{html.escape(site["title"])}<span>{html.escape(site.get("eyebrow", ""))}</span></a><div class="topbar-actions"><label class="toc-toggle" for="toc-state"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>目次</label></div></header>
 <label class="toc-backdrop" for="toc-state" aria-hidden="true"></label>
-<aside class="toc-drawer" aria-label="記事の目次"><div class="toc-drawer-head"><strong>記事の目次</strong><label class="toc-close" for="toc-state" title="閉じる"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></label></div><nav aria-label="記事の目次">{''.join(links)}</nav><div class="toc-drawer-foot"><p>{html.escape(site.get("tagline", ""))}</p>{ref_link}</div></aside>
+<aside class="toc-drawer" aria-label="記事の目次"><div class="toc-drawer-head"><strong>記事の目次</strong><label class="toc-close" for="toc-state" title="閉じる"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></label></div><nav aria-label="記事の目次">{''.join(links)}</nav><div class="toc-drawer-foot">{tagline_html}{ref_link}</div></aside>
 <div class="layout"><main id="main" tabindex="-1"><article>{body}</article><footer>{footer_label} — 本文はMarkdown、図はSVG。図の帯や配置は概念的な比率であり、実測値ではない。</footer></main></div></body></html>'''
 
 

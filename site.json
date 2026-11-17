@@ -1,7 +1,6 @@
 {
   "title": "生成と検証から考えるテスト自動化の歴史とコスト構造",
   "eyebrow": "GENERATION / VERIFICATION",
-  "tagline": "短期的にはSaaSによって検証効率化の効果を獲得し、中長期的には共通CI/CD基盤と運用能力を整備することが合理的である。",
   "language": "ja",
   "version": "1.0.0",
   "date": "2026年11月17日",

@@ -14,7 +14,7 @@
 TAS_SUT/
 ├── README.md                  # リポジトリ案内（本ファイル）
 ├── ARTICLE.md                 # 記事本文（Markdown）。閲覧サイトでは index.html になる
-├── site.json                  # サイト定義（題名、肩書き、要約文、版、日付、記事のパス）
+├── site.json                  # サイト定義（題名、肩書き、版、日付、記事のパス）
 ├── assets/                    # 図（SVG、28点）。ファイル名は章番号で始める
 ├── site-src/styles.css        # 閲覧サイトのスタイル（sier-resource-series と共通）
 ├── scripts/
