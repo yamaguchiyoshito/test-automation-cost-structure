@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="316" viewBox="0 0 1000 316" role="img" aria-label="左の「それ以前」（案件ごとに自動化環境を構築し投資効果を個別に検証）から、中央の「2022年の転換」（テスト自動化SaaSの利用と横展開）を経て、右の「安定したコスト効果」（実行基盤と運用の外部化、先行事例による見積り、技術スタックを問わない適用）へ至る3段の図">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="316" viewBox="0 0 1000 316" role="img" aria-label="2022年の転換とその効果" aria-describedby="desc">
+<desc id="desc">左の「それ以前」（案件ごとに自動化環境を構築し投資効果を個別に検証）から、中央の「2022年の転換」（テスト自動化SaaSの利用と横展開）を経て、右の「安定したコスト効果」（実行基盤と運用の外部化、先行事例による見積り、技術スタックを問わない適用）へ至る3段の図</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">2022年の転換：テスト自動化SaaSの利用で安定したコスト効果を創出</text>
 <rect x="60" y="100" width="260" height="130" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>

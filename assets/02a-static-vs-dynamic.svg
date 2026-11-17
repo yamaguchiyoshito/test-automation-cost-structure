@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="346" viewBox="0 0 1000 346" role="img" aria-label="左に実行を伴わない静的検証（要件・設計のレビュー、型チェック、静的解析、コードレビュー）、右に実行による動的検証（単体テスト、APIテスト、画面テスト、性能テスト）を並べ、動的検証には実行環境、テストデータ、操作手順、期待結果、証跡が必要になることを示す図">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="346" viewBox="0 0 1000 346" role="img" aria-label="静的検証と動的検証の区分" aria-describedby="desc">
+<desc id="desc">左に実行を伴わない静的検証（要件・設計のレビュー、型チェック、静的解析、コードレビュー）、右に実行による動的検証（単体テスト、APIテスト、画面テスト、性能テスト）を並べ、動的検証には実行環境、テストデータ、操作手順、期待結果、証跡が必要になることを示す図</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">検証は、動かさない検証と動かす検証に分かれる</text>
 <rect x="60" y="90" width="410" height="160" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>

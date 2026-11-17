@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="272" viewBox="0 0 1000 272" role="img" aria-label="横1本の帯を保守開発約8割と新規開発に分け、保守開発では内部構造の変更が難しいことを示す図">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="272" viewBox="0 0 1000 272" role="img" aria-label="保守開発と新規開発の比率" aria-describedby="desc">
+<desc id="desc">横1本の帯を保守開発約8割と新規開発に分け、保守開発では内部構造の変更が難しいことを示す図</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">案件の約8割は保守開発</text>
 <rect x="60" y="110" width="704" height="60" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>

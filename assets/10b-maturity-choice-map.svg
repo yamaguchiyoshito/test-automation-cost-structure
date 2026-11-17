@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="598" viewBox="0 0 1000 598" role="img" aria-label="横軸をCI/CD成熟度、縦軸を基盤保守の共通チームの有無とした2軸のマップ。左下にノーコード型SaaSが適する領域、右上にPlaywrightとAIエージェントが適する領域を置き、短期はSaaSで効果を得て、中長期は共通基盤を整備して右上へ移る方針を破線の矢印で示す">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="598" viewBox="0 0 1000 598" role="img" aria-label="成熟度による選択肢の地図" aria-describedby="desc">
+<desc id="desc">横軸をCI/CD成熟度、縦軸を基盤保守の共通チームの有無とした2軸のマップ。左下にノーコード型SaaSが適する領域、右上にPlaywrightとAIエージェントが適する領域を置き、短期はSaaSで効果を得て、中長期は共通基盤を整備して右上へ移る方針を破線の矢印で示す</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">組織の成熟度で選択肢は変わる。短期と中長期を分けて考える</text>
 <rect x="170" y="90" width="740" height="390" rx="0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/>

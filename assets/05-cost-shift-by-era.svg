@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="590" viewBox="0 0 1000 590" role="img" aria-label="テスト設計、コード作成、実行環境、定期実行・証跡、修復、期待結果・データの6要素について、自前Selenium、クラウド実行環境、ノーコード型SaaS、AIエージェントとPlaywrightの4時代で、自社で担うか、支援で軽減されるか、提供者が担うか、利用者側に残るかを塗り分けた格子図">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="590" viewBox="0 0 1000 590" role="img" aria-label="時代ごとのTASコスト要素の担い手" aria-describedby="desc">
+<desc id="desc">テスト設計、コード作成、実行環境、定期実行・証跡、修復、期待結果・データの6要素について、自前Selenium、クラウド実行環境、ノーコード型SaaS、AIエージェントとPlaywrightの4時代で、自社で担うか、支援で軽減されるか、提供者が担うか、利用者側に残るかを塗り分けた格子図</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">TASのコスト要素は、時代ごとにどこへ移ったか</text>
 <text x="389" y="104" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">自前の</text><text x="389" y="124" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">Selenium</text><text x="389" y="144" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">2004年〜</text>

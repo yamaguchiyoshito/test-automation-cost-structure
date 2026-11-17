@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """assets/*.svg の機械検証。問題があれば exit 1。
 
-- XML整形性、幅1000、role="img" と aria-label
+- XML整形性、幅1000、role="img"、aria-label（キャプション、30字以内）、<desc>（詳細説明）
 - 最小フォント14px、テキストのviewBox内収まり（概算幅）、テキスト同士の重なり（概算）
 - 配色：許可色（draw_figures.PALETTE）以外を使っていない、地の塗りが1図で4種以内
 - 視認性：各テキストの文字色と、その文字を内包する地（最後に描かれた rect / polygon、なければ背景）とのコントラスト比が4.5以上
@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from draw_figures import BG, PALETTE  # noqa: E402
+from draw_figures import BG, PALETTE, CAPTION_MAX  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets'
@@ -122,6 +122,10 @@ def main() -> int:
             errors.append(f'{path.name}: width is {root.get("width")}, expected 1000')
         if root.get('role') != 'img' or not root.get('aria-label'):
             errors.append(f'{path.name}: missing role="img" or aria-label')
+        elif len(root.get('aria-label')) > CAPTION_MAX:
+            errors.append(f'{path.name}: caption longer than {CAPTION_MAX}: "{root.get("aria-label")}"')
+        if root.find(NS + 'desc') is None:
+            errors.append(f'{path.name}: missing <desc> (detailed description)')
         # 配色
         used = set(re.findall(r'#[0-9a-fA-F]{3,6}\b', raw))
         for c in sorted(used - PALETTE):

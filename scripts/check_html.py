@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """生成した _site/ を検査する。相対リンクと画像の実在、ページ内アンカーの実在、外部スクリプト不在、
-記事中の図版参照がすべて配置されていること、原稿に数式があればMathMLの存在を確認する。"""
+記事中の図版参照がすべて配置されていること、alt が30字以内であること、原稿に数式があればMathMLの存在を確認する。"""
 from __future__ import annotations
 from html.parser import HTMLParser
 import json
@@ -10,6 +10,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / '_site'
+CAPTION_MAX = 30  # 図のキャプション（alt）の最大文字数。scripts/draw_figures.py と合わせる
 
 
 class Collector(HTMLParser):
@@ -31,6 +32,8 @@ class Collector(HTMLParser):
             self.images += 1
             if not a.get('alt'):
                 self.refs.append(('alt', a.get('src') or ''))
+            elif len(a['alt']) > CAPTION_MAX:
+                self.refs.append(('alt-long', a['alt']))
         if a.get('id'):
             self.ids.add(a['id'])
         for attr in ('href', 'src'):
@@ -59,6 +62,9 @@ def main() -> int:
         for attr, ref in parser.refs:
             if attr == 'alt':
                 errors.append(f'{page.relative_to(SITE)}: alt の無い画像 {ref}')
+                continue
+            if attr == 'alt-long':
+                errors.append(f'{page.relative_to(SITE)}: alt が {CAPTION_MAX} 字を超える: "{ref}"')
                 continue
             parsed = urlsplit(ref)
             if parsed.scheme or ref.startswith(('#', '//', 'data:')):

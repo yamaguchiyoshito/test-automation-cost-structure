@@ -60,5 +60,6 @@ python3 scripts/check_html.py
 3. `assets/` の図はすべて `scripts/draw_figures.py` が生成する。SVGを手で編集せず、スクリプトを直して再生成する。文字は14px以上、注記は16px（本文では720pxに縮小表示される）。
 4. 図は定性的な配置と塗り分けで示し、根拠のない数値を描かない。概念的な比率を使う図は、その旨を図中に明記する。
 5. 色は役割で固定する。NEUTRAL（区別しない基本要素・従来・自社負担）、PRIMARY（主題のシステム・領域）、AI（生成AI・エージェントの支援）、POSITIVE（削減・移転・成功）、ATTENTION（残る負担・注意・ボトルネック、1図に1系統）、INK（結論は色ではなく太字）。1図の地の塗りは4種以内、文字と地色のコントラスト比は4.5以上とし、`scripts/check_figures.py` が機械的に検査する。色だけで状態を伝える図には凡例と文字ラベルを併記する。実線は流れ、破線は遷移・方針、2pxの細線は注釈の引き出し線に使う。
-6. 引用・参考資料は記事末尾の「参考資料」で確認する。
-7. 題名・日付・版を変えたときは `site.json` と本READMEを更新し、`scripts/build.py` と `scripts/check_html.py` を通す。
+6. 図のキャプション（Markdown の alt ＝ SVG の aria-label）は、図の主題を表す名詞句で全角30字以内とし、要素の列挙や「〜を示す図」で終える書き方はしない。図の内容の詳しい説明は SVG 内の `<desc>` に書く。長さは `scripts/check_figures.py` と `scripts/check_html.py` が機械的に検査する。
+7. 引用・参考資料は記事末尾の「参考資料」で確認する。
+8. 題名・日付・版を変えたときは `site.json` と本READMEを更新し、`scripts/build.py` と `scripts/check_html.py` を通す。

@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="326" viewBox="0 0 1000 326" role="img" aria-label="要求と成果物の両方を検証で突き合わせ、満たせば次の工程へ、満たさなければ手戻りになる流れを示す図">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="326" viewBox="0 0 1000 326" role="img" aria-label="検証の工程" aria-describedby="desc">
+<desc id="desc">要求と成果物の両方を検証で突き合わせ、満たせば次の工程へ、満たさなければ手戻りになる流れを示す図</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">検証：成果物が要求を満たすかを確かめる作業</text>
 <rect x="60" y="90" width="240" height="76" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/><text x="180" y="124" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#223e53">要求</text><text x="180" y="148" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">満たすべきこと</text>

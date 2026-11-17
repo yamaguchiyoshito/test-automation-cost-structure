@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="342" viewBox="0 0 1000 342" role="img" aria-label="TAS（テスト自動実行システム）を1つの箱で示し、中にテストスクリプト、実行制御、結果取得・証跡を並べ、右のSUTへテスト実行の矢印を伸ばした図。動かし続けるには実行環境、ブラウザ、テストデータ、認証情報が要ることを添える">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="342" viewBox="0 0 1000 342" role="img" aria-label="TASの構成" aria-describedby="desc">
+<desc id="desc">TAS（テスト自動実行システム）を1つの箱で示し、中にテストスクリプト、実行制御、結果取得・証跡を並べ、右のSUTへテスト実行の矢印を伸ばした図。動かし続けるには実行環境、ブラウザ、テストデータ、認証情報が要ることを添える</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">TAS：テストを自動実行・制御するシステム</text>
 <rect x="60" y="90" width="610" height="150" rx="12" fill="#e1edf8" stroke="#607a91" stroke-width="2"/>

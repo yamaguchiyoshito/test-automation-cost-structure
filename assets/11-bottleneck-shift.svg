@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="550" viewBox="0 0 1000 550" role="img" aria-label="左の従来のボトルネックである単純な実行作業から、右の二層の課題、第一層の自動化を維持する能力と、第二層の正しさを判断する根拠へ移ったことを示す図。第二層には要件・設計・リスク、テスト観点、期待結果、証跡をつなぐ追跡の鎖と、SUTの現状だけを根拠にすると不具合を固定するという注意を含む">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="550" viewBox="0 0 1000 550" role="img" aria-label="検証のボトルネックの移動" aria-describedby="desc">
+<desc id="desc">左の従来のボトルネックである単純な実行作業から、右の二層の課題、第一層の自動化を維持する能力と、第二層の正しさを判断する根拠へ移ったことを示す図。第二層には要件・設計・リスク、テスト観点、期待結果、証跡をつなぐ追跡の鎖と、SUTの現状だけを根拠にすると不具合を固定するという注意を含む</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">検証のボトルネックは、実行作業から二つの課題へ移った</text>
 <rect x="60" y="150" width="220" height="180" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
