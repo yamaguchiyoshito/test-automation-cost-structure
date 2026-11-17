@@ -5,6 +5,7 @@
 - 最小フォント14px、テキストのviewBox内収まり（概算幅）、テキスト同士の重なり（概算）
 - 配色：許可色（draw_figures.PALETTE）以外を使っていない、地の塗りが1図で4種以内
 - 視認性：各テキストの文字色と、その文字を内包する地（最後に描かれた rect / polygon、なければ背景）とのコントラスト比が4.5以上
+- 重なり：テキストが、その中心を含まない矩形に重ならない
 - 収まり：テキストの推定幅（太字・半角を保守的に見積もる）が、中心点を内包する最小の図形の内側に余白 PAD 以上を残して収まる
 """
 from __future__ import annotations
@@ -168,6 +169,14 @@ def main() -> int:
                 boxes.append((bb, s))
                 cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2
                 holder = container_of(shapes, cx, cy)
+                for kind, geom, f in shapes:
+                    if kind != 'rect' or contains(kind, geom, cx, cy):
+                        continue
+                    rx, ry, rw, rh = geom
+                    ox = min(bb[2], rx + rw) - max(bb[0], rx); oy = min(bb[3], ry + rh) - max(bb[1], ry)
+                    if ox > 2 and oy > 2:
+                        errors.append(f'{path.name}: text overlaps a neighbouring rect ({rx:.0f}..{rx + rw:.0f}): "{s}"')
+                        break
                 if holder and not fits_inside(*holder, bb):
                     errors.append(f'{path.name}: text overflows its {holder[0]} (text {bb[0]:.0f}..{bb[2]:.0f}, shape {holder[1][0]:.0f}..{holder[1][0] + holder[1][2]:.0f}): "{s}"' if holder[0] == 'rect'
                                   else f'{path.name}: text overflows its polygon: "{s}"')

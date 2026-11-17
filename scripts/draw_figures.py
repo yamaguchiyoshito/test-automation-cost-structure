@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全25点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全26点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -388,21 +388,30 @@ def fig_09_run_once_vs_keep_running():
 # §1 生成と検証（定義）
 # =====================================================================
 def fig_01a_generation_and_verification():
-    body = [title('生成はつくる作業、検証は確かめる作業')]
-    for x, head, sub, left, right, mid, foot in [
-        (60, '生成', '要求から成果物をつくる', '要求', '成果物', 'つくる', '生成AI・開発者が行う。生成AIの登場で高速化した'),
-        (520, '検証', '成果物が要求を満たすかを確かめる', '成果物', '判定', '要求と照合', '満たせば次の工程へ、満たさなければ手戻り'),
-    ]:
-        body.append(rect(x, 90, 420, 190, PRIMARY, LINE, 2))
-        body.append(text(x + 210, 124, head, 18, 700, PRI_TEXT))
-        body.append(text(x + 210, 148, sub, 14))
-        body.append(pill(x + 30, 176, 140, 36, left, BG, 15, 700, T1))
-        body.append(arrow(x + 170, 194, x + 250, 194, width=2))
-        body.append(text(x + 210, 182, mid, 14, 700, T1))
-        body.append(pill(x + 250, 176, 140, 36, right, BG, 15, 700, T1))
-        body.append(text(x + 210, 252, foot, 14, 400, T2))
-    body.append(note(332, '生成が速くなっても、検証が同じ割合で速くなるとは限らない'))
-    return svg(1000, 358, '生成と検証', body, desc='左に生成（要求から成果物をつくる作業。生成AIの登場で高速化した）、右に検証（成果物が要求を満たすかを確かめる作業。満たせば次の工程へ、満たさなければ手戻り）を並べた2パネルの図')
+    body = [title('生成は速くなった。検証の速さが全体のボトルネックになる')]
+    # 左：生成（高速化した）
+    body.append(rect(60, 90, 400, 200, PRIMARY, LINE, 2))
+    body.append(text(260, 124, '生成', 18, 700, PRI_TEXT))
+    body.append(text(260, 148, '要求から成果物をつくる', 14))
+    body.append(pill(90, 176, 140, 36, '要求', BG, 15, 700, T1))
+    body.append(arrow(230, 194, 320, 194, width=4, color=PRI_TEXT))
+    body.append(text(275, 180, '速い', 14, 700, PRI_TEXT))
+    body.append(pill(320, 176, 120, 36, '成果物', BG, 15, 700, T1))
+    body.append(text(260, 256, '生成AIで高速化。短時間で大量につくれる', 14, 400, T2))
+    # 中央：成果物が検証へ流れ込む
+    body.append(arrow(460, 190, 540, 190, width=6, color=LINE))
+    body.append(text(500, 316, '生成量が増えるほど、検証の対象も増える', 14, 700, T1))
+    # 右：検証（速くなっていない＝ボトルネック）
+    body.append(rect(540, 90, 400, 200, ATTENTION, ATT_LINE, 3))
+    body.append(text(740, 124, '検証', 18, 700, ATT_TEXT))
+    body.append(text(740, 148, '成果物が要求を満たすかを確かめる', 14))
+    body.append(pill(570, 176, 140, 36, '成果物', BG, 15, 700, T1))
+    body.append(arrow(710, 194, 800, 194, width=2, dashed=True, color=ATT_LINE))
+    body.append(text(755, 180, '遅い', 14, 700, ATT_TEXT))
+    body.append(pill(800, 176, 120, 36, '判定', BG, 15, 700, T1))
+    body.append(text(740, 256, '同じ割合では速くなっていない ＝ ボトルネック', 14, 700, ATT_TEXT))
+    body.append(note(350, '生成の高速化がそのまま開発全体の生産性向上にはならない。検証の速さが全体のリードタイムを決める'))
+    return svg(1000, 376, '生成と検証', body, desc='左に生成（要求から成果物を速くつくる。生成AIで高速化）、右に注意色で検証（成果物が要求を満たすかを確かめる。同じ割合では速くなっておらずボトルネック）を並べ、生成量が増えるほど検証の対象も増えることを太い矢印で示した図')
 
 
 # =====================================================================
@@ -412,15 +421,15 @@ def fig_04a_sut_and_tas():
     body = [title('SUTはテスト対象、TASはテストを自動実行するシステム')]
     panels = [
         (60, 'SUT（System Under Test）', 'テスト対象のシステム。業務アプリケーションなど', ['画面', 'API', '業務ロジック', 'データ']),
-        (520, 'TAS（Test Automation System）', 'テストを自動実行・制御するシステム', ['テストスクリプト', '実行制御', '結果取得・証跡', '実行環境・テストデータ']),
+        (540, 'TAS（Test Automation System）', 'テストを自動実行・制御するシステム', ['テストスクリプト', '実行制御', '結果取得・証跡', '実行環境・テストデータ']),
     ]
     for x, head, sub, items in panels:
-        body.append(rect(x, 90, 420, 200, PRIMARY, LINE, 2))
-        body.append(text(x + 210, 124, head, 17, 700, PRI_TEXT))
-        body.append(text(x + 210, 148, sub, 14))
+        body.append(rect(x, 90, 400, 200, PRIMARY, LINE, 2))
+        body.append(text(x + 200, 124, head, 17, 700, PRI_TEXT))
+        body.append(text(x + 200, 148, sub, 14))
         for i, it in enumerate(items):
-            body.append(pill(x + 24 + (i % 2) * 190, 170 + (i // 2) * 46, 182, 34, it, BG, 14, 400, T1))
-    body.append(arrow(520, 190, 480, 190, width=3))
+            body.append(pill(x + 20 + (i % 2) * 184, 170 + (i // 2) * 46, 176, 34, it, BG, 14, 400, T1))
+    body.append(arrow(540, 190, 460, 190, width=3))
     body.append(text(500, 172, 'テスト実行', 14, 700, T1))
     body.append(note(342, 'SUTは機能追加や画面変更で変わり続け、TASはその変更に追従する。TASはテストを自動化すると新たに生まれるもう一つのシステム'))
     return svg(1000, 390, 'SUTとTAS', body, desc='左にSUT（テスト対象のシステム。画面、API、業務ロジック、データ）、右にTAS（テストを自動実行・制御するシステム。テストスクリプト、実行制御、結果取得・証跡、実行環境・テストデータ）を並べ、TASからSUTへテスト実行の矢印を引いた図')
@@ -460,9 +469,8 @@ def fig_02a_static_vs_dynamic():
             px = x + 18 + (i % 2) * 194
             py = y + 76 + (i // 2) * 42
             body.append(pill(px, py, 180, 32, it, BG, 14, 400, T1))
-    body.append(text(735, 282, '必要になるもの：実行環境・テストデータ・操作手順・期待結果・証跡', 14, 700, T1))
-    body.append(note(322, '静的検証は生成直後のワークフローに組み込みやすい。以降は動的検証、とくに画面テストの自動化を扱う'))
-    return svg(1000, 346, '静的検証と動的検証の区分', body, desc='左に実行を伴わない静的検証（要件・設計のレビュー、型チェック、静的解析、コードレビュー）、右に実行による動的検証（単体テスト、APIテスト、画面テスト、性能テスト）を並べ、動的検証には実行環境、テストデータ、操作手順、期待結果、証跡が必要になることを示す図')
+    body.append(note(296, '静的検証は生成直後のワークフローに組み込みやすい。以降は動的検証、とくに画面テストの自動化を扱う'))
+    return svg(1000, 322, '静的検証と動的検証の区分', body, desc='左に実行を伴わない静的検証（要件・設計のレビュー、型チェック、静的解析、コードレビュー）、右に実行による動的検証（単体テスト、APIテスト、画面テスト、性能テスト）を並べた図')
 
 
 # =====================================================================
@@ -691,11 +699,34 @@ def fig_09c_automation_plus_cicd():
     return svg(1000, 392, 'テスト自動化とCI/CDの成熟の関係', body, desc='テスト自動化（テストコードの生成・修復）にCI/CDの成熟（共通の実行基盤、標準設定、運用手順、障害対応体制）を足して初めて継続的な自動化効果になることを等式で示し、CI/CDの成熟を欠くと導入と維持が各案件の責任になり属人化すると注意する図')
 
 
+# =====================================================================
+# §2 検証ごとに整備する要素
+# =====================================================================
+def fig_02b_verification_elements():
+    body = [title('動的検証には、整備して維持し続ける要素が多い')]
+    body.append(rect(60, 90, 360, 220, NEUTRAL))
+    body.append(text(240, 122, '静的検証で整備する要素', 17, 700, T1))
+    body.append(text(240, 146, '生成直後のワークフローに組み込みやすい', 14))
+    for i, it in enumerate(['検査対象の成果物（コード・設計書）', '検査ルール（型・静的解析・規約）', 'レビュー観点']):
+        body.append(pill(80, 168 + i * 44, 320, 34, it, BG, 14, 400, T1))
+    body.append(rect(460, 90, 480, 220, PRIMARY, LINE, 2))
+    body.append(text(700, 122, '動的検証で整備する要素', 17, 700, PRI_TEXT))
+    body.append(text(700, 146, '実行して確かめるために要る', 14))
+    for i, it in enumerate(['実行環境', 'テストデータ', '操作手順', '期待結果', '証跡の取り扱い']):
+        body.append(pill(480 + (i % 2) * 230, 168 + (i // 2) * 44, 220, 34, it, BG, 14, 400, T1))
+    body.append(path_arrow('M700 310 V338', (700, 340, 0, 1), color=ATT_LINE, dashed=True, width=2))
+    body.append(rect(460, 348, 480, 60, BG, ATT_LINE, 2, dashed=True))
+    body.append(lines(700, 372, [('これらを継続的に維持できるかが、', 700, ATT_TEXT), ('後半で扱うCI/CD成熟度の課題につながる', 700, ATT_TEXT)], 14, lh=19))
+    body.append(note(456, '静的検証はルールを整えれば自動で回る。動的検証は環境・データ・手順・期待結果・証跡を整え、維持し続ける必要がある'))
+    return svg(1000, 482, '静的検証と動的検証で整備する要素', body, desc='左に静的検証で整備する要素（検査対象の成果物、検査ルール、レビュー観点）、右に動的検証で整備する要素（実行環境、テストデータ、操作手順、期待結果、証跡の取り扱い）を並べ、右の要素を継続的に維持できるかが後半のCI/CD成熟度の課題につながることを注意枠で示した図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
     '02a-static-vs-dynamic': fig_02a_static_vs_dynamic,
-    '02b-dynamic-verification-activities': fig_02_dynamic_verification_activities,
+    '02b-verification-elements': fig_02b_verification_elements,
+    '02c-dynamic-verification-activities': fig_02_dynamic_verification_activities,
     '03-gui-test-timeline': fig_03_gui_test_timeline,
     '04a-sut-and-tas': fig_04a_sut_and_tas,
     '04b-tas-sut-systems': fig_04a_tas_sut_systems,

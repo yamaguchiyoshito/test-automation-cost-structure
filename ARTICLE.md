@@ -18,14 +18,16 @@
 
 検証は、実行を伴わない静的検証と、実際にソフトウェアを動かす動的検証に大別できます。
 
-| 区分 | 方法 | 主な対象・手段 | 残る判断 |
-| --- | --- | --- | --- |
-| 静的検証 | 実行を伴わない調査 | 要件・設計のレビュー、型チェック、静的解析、コードレビュー | 仕様の妥当性、設計判断の正しさ |
-| 動的検証 | 実行による振る舞いの確認 | 単体テスト、APIテスト、画面テスト、性能テスト | 期待結果の正当性、テストの十分性 |
+| 区分 | 方法 | 主な対象・手段 |
+| --- | --- | --- |
+| 静的検証 | 実行を伴わない調査 | 要件・設計のレビュー、型チェック、静的解析、コードレビュー |
+| 動的検証 | 実行による振る舞いの確認 | 単体テスト、APIテスト、画面テスト、性能テスト |
 
 ![静的検証と動的検証の区分](assets/02a-static-vs-dynamic.svg)
 
 静的検証は、生成直後のワークフローに組み込みやすい性質があります。一方、動的検証には、実行環境、テストデータ、操作手順、期待結果、証跡の取り扱いが必要です。
+
+![静的検証と動的検証で整備する要素](assets/02b-verification-elements.svg)
 
 動的検証はさらに、次の活動に分解できます。
 
@@ -35,29 +37,29 @@
 4. **結果判定**：正しいか比較する
 5. **原因分析・保守**：失敗の原因を調べ、必要な修正を行う
 
-![動的検証の5活動と自動化・AIの範囲](assets/02b-dynamic-verification-activities.svg)
+![動的検証の5活動と自動化・AIの範囲](assets/02c-dynamic-verification-activities.svg)
 
 長い間、テスト自動化が重点的に削減してきたのは、主にテスト実装とテスト実行の作業です。この変化を、画面テストの歴史から振り返ります。
 
 ## 3. 画面テスト自動化の歴史
 
-| 時期 | 転換点 | 主に改善したもの | 残った課題 |
-| --- | --- | --- | --- |
-| 2004年〜 | Seleniumによるブラウザ操作の自動化 | 操作の反復実行 | スクリプトの作成・保守 |
-| 2006年〜 | Selenium IDEによる記録・再生 | テスト実装の入口 | SUT変更への追従、複雑なケースへの対応 |
-| 2008〜2013年 | Sauce Labs、BrowserStackなどのクラウド実行環境 | ブラウザ・OSの実行環境管理 | テスト設計・実装・運用の調整 |
-| 2017〜2020年 | ノーコード型テスト自動化SaaSの展開 | テストの作成・実行・管理・保守の統合 | 業務知識、期待結果、対象環境の制約 |
-| 2020〜2022年 | 自動化事例の蓄積と生産性効果の公表・先例化 | 導入効果の定量化と横展開 | 初期費用・保守費を含めた効果の再現性 |
-| 2023〜2024年 | 生成AIによるテストケース・コード作成支援 | テスト設計・実装の下書き | 生成結果の妥当性、実行基盤の維持 |
-| 2025年〜 | AIエージェントによる計画・生成・実行・修復の連携 | テスト活動の複数工程を横断 | 継続運用、品質判断、検証の独立性 |
+| 時期 | 転換点 | 主に改善したもの |
+| --- | --- | --- |
+| 2004年〜 | Seleniumによるブラウザ操作の自動化 | 操作の反復実行 |
+| 2006年〜 | Selenium IDEによる記録・再生 | テスト実装の入口 |
+| 2008〜2013年 | Sauce Labs、BrowserStackなどのクラウド実行環境 | ブラウザ・OSの実行環境管理 |
+| 2017〜2020年 | ノーコード型テスト自動化SaaSの展開 | テストの作成・実行・管理・保守の統合 |
+| 2020〜2022年 | 自動化事例の蓄積と生産性効果の公表・先例化 | 導入効果の定量化と横展開 |
+| 2023〜2024年 | 生成AIによるテストケース・コード作成支援 | テスト設計・実装の下書き |
+| 2025年〜 | AIエージェントによる計画・生成・実行・修復の連携 | テスト活動の複数工程を横断 |
 
 ![画面テスト自動化の7つの転換点](assets/03-gui-test-timeline.svg)
 
-2004年にSeleniumが始まり、2006年には日本の笠谷真也氏によるSelenium IDEが登場しました。BrowserStackは2011年に一般公開され、2013年にクラウド上でSeleniumテストを実行するAutomateを投入しました。Autifyは2019年にノーコード型製品を正式公開しました。[1][2][3]
+2004年にSeleniumが始まり、2006年には日本の笠谷真也氏によるSelenium IDEが登場しました。クラウド実行環境の代表的なSaaSであるBrowserStackは2011年に一般公開され、2013年にクラウド上でSeleniumテストを実行するAutomateを投入しました。Autifyは2019年にノーコード型製品を正式公開しました。[^selenium-history][^browserstack-about][^autify-launch]
 
 2020〜2022年は、ノーコード型SaaSなどの導入事例が、生産性向上やテスト工数削減といった定量的な効果とともに共有され、後続の導入判断に利用できる先例として蓄積されていった時期として位置づけます。
 
-2025年には、Playwright 1.56でPlanner・Generator・Healerの3種類のTest Agentsが導入されました。アプリケーション探索からテスト計画、コード生成、失敗テストの修復までを連携させる考え方が、具体的な製品機能になっています。[4]
+2025年には、Playwright 1.56でPlanner・Generator・Healerの3種類のTest Agentsが導入されました。アプリケーション探索からテスト計画、コード生成、失敗テストの修復までを連携させる考え方が、具体的な製品機能になっています。[^playwright-test-agents]
 
 ## 4. テスト自動化が生むもう一つのシステム：TASとSUT
 
@@ -88,7 +90,7 @@ Seleniumの初期には、操作スクリプトも実行環境も自社で準備
 
 ノーコード型SaaSはさらに、テスト作成、実行スケジュール、実行結果・証跡、テスト修復などを一体的に提供しました。
 
-これにより、**テストを動かし続けるための仕組みそのものを自社で作る負担**を減らせるようになりました。[5]
+これにより、**テストを動かし続けるための仕組みそのものを自社で作る負担**を減らせるようになりました。
 
 ![自社で担う負担の移り変わり](assets/05a-burden-shift-flow.svg)
 
@@ -114,7 +116,7 @@ Seleniumの初期には、操作スクリプトも実行環境も自社で準備
 
 例えばMagicPodは、クラウド上での実行、スケジュール実行、結果ログ、通知、テストの自動修復に加え、操作説明などの利用者サポートを提供しています。
 
-利用者はそれらの仕組みを個別に組み合わせて構築する必要を減らせます。[5]
+利用者はそれらの仕組みを個別に組み合わせて構築する必要を減らせます。[^magicpod-features]
 
 ただし、移るのは機能と役割であり、検証の責任は常にSIer側にあります。
 
@@ -143,7 +145,7 @@ AIエージェントを使えば、Playwrightのテストシナリオやスク�
 
 ![作成部分と水面下の運用要素](assets/07-iceberg-of-operation.svg)
 
-Playwrightの公式CIガイドでも、ブラウザ実行可能な環境の用意、依存関係の導入、テスト実行、レポート保存などを扱っています。[6]
+Playwrightの公式CIガイドでも、ブラウザ実行可能な環境の用意、依存関係の導入、テスト実行、レポート保存などを扱っています。[^playwright-ci]
 
 これらはAIで設定ファイルを生成すれば完了する仕事ではありません。
 
@@ -220,7 +222,7 @@ Playwrightの公式CIガイドでも、ブラウザ実行可能な環境の用�
 
 画面E2Eテストが技術構成を問わず適用できる一方で、E2E以外にどのようなテスト手段を持てるかは、画面の実装方式によって大きく異なります。
 
-SPAでは、画面がコンポーネントの集合として構成され、状態管理やデータ取得がフロントエンド側の明確な層に分かれています。加えて、コンポーネントをブラウザなしで描画し、利用者の操作を模擬して検証するテストライブラリ群が整備されています。そのため、サーバーを動かさずに、フロントエンド単体でインテグレーションテストの層を厚くすることが現実的な方策になります。Kent C. Doddsが提唱したTesting Trophyは、この層に最も多くのテストを置く考え方です。[7]
+SPAでは、画面がコンポーネントの集合として構成され、状態管理やデータ取得がフロントエンド側の明確な層に分かれています。加えて、コンポーネントをブラウザなしで描画し、利用者の操作を模擬して検証するテストライブラリ群が整備されています。そのため、サーバーを動かさずに、フロントエンド単体でインテグレーションテストの層を厚くすることが現実的な方策になります。Kent C. Doddsが提唱したTesting Trophyは、この層に最も多くのテストを置く考え方です。[^dodds-testing-trophy]
 
 対するJSPでは、画面はサーバー側でHTMLとして組み立てられ、表示ロジックがJSPタグ、EL式、サーブレットやフレームワークの処理と一体になっています。コンポーネントの境界がなく、画面を単体で描画して検証する標準的な手段もありません。画面の振る舞いを確かめるには、サーバー、DB、認証を含めたシステム全体を動かすしかなく、結果として、画面を実際に打鍵して確認するビッグバン型のE2Eテストになりがちです。
 
@@ -319,7 +321,7 @@ AIエージェントが削減するのは、主にテスト設計・コード生
 
 AIエージェントによってPlaywrightのテスト実装は容易になりましたが、組織のCI/CD成熟度が変わらない限り、SaaSが持つ運用面の優位性は残ります。
 
-しかも、AIエージェントの恩恵はSaaSの側にも及びます。MagicPodとClaude Codeを組み合わせることで、テストのメンテナンスや自動テストの拡充にかかるコストは、以前よりはるかに下がりました。2026年にはMagicPod MCPにより、MagicPodの画面を見ながらシナリオを作る時間はほぼなくなり、Claude Codeへの依頼で多くの作業が完結します。[8]
+しかも、AIエージェントの恩恵はSaaSの側にも及びます。MagicPodとClaude Codeを組み合わせることで、テストのメンテナンスや自動テストの拡充にかかるコストは、以前よりはるかに下がりました。2026年にはMagicPod MCPにより、MagicPodの画面を見ながらシナリオを作る時間はほぼなくなり、Claude Codeへの依頼で多くの作業が完結します。[^magicpod-mcp]
 
 つまり、作成部分のコスト低下はPlaywrightだけの利点ではありません。SaaSの運用面の優位性を保ったまま、AIエージェントによる作成・保守の効率化も得られるようになっています。
 
@@ -400,31 +402,13 @@ ROIを評価する場合は、これらの便益を過大計上せず、TASの�
 
 ![案件ごとの推進方針](assets/10e-policy-routing.svg)
 
----
+## 参考文献・注記
 
-## 参考資料
-
-1. Selenium Project, *History*  
-   https://www.selenium.dev/history/
-
-2. BrowserStack, *About Us*  
-   https://www.browserstack.com/company
-
-3. Autify, *Official Global Launch* (2019)  
-   https://autify.com/news/launch-platform-globally-d2fe7
-
-4. Playwright, *Release Notes / Test Agents*  
-   https://playwright.dev/docs/release-notes  
-   https://playwright.dev/docs/test-agents
-
-5. MagicPod, *機能一覧*  
-   https://magicpod.com/features/
-
-6. Playwright, *Continuous Integration*  
-   https://playwright.dev/docs/ci
-
-7. Kent C. Dodds, *The Testing Trophy and Testing Classifications* (2021)  
-   https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications
-
-8. MagicPod, *MagicPod MCPサーバー*  
-   https://support.magic-pod.com/hc/ja/articles/46186888063769
+[^selenium-history]: Selenium Project, *History*. Seleniumの誕生（2004年）とSelenium IDE（2006年、笠谷真也氏）の経緯。https://www.selenium.dev/history/
+[^browserstack-about]: BrowserStack, *About Us*. 2011年の一般公開と、2013年のクラウド上でSeleniumテストを実行するAutomateの投入。https://www.browserstack.com/company
+[^autify-launch]: Autify, *Official Global Launch*（2019年）。ノーコード型製品の正式公開。https://autify.com/news/launch-platform-globally-d2fe7
+[^playwright-test-agents]: Playwright, *Release Notes* および *Test Agents*。Playwright 1.56で導入されたPlanner・Generator・Healerの3種類のTest Agents。https://playwright.dev/docs/release-notes ／ https://playwright.dev/docs/test-agents
+[^magicpod-features]: MagicPod, *機能一覧*。クラウド上での実行、スケジュール実行、結果ログ、通知、テストの自動修復など。https://magicpod.com/features/
+[^playwright-ci]: Playwright, *Continuous Integration*。CIでのブラウザ実行環境の用意、依存関係の導入、テスト実行、レポート保存。https://playwright.dev/docs/ci
+[^dodds-testing-trophy]: Kent C. Dodds, *The Testing Trophy and Testing Classifications*（2021年）。インテグレーションテストの層に最も多くのテストを置く考え方。https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications
+[^magicpod-mcp]: MagicPod, *MagicPod MCPサーバー*（MagicPodヘルプセンター）。AIエージェントからテストケースの作成・編集・実行、結果取得などを行うためのMCPサーバー。https://support.magic-pod.com/hc/ja/articles/46186888063769

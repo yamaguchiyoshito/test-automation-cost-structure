@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="346" viewBox="0 0 1000 346" role="img" aria-label="静的検証と動的検証の区分" aria-describedby="desc">
-<desc id="desc">左に実行を伴わない静的検証（要件・設計のレビュー、型チェック、静的解析、コードレビュー）、右に実行による動的検証（単体テスト、APIテスト、画面テスト、性能テスト）を並べ、動的検証には実行環境、テストデータ、操作手順、期待結果、証跡が必要になることを示す図</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="322" viewBox="0 0 1000 322" role="img" aria-label="静的検証と動的検証の区分" aria-describedby="desc">
+<desc id="desc">左に実行を伴わない静的検証（要件・設計のレビュー、型チェック、静的解析、コードレビュー）、右に実行による動的検証（単体テスト、APIテスト、画面テスト、性能テスト）を並べた図</desc>
 <rect width="100%" height="100%" fill="#fcfdfd"/>
 <text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">検証は、動かさない検証と動かす検証に分かれる</text>
 <rect x="60" y="90" width="410" height="160" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
@@ -16,6 +16,5 @@
 <rect x="742" y="166" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="832" y="187" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">APIテスト</text>
 <rect x="548" y="208" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="638" y="229" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">画面テスト</text>
 <rect x="742" y="208" width="180" height="32" rx="16.0" fill="#fcfdfd" stroke="#8ea6b2" stroke-width="1"/><text x="832" y="229" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#223e53">性能テスト</text>
-<text x="735" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">必要になるもの：実行環境・テストデータ・操作手順・期待結果・証跡</text>
-<text x="500" y="322" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">静的検証は生成直後のワークフローに組み込みやすい。以降は動的検証、とくに画面テストの自動化を扱う</text>
+<text x="500" y="296" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">静的検証は生成直後のワークフローに組み込みやすい。以降は動的検証、とくに画面テストの自動化を扱う</text>
 </svg>

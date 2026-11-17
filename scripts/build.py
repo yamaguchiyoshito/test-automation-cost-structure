@@ -79,11 +79,11 @@ def wrap_page(title: str, body: str, site: dict, css: str) -> str:
     ref_anchor = ''
     for i, (ident, text) in enumerate(headings(body), 1):
         label = re.sub(r'^\d+\.\s*', '', text)
-        if text == '参考資料':
+        if text == '参考文献・注記':
             ref_anchor = ident
             continue
         links.append(f'<a class="chapter-link" href="#{ident}"><span>{i:02d}</span>{html.escape(label)}</a>')
-    ref_link = f'<a href="#{ref_anchor}">参考資料</a>' if ref_anchor else ''
+    ref_link = f'<a href="#{ref_anchor}">参考文献・注記</a>' if ref_anchor else ''
     footer_label = f'{html.escape(site.get("date", ""))}時点 / 第{str(site.get("version", "1")).split(".")[0]}版'
     return f'''<!doctype html>
 <html lang="{html.escape(site.get("language", "ja"))}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

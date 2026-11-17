@@ -102,3 +102,5 @@ body:has(.toc-state:checked) .toc-drawer{transform:none;visibility:visible}
 @media(max-width:940px){.layout{padding:22px 20px 60px}main{max-width:none}.topbar{padding:11px 18px}}
 @media(max-width:600px){.table-wrap{border-radius:6px}.brand{font-size:15px}.brand span{display:none}body{font-size:15.5px;line-height:1.75}h1{font-size:25px}h2{font-size:20px}h3{font-size:17px}.topbar-actions{gap:12px;font-size:13px}.toc-toggle{padding:6px 11px}.layout{padding-left:16px;padding-right:16px}img{width:100%;padding:4px}th,td{padding:8px 9px}table{font-size:13.5px}math[display=block]{font-size:1.02em;padding-left:.75em}}
 @media print{.topbar,aside,.toc-backdrop,.skip,footer{display:none}.layout{display:block;padding:0}main{max-width:none}body{background:white;color:black;font-size:11pt}h1{font-size:20pt}h2,h3{break-after:avoid}img{max-height:16cm;break-inside:avoid;border:0}a{color:inherit}pre,math[display=block]{overflow:visible}p{orphans:3;widows:3}.table-wrap{overflow:visible;border:0}}
+/* 脚注（pandoc footnotes）。medium-specificity と同じ体裁 */
+.footnotes hr{display:none}
