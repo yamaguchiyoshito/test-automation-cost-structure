@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全28点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全29点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -781,6 +781,36 @@ def fig_09d_magicpod_with_claude_code():
     return svg(1000, 398, 'MagicPodとClaude Codeの組み合わせ', body, desc='左のClaude Code（AIエージェント）からMagicPod MCPを介して右のMagicPod（テストケースの作成・編集、実行、結果の取得）を操作し、画面を見ながらシナリオを作る時間がほぼ不要になること、クラウド実行・スケジュール実行・証跡・自動修復という運用面の優位性はそのまま保たれることを示す図')
 
 
+# =====================================================================
+# §7 AIとテスト環境の接続
+# =====================================================================
+def fig_07b_ai_test_environment_connection():
+    body = [title('AIとテスト環境の接続が整って初めて、AIはテストを動かし、確かめられる')]
+    # 左：CI
+    body.append(box(60, 150, 140, 80, NEUTRAL, 'CI', '定期実行・起動', 17, 14))
+    body.append(arrow(200, 190, 320, 190, width=2))
+    body.append(text(260, 174, 'CIとAIの接続', 14, 700, T1))
+    # 中央：AIエージェント
+    body.append(rect(320, 130, 240, 120, AI, AI_LINE, 2))
+    body.append(lines(440, 170, [('AIエージェント', 700, AI_TEXT), ('Claude Code など', 400, T2), ('生成・実行・修復を担う', 400, T2)], 15, lh=22))
+    # 右：テスト環境
+    body.append(rect(640, 90, 300, 240, PRIMARY, LINE, 2))
+    body.append(text(790, 118, 'テスト環境', 17, 700, PRI_TEXT))
+    body.append(rect(660, 136, 260, 70, BG, STROKE, 1))
+    body.append(lines(790, 162, [('ブラウザ・対象環境（SUT）', 700, T1), ('テストの打鍵ができること', 400, T2)], 14, lh=20))
+    body.append(rect(660, 236, 260, 70, BG, STROKE, 1))
+    body.append(lines(790, 262, [('DB・バッチの実行結果', 700, T1), ('ミドルウェア経由で参照できること', 400, T2)], 14, lh=20))
+    body.append(arrow(560, 170, 660, 171, width=2))
+    body.append(text(610, 156, '動かす', 14, 700, T1))
+    body.append(arrow(560, 210, 660, 271, width=2))
+    body.append(text(596, 250, '確かめる', 14, 700, T1))
+    # 下段：TASの領域
+    body.append(rect(60, 350, 880, 56, BG, ATT_LINE, 2, dashed=True))
+    body.append(lines(500, 373, [('この2つの接続の構築と維持は、まさにTASの領域', 700, ATT_TEXT), ('どちらが欠けても、AIはテストを動かすことも、結果を確かめることもできない', 400, T2)], 14, lh=19))
+    body.append(note(450, 'CIとAIの接続だけでは足りない。AIとテスト環境の接続が、継続運用の大きな要素になる'))
+    return svg(1000, 476, 'AIとテスト環境の接続', body, desc='中央のAIエージェントに対して、左からCIとの接続、右へテスト環境との接続（テストの打鍵のためのブラウザ・対象環境、結果確認のためのDB・バッチの実行結果をミドルウェア経由で参照）を描き、この2つの接続の構築と維持がTASの領域であることを示す図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
@@ -795,7 +825,8 @@ FIGURES = {
     '05b-saas-vs-agent-effects': fig_05b_saas_vs_agent_effects,
     '05c-cost-shift-by-era': fig_05_cost_shift_by_era,
     '06-responsibility-boundary': fig_06_responsibility_boundary,
-    '07-iceberg-of-operation': fig_07_iceberg_of_operation,
+    '07a-iceberg-of-operation': fig_07_iceberg_of_operation,
+    '07b-ai-test-environment-connection': fig_07b_ai_test_environment_connection,
     '08a-2022-saas-shift': fig_08a_2022_saas_shift,
     '08b-maintenance-share': fig_08a_maintenance_share,
     '08c-maintenance-constraints': fig_08c_maintenance_constraints,
