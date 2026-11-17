@@ -53,11 +53,11 @@ def main() -> int:
     for page in pages:
         parser = Collector()
         parser.feed(page.read_text(encoding='utf-8'))
-        if parser.scripts:
+        if parser.scripts and page != SITE / 'slides' / 'index.html':
             errors.append(f'{page.relative_to(SITE)}: <script> を含む')
-        if '$' in source_text and parser.math == 0:
+        if page == SITE / 'index.html' and '$' in source_text and parser.math == 0:
             errors.append(f'{page.relative_to(SITE)}: MathML が無い')
-        if page.name == 'index.html' and parser.images != expected_images:
+        if page == SITE / 'index.html' and parser.images != expected_images:
             errors.append(f'{page.relative_to(SITE)}: 図版が {parser.images} 点（原稿は {expected_images} 点）')
         for attr, ref in parser.refs:
             if attr == 'alt':

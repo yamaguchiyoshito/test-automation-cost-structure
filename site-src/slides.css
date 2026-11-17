@@ -1,0 +1,63 @@
+/* 登壇用スライドのスタイル。配色は図（scripts/draw_figures.py）と同じ役割色。
+   16:9、論理サイズ 1600×900 を --u（1論理px）で拡縮する。
+   縦の scroll-snap で1画面1スライド。キー操作は build_slides.py が埋め込む最小限のスクリプトが扱う。印刷は1スライド1ページ。 */
+:root{
+  --paper:#fcfdfd;--ink:#18324b;--t1:#223e53;--t2:#36556d;--muted:#55646d;--line:#607a91;--stroke:#8ea6b2;
+  --neutral:#eef3f1;--primary:#e1edf8;--pri-text:#2b5f9e;--ai:#e9e4f5;--ai-text:#6a4ea6;
+  --positive:#e0f0e9;--pos-text:#2f6b45;--attention:#f7e9d4;--att-text:#9c3f2a;--letterbox:#1f2d36;
+  --u:min(calc(100vw / 1600), calc(100vh / 900));
+}
+*{box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--letterbox);color:var(--ink);counter-reset:slide;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans CJK JP","Noto Sans JP",Meiryo,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.slide{height:100vh;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;counter-increment:slide}
+.frame{width:calc(1600 * var(--u));height:calc(900 * var(--u));background:var(--paper);display:grid;
+  grid-template-rows:calc(64 * var(--u)) 1fr calc(56 * var(--u));padding:0 calc(80 * var(--u));overflow:hidden}
+/* ヘッダー／フッター：全スライド共通 */
+.frame > header,.frame > footer{display:flex;justify-content:space-between;align-items:center;font-size:calc(18 * var(--u));color:var(--muted)}
+.frame > header{border-bottom:1px solid var(--stroke)}
+.frame > footer{border-top:1px solid var(--stroke)}
+.sec{font-weight:700;letter-spacing:.06em}
+.num::after{content:counter(slide) " / " attr(data-total)}
+/* メインライン：見出し → 図または箇条書き → 補足 */
+.frame > main{display:grid;grid-template-rows:auto 1fr auto;gap:calc(12 * var(--u));min-height:0;padding:calc(12 * var(--u)) 0}
+h1{margin:0;font-size:calc(44 * var(--u));line-height:1.3;font-weight:700;color:var(--ink)}
+figure{margin:0;min-height:0;display:flex;align-items:center;justify-content:center}
+figure img{max-width:calc(1200 * var(--u));max-height:100%;width:auto;height:auto;background:#fff;border:1px solid var(--stroke);border-radius:calc(10 * var(--u));padding:calc(6 * var(--u))}
+ul.points{margin:0;padding-left:1.1em;align-self:center;font-size:calc(30 * var(--u));line-height:1.9;color:var(--t1)}
+ul.points li::marker{color:var(--line)}
+.sub{margin:0;font-size:calc(22 * var(--u));color:var(--muted);min-height:calc(30 * var(--u))}
+.spacer{min-height:0}
+/* 表紙 */
+.type-title .frame > main{grid-template-rows:1fr auto auto 1fr;align-content:center}
+.type-title .eyebrow{font-size:calc(20 * var(--u));letter-spacing:.14em;color:var(--pri-text);font-weight:700;align-self:end}
+.type-title h1{font-size:calc(60 * var(--u));line-height:1.25}
+.type-title .meta{font-size:calc(24 * var(--u));color:var(--t2)}
+/* 章扉 */
+.type-section .frame{background:var(--primary)}
+.type-section .frame > main{align-content:center;grid-template-rows:auto auto}
+.type-section .chapter{font-size:calc(28 * var(--u));color:var(--pri-text);font-weight:700;letter-spacing:.1em}
+.type-section h1{font-size:calc(64 * var(--u))}
+/* まとめ */
+.type-summary ul.points{font-size:calc(34 * var(--u));font-weight:700;color:var(--ink)}
+/* 予備 */
+.appendix .sec::after{content:"　予備"}
+/* 印刷：1スライド1ページ */
+@media print{
+  :root{--u:1px}
+  @page{size:1600px 900px;margin:0}
+  html{scroll-snap-type:none}
+  body{background:#fff}
+  .slide{height:900px;width:1600px;page-break-after:always;break-after:page}
+}
+/* トークスクリプトのページ */
+.script{max-width:880px;margin:auto;padding:32px 24px 80px;background:var(--paper);min-height:100vh;color:var(--t1);line-height:1.8}
+.script h1{font-size:28px;margin:0 0 8px}
+.script .lead{color:var(--muted);margin:0 0 24px;font-size:15px}
+.script article{border-top:1px solid var(--stroke);padding:16px 0}
+.script h2{font-size:18px;margin:0 0 4px;color:var(--ink)}
+.script .meta{font-size:13px;color:var(--muted);margin:0 0 8px}
+.script p{margin:0;font-size:16px}
+.script .appendix-head{margin-top:40px;font-size:20px;color:var(--pri-text)}

@@ -4,5 +4,7 @@
   "language": "ja",
   "version": "1.0.0",
   "date": "2026年11月17日",
-  "article": "ARTICLE.md"
+  "article": "ARTICLE.md",
+  "short_title": "生成と検証から考えるテスト自動化",
+  "url": "https://yamaguchiyoshito.github.io/test-automation-cost-structure/"
 }
