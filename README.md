@@ -6,7 +6,7 @@
 
 [記事を読む](ARTICLE.md)
 
-本文は `ARTICLE.md` の1記事で、連載形式ではない。図版24点は `assets/` のSVGで、すべて `scripts/draw_figures.py` が生成する。
+本文は `ARTICLE.md` の1記事で、連載形式ではない。図版25点は `assets/` のSVGで、すべて `scripts/draw_figures.py` が生成する。
 
 ## ファイル構成
 
@@ -15,7 +15,7 @@ TAS_SUT/
 ├── README.md                  # リポジトリ案内（本ファイル）
 ├── ARTICLE.md                 # 記事本文（Markdown）。閲覧サイトでは index.html になる
 ├── site.json                  # サイト定義（題名、肩書き、要約文、版、日付、記事のパス）
-├── assets/                    # 図（SVG、24点）。ファイル名は章番号で始める
+├── assets/                    # 図（SVG、25点）。ファイル名は章番号で始める
 ├── site-src/styles.css        # 閲覧サイトのスタイル（sier-resource-series と共通）
 ├── scripts/
 │   ├── draw_figures.py        # 全図版を決定論的に生成（Python標準ライブラリのみ）

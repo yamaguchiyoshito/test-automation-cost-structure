@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全24点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全25点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -671,6 +671,26 @@ def fig_09a_expertise_scope():
     return svg(1000, 402, 'スクリプト作成と、専門家が解決してきたこと', body, desc='左に小さくスクリプト作成（テストを一度動かす。AIエージェントで容易になった部分）、右に大きく専門家が長年解決してきたこと（テストの安定実行、テストデータの管理、実行失敗時の原因切り分け、SUTの変更への追従、ブラウザや依存ライブラリの更新、実行環境の管理、テスト結果と証跡の管理、継続的な運用体制の整備）を並べ、両者が等しくないことを示す図')
 
 
+# =====================================================================
+# §9.2 自動化とCI/CDの成熟はセット
+# =====================================================================
+def fig_09c_automation_plus_cicd():
+    body = [title('テスト自動化の効果には、CI/CDの成熟がセットで要る')]
+    body.append(rect(60, 100, 280, 120, PRIMARY, LINE, 2))
+    body.append(lines(200, 134, [('テスト自動化', 700, PRI_TEXT), ('テストコードの生成・修復', 400, T2), ('AIエージェントで容易に', 400, T2)], 15, lh=24))
+    body.append(text(370, 170, '＋', 30, 700, INK))
+    body.append(rect(400, 100, 280, 120, PRIMARY, LINE, 2))
+    body.append(lines(540, 134, [('CI/CDの成熟', 700, PRI_TEXT), ('共通の実行基盤・標準設定', 400, T2), ('運用手順・障害対応体制', 400, T2)], 15, lh=24))
+    body.append(text(710, 170, '＝', 30, 700, INK))
+    body.append(rect(740, 100, 200, 120, POSITIVE, POS_LINE, 2))
+    body.append(lines(840, 146, [('継続的な', 700, POS_TEXT), ('自動化効果', 700, POS_TEXT)], 16, lh=24))
+    body.append(path_arrow('M540 220 V252', (540, 254, 0, 1), color=ATT_LINE, dashed=True, width=2))
+    body.append(rect(350, 262, 380, 56, BG, ATT_LINE, 2, dashed=True))
+    body.append(lines(540, 285, [('これを欠くと', 700, ATT_TEXT), ('導入と維持は各案件の責任になり、属人化する', 400, T2)], 14, lh=19))
+    body.append(note(366, 'CI/CD設定ファイルの生成が容易になっても、組織全体のCI/CD運用能力が上がったわけではない'))
+    return svg(1000, 392, 'テスト自動化とCI/CDの成熟の関係', body, desc='テスト自動化（テストコードの生成・修復）にCI/CDの成熟（共通の実行基盤、標準設定、運用手順、障害対応体制）を足して初めて継続的な自動化効果になることを等式で示し、CI/CDの成熟を欠くと導入と維持が各案件の責任になり属人化すると注意する図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
@@ -691,6 +711,7 @@ FIGURES = {
     '08e-2022-decision-context': fig_08_2022_decision_context,
     '09a-expertise-scope': fig_09a_expertise_scope,
     '09b-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
+    '09c-automation-plus-cicd': fig_09c_automation_plus_cicd,
     '10a-tco-breakdown': fig_10a_tco_breakdown,
     '10b-pattern-saas': fig_10b_pattern_saas,
     '10c-pattern-playwright': fig_10c_pattern_playwright,
