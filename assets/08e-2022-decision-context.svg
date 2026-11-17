@@ -15,5 +15,5 @@
 <rect x="560" y="222" width="380" height="164" rx="12" fill="#e1edf8" stroke="#18324b" stroke-width="2"/>
 <text x="750" y="260" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#18324b">2022年の判断</text><text x="750" y="288" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">SaaS型の画面E2Eテスト自動化</text>
 <text x="750" y="324" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">狙い：限られた専門人材で、</text><text x="750" y="343" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">多様な既存案件へ横展開できる</text><text x="750" y="362" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">検証効率化策を選ぶ</text>
-<text x="500" y="552" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">ホワイトボックステストの価値を否定した判断ではない。個別案件での最大効果より、横展開できることを重視した</text>
+<text x="500" y="552" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">個別案件で最大の自動化効果を得ることより、多様な案件へ横展開できることを重視した判断</text>
 </svg>
