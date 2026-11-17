@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全23点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全22点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -385,33 +385,24 @@ def fig_09_run_once_vs_keep_running():
 
 
 # =====================================================================
-# §1 生成と検証（定義の2点）
+# §1 生成と検証（定義）
 # =====================================================================
-def fig_01a_generation():
-    body = [title('生成：要求から成果物をつくる作業')]
-    body.append(box(60, 110, 240, 90, NEUTRAL, '要求', '何をつくるか', 18, 14))
-    body.append(arrow(300, 155, 380, 155))
-    body.append(rect(380, 100, 240, 110, AI, AI_LINE, 2))
-    body.append(lines(500, 140, [('生成', 700, AI_TEXT), ('生成AI・開発者がつくる', 400, T2), ('短時間で大量に', 400, T2)], 15, lh=22))
-    body.append(arrow(620, 155, 700, 155))
-    body.append(box(700, 110, 240, 90, NEUTRAL, '成果物', 'コードやテストなど', 18, 14))
-    body.append(note(262, '生成AIの登場で、この工程が高速化した'))
-    return svg(1000, 288, '生成の工程', body, desc='要求から、生成AIと開発者による生成を経て、コードやテストなどの成果物ができる3段の流れ。生成の工程が生成AIで高速化したことを示す図')
-
-
-def fig_01b_verification():
-    body = [title('検証：成果物が要求を満たすかを確かめる作業')]
-    body.append(box(60, 90, 240, 76, NEUTRAL, '要求', '満たすべきこと', 17, 14))
-    body.append(box(60, 200, 240, 76, NEUTRAL, '成果物', '生成されたもの', 17, 14))
-    body.append(arrow(300, 128, 400, 170, width=2))
-    body.append(arrow(300, 238, 400, 196, width=2))
-    body.append(rect(400, 128, 220, 110, PRIMARY, LINE, 2))
-    body.append(lines(510, 170, [('検証', 700, PRI_TEXT), ('両者を突き合わせる', 400, T2)], 15, lh=22))
-    body.append(arrow(620, 183, 700, 183))
-    body.append(rect(700, 128, 240, 110, NEUTRAL))
-    body.append(lines(820, 158, [('判定', 700, T1), ('満たす → 次の工程へ', 400, T2), ('満たさない → 手戻り', 700, ATT_TEXT)], 15, lh=22))
-    body.append(note(300, '生成量が増えるほど検証の対象も増える。検証が開発全体の制約になりうる'))
-    return svg(1000, 326, '検証の工程', body, desc='要求と成果物の両方を検証で突き合わせ、満たせば次の工程へ、満たさなければ手戻りになる流れを示す図')
+def fig_01a_generation_and_verification():
+    body = [title('生成はつくる作業、検証は確かめる作業')]
+    for x, head, sub, left, right, mid, foot in [
+        (60, '生成', '要求から成果物をつくる', '要求', '成果物', 'つくる', '生成AI・開発者が行う。生成AIの登場で高速化した'),
+        (520, '検証', '成果物が要求を満たすかを確かめる', '成果物', '判定', '要求と照合', '満たせば次の工程へ、満たさなければ手戻り'),
+    ]:
+        body.append(rect(x, 90, 420, 190, PRIMARY, LINE, 2))
+        body.append(text(x + 210, 124, head, 18, 700, PRI_TEXT))
+        body.append(text(x + 210, 148, sub, 14))
+        body.append(pill(x + 30, 176, 140, 36, left, BG, 15, 700, T1))
+        body.append(arrow(x + 170, 194, x + 250, 194, width=2))
+        body.append(text(x + 210, 182, mid, 14, 700, T1))
+        body.append(pill(x + 250, 176, 140, 36, right, BG, 15, 700, T1))
+        body.append(text(x + 210, 252, foot, 14, 400, T2))
+    body.append(note(332, '生成が速くなっても、検証が同じ割合で速くなるとは限らない'))
+    return svg(1000, 358, '生成と検証', body, desc='左に生成（要求から成果物をつくる作業。生成AIの登場で高速化した）、右に検証（成果物が要求を満たすかを確かめる作業。満たせば次の工程へ、満たさなければ手戻り）を並べた2パネルの図')
 
 
 # =====================================================================
@@ -629,9 +620,8 @@ def fig_10e_policy_routing():
 
 
 FIGURES = {
-    '01a-generation': fig_01a_generation,
-    '01b-verification': fig_01b_verification,
-    '01c-generation-vs-verification': fig_01_generation_vs_verification,
+    '01a-generation-and-verification': fig_01a_generation_and_verification,
+    '01b-generation-vs-verification': fig_01_generation_vs_verification,
     '02a-static-vs-dynamic': fig_02a_static_vs_dynamic,
     '02b-dynamic-verification-activities': fig_02_dynamic_verification_activities,
     '03-gui-test-timeline': fig_03_gui_test_timeline,
