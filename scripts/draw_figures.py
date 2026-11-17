@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全22点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全23点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -635,6 +635,24 @@ def fig_05a_burden_shift_flow():
     return svg(1000, 438, '自社で担う負担の移り変わり', body, desc='Seleniumの初期、Selenium IDE、クラウド実行環境、ノーコード型SaaSの4段階について、上段に減った負担（作成負担の軽減、実行環境の一部の外部化、作成・実行・証跡・修復の一体提供）、下段に残った負担（画面変更に伴う修正、作成・期待結果・業務データ、期待結果・データ・十分性の判断）を並べた流れ図')
 
 
+# =====================================================================
+# §8.2 保守開発の制約
+# =====================================================================
+def fig_08c_maintenance_constraints():
+    body = [title('保守開発の制約が、内部構造に手を入れる施策を阻む')]
+    body.append(text(60, 100, '保守開発の制約', 14, 700, MUTED, 'start'))
+    items = ['ソースコードや内部設計の変更範囲の制限', '既存のアーキテクチャやフレームワークへの依存', '開発プロセスやテスト基盤の変更に対する制約',
+             '既存システムの技術的負債', 'テスト容易性を考慮した内部構造への変更の難しさ']
+    for i, it in enumerate(items):
+        body.append(pill(60, 116 + i * 48, 440, 36, it, NEUTRAL, 14, 400, T1))
+    body.append(arrow(500, 230, 580, 230))
+    body.append(text(580, 100, '適用しにくい施策', 14, 700, MUTED, 'start'))
+    body.append(rect(580, 116, 360, 228, ATTENTION, ATT_LINE, 2))
+    body.append(lines(760, 158, [('内部構造の改善を伴う施策', 700, ATT_TEXT), ('', 400, T2), ('単体テストの自動化強化', 700, T1), ('依存関係の分離', 400, T2), ('テスト容易性を考慮したコード改善', 400, T2)], 15, lh=26))
+    body.append(note(404, '内部構造を自由に変更できない案件では、こうした施策を適用しにくい。内部に手を入れずに済む検証手段が必要になる'))
+    return svg(1000, 430, '保守開発の制約と適用しにくい施策', body, desc='左に保守開発の5つの制約（変更範囲の制限、既存アーキテクチャへの依存、プロセスやテスト基盤の変更制約、技術的負債、テスト容易性のための内部変更の難しさ）、右に適用しにくい施策（単体テストの自動化強化、依存関係の分離、テスト容易性を考慮したコード改善）を置き、矢印で結んだ図')
+
+
 FIGURES = {
     '01a-generation-and-verification': fig_01a_generation_and_verification,
     '01b-generation-vs-verification': fig_01_generation_vs_verification,
@@ -650,8 +668,9 @@ FIGURES = {
     '07-iceberg-of-operation': fig_07_iceberg_of_operation,
     '08a-2022-saas-shift': fig_08a_2022_saas_shift,
     '08b-maintenance-share': fig_08a_maintenance_share,
-    '08c-stack-agnostic-e2e': fig_08b_stack_agnostic_e2e,
-    '08d-2022-decision-context': fig_08_2022_decision_context,
+    '08c-maintenance-constraints': fig_08c_maintenance_constraints,
+    '08d-stack-agnostic-e2e': fig_08b_stack_agnostic_e2e,
+    '08e-2022-decision-context': fig_08_2022_decision_context,
     '09-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
     '10a-tco-breakdown': fig_10a_tco_breakdown,
     '10b-pattern-saas': fig_10b_pattern_saas,
