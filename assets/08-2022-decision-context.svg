@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-label="先行事例の存在、保守開発が約8割、技術スタックの多様さ、CI/CD成熟度の制約という4つの条件が、SaaS型の画面E2Eテスト自動化という2022年の判断へ収束することを示す図">
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">2022年の判断を形づくった4つの条件</text>
+<rect x="60" y="96" width="400" height="68" rx="12" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="126" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#223e53">8.1 先行事例の存在</text><text x="260" y="150" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">導入判断の不確実性を減らす材料があった</text>
+<path d="M460.0 130.0 L554.0 254.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="560.0,262.0 547.2,256.7 558.3,248.2" fill="#607a91"/>
+<rect x="60" y="180" width="400" height="68" rx="12" fill="#e0f0e9" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="210" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#223e53">8.2 保守開発が約8割</text><text x="260" y="234" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">内部構造の変更を伴う施策は適用しにくい</text>
+<path d="M460.0 214.0 L551.0 257.7" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="560.0,262.0 546.2,263.1 552.2,250.5" fill="#607a91"/>
+<rect x="60" y="264" width="400" height="68" rx="12" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="294" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#223e53">8.3 技術スタックの多様さ</text><text x="260" y="318" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">画面E2Eは内部実装に依存しにくく横断できる</text>
+<path d="M460.0 298.0 L550.6 265.4" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="560.0,262.0 551.1,272.7 546.3,259.5" fill="#607a91"/>
+<rect x="60" y="348" width="400" height="68" rx="12" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/><text x="260" y="378" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#223e53">8.4 CI/CD成熟度の制約</text><text x="260" y="402" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">実行基盤の構築・保守を自前で持ちにくい</text>
+<path d="M460.0 382.0 L553.6 269.7" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="560.0,262.0 557.7,275.7 546.9,266.7" fill="#607a91"/>
+<rect x="560" y="180" width="380" height="164" rx="12" fill="#f7e9d4" stroke="#c0604a" stroke-width="3"/>
+<text x="750" y="218" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#c0604a">2022年の判断</text><text x="750" y="246" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#223e53">SaaS型の画面E2Eテスト自動化</text>
+<text x="750" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">狙い：限られた専門人材で、</text><text x="750" y="301" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">多様な既存案件へ横展開できる</text><text x="750" y="320" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">検証効率化策を選ぶ</text>
+<text x="500" y="468" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5d6c75">ホワイトボックステストの価値を否定した判断ではない。個別案件での最大効果より、横展開できることを重視した</text>
+</svg>

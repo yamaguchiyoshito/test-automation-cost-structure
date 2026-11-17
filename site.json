@@ -1,0 +1,9 @@
+{
+  "title": "生成と検証から考えるテスト自動化の歴史とコスト構造",
+  "eyebrow": "GENERATION / VERIFICATION",
+  "tagline": "生成のコストが下がった今、検証のボトルネックは「自動化を維持する能力」と「正しさを判断する根拠」へ移っている。",
+  "language": "ja",
+  "version": "1.0.0",
+  "date": "2026年11月17日",
+  "article": "ARTICLE.md"
+}

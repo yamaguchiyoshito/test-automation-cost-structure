@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-label="生成AI以前と以後の工程の帯を比べ、生成が短くなった後も検証の帯が残り、全体のリードタイムを左右することを示す図">
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">生成が速くなるほど、検証がリードタイムを決める</text>
+<text x="200" y="148" text-anchor="end" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">生成AI以前</text><text x="200" y="170" text-anchor="end" font-family="sans-serif" font-size="16" fill="#5d6c75">生成に時間の比重</text>
+<rect x="230" y="120" width="400" height="64" rx="8" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
+<text x="430" y="158" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">生成</text>
+<rect x="630" y="120" width="240" height="64" rx="8" fill="#f7e9d4" stroke="#8ea6b2" stroke-width="1"/>
+<text x="750" y="158" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">検証</text>
+<rect x="870" y="120" width="110" height="64" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="925" y="158" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">手戻り・環境維持</text>
+<path d="M230.0 210.0 L970.0 210.0" stroke="#8ea6b2" stroke-width="2" fill="none"/><polygon points="980.0,210.0 968.0,217.0 968.0,203.0" fill="#8ea6b2"/>
+<text x="605" y="230" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5d6c75">リードタイム</text>
+<text x="200" y="278" text-anchor="end" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">生成AI以後</text><text x="200" y="300" text-anchor="end" font-family="sans-serif" font-size="16" fill="#5d6c75">検証が全体を左右</text>
+<rect x="230" y="250" width="120" height="64" rx="8" fill="#e1edf8" stroke="#8ea6b2" stroke-width="1"/>
+<text x="290" y="288" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">生成</text>
+<rect x="350" y="250" width="240" height="64" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="3"/>
+<text x="470" y="288" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#c0604a">検証</text>
+<rect x="590" y="250" width="110" height="64" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="645" y="288" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">手戻り・環境維持</text>
+<path d="M230.0 340.0 L690.0 340.0" stroke="#8ea6b2" stroke-width="2" fill="none"/><polygon points="700.0,340.0 688.0,347.0 688.0,333.0" fill="#8ea6b2"/>
+<text x="465" y="360" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5d6c75">リードタイム</text>
+<path d="M700 325 H780 V290" stroke="#c0604a" stroke-width="3" fill="none" stroke-dasharray="8 6"/><polygon points="780.0,290.0 787.0,302.0 773.0,302.0" fill="#c0604a"/>
+<text x="790" y="318" text-anchor="start" font-family="sans-serif" font-size="15" font-weight="700" fill="#c0604a">検証が</text><text x="790" y="338" text-anchor="start" font-family="sans-serif" font-size="15" font-weight="700" fill="#c0604a">クリティカルパスに</text>
+<text x="500" y="410" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#18324b">生成の高速化 ≠ 開発全体の生産性向上</text>
+<text x="500" y="445" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5d6c75">生成・検証・手戻り・環境維持まで含めて評価する。検証の短縮が、生成の高速化で得た余力を全体へ波及させる</text>
+<text x="500" y="475" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5d6c75">帯の長さは概念的な比率であり、実測値ではない</text>
+</svg>
