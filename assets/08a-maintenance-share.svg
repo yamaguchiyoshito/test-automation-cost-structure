@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="272" viewBox="0 0 1000 272" role="img" aria-label="横1本の帯を保守開発約8割と新規開発に分け、保守開発では内部構造の変更が難しいことを示す図">
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">案件の約8割は保守開発</text>
+<rect x="60" y="110" width="704" height="60" rx="8" fill="#f7e9d4" stroke="#c0604a" stroke-width="2"/>
+<rect x="764" y="110" width="176" height="60" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="412" y="147" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#9c3f2a">保守開発　約8割</text>
+<text x="852" y="147" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#223e53">新規開発</text>
+<text x="412" y="206" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">ソースコードや内部設計の変更範囲が限られ、テスト容易性のための内部構造の変更が難しい</text>
+<text x="500" y="246" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">比率は本文の「約8割」に基づく概数。ホワイトボックステストの改善施策を全社横断で適用しにくい前提になる</text>
+</svg>

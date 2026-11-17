@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全11点）を決定論的に生成する。
+"""記事「生成と検証から考えるテスト自動化の歴史とコスト構造」の図版（全17点）を決定論的に生成する。
 
 体裁：幅1000px、最小フォント14px、注記16px、Python標準ライブラリのみ。
 配色は役割で固定する（claudedocs/svg-style-rules-plan.md）。
@@ -434,19 +434,139 @@ def fig_11_bottleneck_shift():
     return svg(1000, 550, '左の従来のボトルネックである単純な実行作業から、右の二層の課題、第一層の自動化を維持する能力と、第二層の正しさを判断する根拠へ移ったことを示す図。第二層には要件・設計・リスク、テスト観点、期待結果、証跡をつなぐ追跡の鎖と、SUTの現状だけを根拠にすると不具合を固定するという注意を含む', body)
 
 
+# =====================================================================
+# 冒頭 読み方の地図
+# =====================================================================
+def fig_00_reading_map():
+    body = [title('この記事の読み方')]
+    steps = [('問題', '§1–2', '生成と検証の分解'), ('歴史', '§3', '画面テスト自動化'), ('構造', '§4–7', 'TASとSUT、コスト'),
+             ('判断', '§8–10', 'SaaSかOSSか'), ('残る課題', '§11', '運用能力と判断根拠')]
+    bw, bh, gap, y = 160, 86, 30, 90
+    for i, (head, sec, sub) in enumerate(steps):
+        x = 40 + i * (bw + gap)
+        body.append(rect(x, y, bw, bh, NEUTRAL))
+        body.append(lines(x + bw / 2, y + 26, [(head, 700, T1), (sec, 400, MUTED), (sub, 400, T2)], 14, lh=20))
+        if i < 4:
+            body.append(arrow(x + bw, y + bh / 2, x + bw + gap, y + bh / 2, width=2))
+    return svg(1000, 210, '記事の読み方の地図。問題（第1〜2章）、歴史（第3章）、構造（第4〜7章）、判断（第8〜10章）、残る課題（第11章）の5つを矢印でつないだ図', body)
+
+
+# =====================================================================
+# §2 静的検証と動的検証
+# =====================================================================
+def fig_02a_static_vs_dynamic():
+    body = [title('検証は、動かさない検証と動かす検証に分かれる')]
+    y, h = 90, 160
+    for x, fill, head, sub, items, head_fill in [
+        (60, NEUTRAL, '静的検証', '実行を伴わない調査', ['要件・設計のレビュー', '型チェック', '静的解析', 'コードレビュー'], T1),
+        (530, PRIMARY, '動的検証', '実行による振る舞いの確認', ['単体テスト', 'APIテスト', '画面テスト', '性能テスト'], PRI_TEXT),
+    ]:
+        body.append(rect(x, y, 410, h, fill))
+        body.append(text(x + 205, y + 30, head, 18, 700, head_fill))
+        body.append(text(x + 205, y + 54, sub, 14))
+        for i, it in enumerate(items):
+            px = x + 18 + (i % 2) * 194
+            py = y + 76 + (i // 2) * 42
+            body.append(pill(px, py, 180, 32, it, BG, 14, 400, T1))
+    body.append(text(735, 282, '必要になるもの：実行環境・テストデータ・操作手順・期待結果・証跡', 14, 700, T1))
+    body.append(note(322, '静的検証は生成直後のワークフローに組み込みやすい。以降は動的検証、とくに画面テストの自動化を扱う'))
+    return svg(1000, 346, '左に実行を伴わない静的検証（要件・設計のレビュー、型チェック、静的解析、コードレビュー）、右に実行による動的検証（単体テスト、APIテスト、画面テスト、性能テスト）を並べ、動的検証には実行環境、テストデータ、操作手順、期待結果、証跡が必要になることを示す図', body)
+
+
+# =====================================================================
+# §6 責任の境界
+# =====================================================================
+def fig_06_responsibility_boundary():
+    body = [title('責任の一部はサービス提供者へ移る。すべてではない')]
+    by = 240
+    body.append(f'<path d="M60 {by} H940" stroke="{LINE}" stroke-width="2" stroke-dasharray="10 8"/>')
+    body.append(text(940, by - 10, '責任の境界', 14, 700, MUTED, 'end'))
+    body.append(text(60, 118, 'サービス提供者へ移せるもの', 16, 700, POS_TEXT, 'start'))
+    x = 60
+    for label in ['クラウド上での実行', 'スケジュール実行', '結果ログ', '通知', 'テストの自動修復']:
+        w = est_w(label, 14) + 28
+        body.append(pill(x, 150, w, 34, label, POSITIVE, 14, 400, T1))
+        x += w + 14
+    body.append(text(60, 290, '利用者に残るもの', 16, 700, ATT_TEXT, 'start'))
+    x = 60
+    for label in ['テスト対象の仕様の理解', '期待結果の定義', 'テストデータ・アカウントの準備', 'テストの十分性判断']:
+        w = est_w(label, 14) + 28
+        body.append(pill(x, 322, w, 34, label, ATTENTION, 14, 400, T1))
+        x += w + 14
+    body.append(note(410, 'ノーコード型SaaSは上側の範囲が広い。サービス利用料とベンダーへの依存は別途評価する'))
+    return svg(1000, 436, '破線の境界の上に、サービス提供者へ移せるもの（クラウド上での実行、スケジュール実行、結果ログ、通知、テストの自動修復）、下に利用者に残るもの（テスト対象の仕様の理解、期待結果の定義、テストデータ・アカウントの準備、テストの十分性判断）を並べた図', body)
+
+
+# =====================================================================
+# §8.2 保守開発の比率
+# =====================================================================
+def fig_08a_maintenance_share():
+    body = [title('案件の約8割は保守開発')]
+    x0, y, w, h = 60, 110, 880, 60
+    wm = w * 0.8
+    body.append(rect(x0, y, wm, h, ATTENTION, ATT_LINE, 2, rx=8))
+    body.append(rect(x0 + wm, y, w - wm, h, NEUTRAL, STROKE, 1, rx=8))
+    body.append(text(x0 + wm / 2, y + 37, '保守開発　約8割', 18, 700, ATT_TEXT))
+    body.append(text(x0 + wm + (w - wm) / 2, y + 37, '新規開発', 16, 700, T1))
+    body.append(text(x0 + wm / 2, 206, 'ソースコードや内部設計の変更範囲が限られ、テスト容易性のための内部構造の変更が難しい', 14, 400, T2))
+    body.append(note(246, '比率は本文の「約8割」に基づく概数。ホワイトボックステストの改善施策を全社横断で適用しにくい前提になる'))
+    return svg(1000, 272, '横1本の帯を保守開発約8割と新規開発に分け、保守開発では内部構造の変更が難しいことを示す図', body)
+
+
+# =====================================================================
+# §8.3 技術スタックに依存しにくい画面E2E
+# =====================================================================
+def fig_08b_stack_agnostic_e2e():
+    body = [title('画面E2Eテストは、SUTの実装技術に依存しにくい')]
+    body.append(box(300, 90, 400, 70, PRIMARY, '画面E2Eテスト', '利用者から見える画面操作とその結果を検証', 17, 14, head_fill=PRI_TEXT))
+    suts = [('JSP', 'サーバーサイド描画'), ('SPA', 'クライアント側描画'), ('JS多用のWebアプリ', '動的な画面更新'), ('レガシーWebアプリ', '既存の技術構成')]
+    for i, (head, sub) in enumerate(suts):
+        x = 70 + i * 220
+        body.append(box(x, 250, 190, 76, NEUTRAL, head, sub, 16, 14))
+        body.append(arrow(500, 160, x + 95, 250, width=2))
+    body.append(text(500, 232, '同じ検証のしかた', 14, 700, T1))
+    body.append(note(372, '画面の実装技術が異なれば、要素特定や非同期処理への対応などの個別調整は必要になる'))
+    return svg(1000, 398, '上の画面E2Eテストから、JSP、SPA、JavaScriptを多用するWebアプリ、レガシーWebアプリという4つのSUTへ同じ矢印が伸び、実装技術に依存しにくいことを示す図', body)
+
+
+# =====================================================================
+# §10.1 TASの総コストの内訳
+# =====================================================================
+def fig_10a_tco_breakdown():
+    body = [title('TASの総コストは、テストコードの作成費だけではない')]
+    parts = ['テスト設計・実装費', '実行基盤の構築費', 'テスト修復・基盤保守費', '定期実行・障害対応費', 'ツール・クラウド利用料']
+    x0, y, w, h = 60, 130, 176, 60
+    for i, label in enumerate(parts):
+        x = x0 + i * w
+        first = i == 0
+        body.append(rect(x, y, w, h, AI if first else NEUTRAL, STROKE, 1, rx=8 if first or i == 4 else 0))
+        body.append(text(x + w / 2, y + 36, label, 14, 700, AI_TEXT if first else T1))
+    body.append(text(x0 + w / 2, 110, 'AIエージェントが主に下げる部分', 14, 700, AI_TEXT))
+    body.append(bracket(x0 + w, x0 + 5 * w, y + h + 24, '継続運用で発生し続ける部分', T1, 15, up=False))
+    body.append(note(292, '区分は等幅で描いており、金額の比率ではない。ROIは便益を過大計上せず、この総コストと比較して評価する'))
+    return svg(1000, 318, '横1本の帯を、テスト設計・実装費、実行基盤の構築費、テスト修復・基盤保守費、定期実行・障害対応費、ツール・クラウド利用料の5区分に分け、AIエージェントが主に下げるのは左端の1区分だけであることを示す図', body)
+
+
 FIGURES = {
+    '00-reading-map': fig_00_reading_map,
     '01-generation-vs-verification': fig_01_generation_vs_verification,
-    '02-dynamic-verification-activities': fig_02_dynamic_verification_activities,
+    '02a-static-vs-dynamic': fig_02a_static_vs_dynamic,
+    '02b-dynamic-verification-activities': fig_02_dynamic_verification_activities,
     '03-gui-test-timeline': fig_03_gui_test_timeline,
     '04a-tas-sut-systems': fig_04a_tas_sut_systems,
     '04b-exchange-balance': fig_04b_exchange_balance,
     '05-cost-shift-by-era': fig_05_cost_shift_by_era,
+    '06-responsibility-boundary': fig_06_responsibility_boundary,
     '07-iceberg-of-operation': fig_07_iceberg_of_operation,
-    '08-2022-decision-context': fig_08_2022_decision_context,
+    '08a-maintenance-share': fig_08a_maintenance_share,
+    '08b-stack-agnostic-e2e': fig_08b_stack_agnostic_e2e,
+    '08c-2022-decision-context': fig_08_2022_decision_context,
     '09-run-once-vs-keep-running': fig_09_run_once_vs_keep_running,
-    '10-maturity-choice-map': fig_10_maturity_choice_map,
+    '10a-tco-breakdown': fig_10a_tco_breakdown,
+    '10b-maturity-choice-map': fig_10_maturity_choice_map,
     '11-bottleneck-shift': fig_11_bottleneck_shift,
 }
+
 
 
 def main():

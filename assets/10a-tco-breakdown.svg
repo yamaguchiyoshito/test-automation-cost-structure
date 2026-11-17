@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="318" viewBox="0 0 1000 318" role="img" aria-label="横1本の帯を、テスト設計・実装費、実行基盤の構築費、テスト修復・基盤保守費、定期実行・障害対応費、ツール・クラウド利用料の5区分に分け、AIエージェントが主に下げるのは左端の1区分だけであることを示す図">
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">TASの総コストは、テストコードの作成費だけではない</text>
+<rect x="60" y="130" width="176" height="60" rx="8" fill="#e9e4f5" stroke="#8ea6b2" stroke-width="1"/>
+<text x="148" y="166" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">テスト設計・実装費</text>
+<rect x="236" y="130" width="176" height="60" rx="0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="324" y="166" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">実行基盤の構築費</text>
+<rect x="412" y="130" width="176" height="60" rx="0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="500" y="166" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">テスト修復・基盤保守費</text>
+<rect x="588" y="130" width="176" height="60" rx="0" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="676" y="166" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">定期実行・障害対応費</text>
+<rect x="764" y="130" width="176" height="60" rx="8" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="852" y="166" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">ツール・クラウド利用料</text>
+<text x="148" y="110" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#6a4ea6">AIエージェントが主に下げる部分</text>
+<path d="M236 226 V214 H940 V226" stroke="#223e53" stroke-width="2" fill="none"/><text x="588" y="247" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#223e53">継続運用で発生し続ける部分</text>
+<text x="500" y="292" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#55646d">区分は等幅で描いており、金額の比率ではない。ROIは便益を過大計上せず、この総コストと比較して評価する</text>
+</svg>

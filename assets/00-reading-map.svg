@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="210" viewBox="0 0 1000 210" role="img" aria-label="記事の読み方の地図。問題（第1〜2章）、歴史（第3章）、構造（第4〜7章）、判断（第8〜10章）、残る課題（第11章）の5つを矢印でつないだ図">
+<rect width="100%" height="100%" fill="#fcfdfd"/>
+<text x="50" y="50" text-anchor="start" font-family="sans-serif" font-size="24" font-weight="700" fill="#18324b">この記事の読み方</text>
+<rect x="40" y="90" width="160" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="120" y="116" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">問題</text><text x="120" y="136" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">§1–2</text><text x="120" y="156" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">生成と検証の分解</text>
+<path d="M200.0 133.0 L220.0 133.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="230.0,133.0 218.0,140.0 218.0,126.0" fill="#607a91"/>
+<rect x="230" y="90" width="160" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="310" y="116" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">歴史</text><text x="310" y="136" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">§3</text><text x="310" y="156" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">画面テスト自動化</text>
+<path d="M390.0 133.0 L410.0 133.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="420.0,133.0 408.0,140.0 408.0,126.0" fill="#607a91"/>
+<rect x="420" y="90" width="160" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="500" y="116" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">構造</text><text x="500" y="136" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">§4–7</text><text x="500" y="156" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">TASとSUT、コスト</text>
+<path d="M580.0 133.0 L600.0 133.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="610.0,133.0 598.0,140.0 598.0,126.0" fill="#607a91"/>
+<rect x="610" y="90" width="160" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="690" y="116" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">判断</text><text x="690" y="136" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">§8–10</text><text x="690" y="156" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">SaaSかOSSか</text>
+<path d="M770.0 133.0 L790.0 133.0" stroke="#607a91" stroke-width="2" fill="none"/><polygon points="800.0,133.0 788.0,140.0 788.0,126.0" fill="#607a91"/>
+<rect x="800" y="90" width="160" height="86" rx="12" fill="#eef3f1" stroke="#8ea6b2" stroke-width="1"/>
+<text x="880" y="116" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#223e53">残る課題</text><text x="880" y="136" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#55646d">§11</text><text x="880" y="156" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#36556d">運用能力と判断根拠</text>
+</svg>
