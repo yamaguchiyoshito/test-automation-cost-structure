@@ -319,7 +319,7 @@ AIエージェントが削減するのは、主にテスト設計・コード生
 
 AIエージェントによってPlaywrightのテスト実装は容易になりましたが、組織のCI/CD成熟度が変わらない限り、SaaSが持つ運用面の優位性は残ります。
 
-しかも、AIエージェントの恩恵はSaaSの側にも及びます。MagicPodとClaude Codeを組み合わせることで、テストのメンテナンスや自動テストの拡充にかかるコストは、以前よりはるかに下がりました。2026年にはMagicPod MCPにより、MagicPodの画面を見ながらシナリオを作る時間はほぼなくなり、Claude Codeへの依頼で多くの作業が完結します。
+しかも、AIエージェントの恩恵はSaaSの側にも及びます。MagicPodとClaude Codeを組み合わせることで、テストのメンテナンスや自動テストの拡充にかかるコストは、以前よりはるかに下がりました。2026年にはMagicPod MCPにより、MagicPodの画面を見ながらシナリオを作る時間はほぼなくなり、Claude Codeへの依頼で多くの作業が完結します。[8]
 
 つまり、作成部分のコスト低下はPlaywrightだけの利点ではありません。SaaSの運用面の優位性を保ったまま、AIエージェントによる作成・保守の効率化も得られるようになっています。
 
@@ -425,3 +425,6 @@ ROIを評価する場合は、これらの便益を過大計上せず、TASの�
 
 7. Kent C. Dodds, *The Testing Trophy and Testing Classifications* (2021)  
    https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications
+
+8. MagicPod, *MagicPod MCPサーバー*  
+   https://support.magic-pod.com/hc/ja/articles/46186888063769
